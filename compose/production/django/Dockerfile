@@ -1,5 +1,3 @@
-ARG PYTHON_VERSION=3.10-slim-bullseye
-
 FROM node:16-bullseye-slim as client-builder
 
 ARG APP_HOME=/app
@@ -11,7 +9,7 @@ COPY . ${APP_HOME}
 RUN npm run build
 
 # define an alias for the specfic python version used in this file.
-FROM python:${PYTHON_VERSION} as python
+FROM python:3.10.10-slim-bullseye as python
 
 # Python build stage
 FROM python as python-build-stage

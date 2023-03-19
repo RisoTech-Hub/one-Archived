@@ -4,6 +4,7 @@ Base settings to build other settings files upon.
 from pathlib import Path
 
 import environ
+from django.utils.translation import gettext_lazy as _
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
 # one/
@@ -27,6 +28,12 @@ DEBUG = env.bool("DJANGO_DEBUG", False)
 TIME_ZONE = "Asia/Ho_Chi_Minh"
 # https://docs.djangoproject.com/en/dev/ref/settings/#language-code
 LANGUAGE_CODE = "en-us"
+LANGUAGE_VI = "vi"
+LANGUAGE_EN = "en"
+LANGUAGES = [
+    (LANGUAGE_EN, _("English")),
+    (LANGUAGE_VI, _("Vietnamese")),
+]
 # https://docs.djangoproject.com/en/dev/ref/settings/#site-id
 SITE_ID = 1
 # https://docs.djangoproject.com/en/dev/ref/settings/#use-i18n
@@ -188,6 +195,11 @@ TEMPLATES = [
                 "one.libraries.django.ThemeDirectoriesLoader",
                 "django.template.loaders.filesystem.Loader",
                 "django.template.loaders.app_directories.Loader",
+            ],
+            "builtins": [
+                "django.templatetags.static",
+                "django.templatetags.i18n",
+                "one.libraries.django.templatetags.flags",
             ],
         },
     }

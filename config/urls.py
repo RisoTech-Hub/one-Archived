@@ -13,6 +13,8 @@ urlpatterns = [
     path(
         "about/", TemplateView.as_view(template_name="pages/about.html"), name="about"
     ),
+    # Django Languages, use {% url 'set_language' %}
+    path("i18n/", include("django.conf.urls.i18n")),
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
