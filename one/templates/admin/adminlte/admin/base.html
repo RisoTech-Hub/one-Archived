@@ -17,6 +17,12 @@
   {% block head-js %}
     <!-- jQuery -->
     <script src="{% static 'adminlte/plugins/jquery/jquery.min.js' %}"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="{% static 'adminlte/plugins/jquery-ui/jquery-ui.min.js' %}"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+      $.widget.bridge('uibutton', $.ui.button)
+    </script>
     <!-- Page JS -->
     {% block head-js-extend %}{% endblock head-js-extend %}
     <!-- Page JS Inline -->
@@ -52,8 +58,9 @@
 </head>
 
 
-<body class="{% block bodyclass %}dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed{% endblock bodyclass %}"
-      data-admin-utc-offset="{% now "Z" %}">
+<body
+  class="{% block bodyclass %}dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed{% endblock bodyclass %}"
+  data-admin-utc-offset="{% now "Z" %}">
 <div class="wrapper">
   {% block body %}
     {% if not is_popup %}
@@ -134,6 +141,11 @@
 
 
     {% block drawer %}
+      <!-- Control Sidebar -->
+      <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+      </aside>
+      <!-- /.control-sidebar -->
     {% endblock drawer %}
 
     {% block footer %}
