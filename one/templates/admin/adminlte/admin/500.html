@@ -2,10 +2,7 @@
 {% load i18n %}
 
 {% block breadcrumbs %}
-<div class="breadcrumbs">
-<a href="{% url 'admin:index' %}">{% translate 'Home' %}</a>
-&rsaquo; {% translate 'Server error' %}
-</div>
+  <li class="breadcrumb-item active">{% translate 'Server error' %}</li>
 {% endblock %}
 
 {% block title %}{% translate 'Server error (500)' %}{% endblock %}
