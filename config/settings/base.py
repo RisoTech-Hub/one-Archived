@@ -68,7 +68,7 @@ DJANGO_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.humanize",  # Handy template tags
-    "django.contrib.admin",
+    "one.libraries.admin.apps.AdminConfig",  # replaces 'django.contrib.admin'
     "django.forms",
 ]
 THIRD_PARTY_APPS = [
@@ -370,17 +370,23 @@ CONSTANCE_ADDITIONAL_FIELDS = {
 }
 
 CONSTANCE_CONFIG = {
-    "UI_THEME_SELECT": ("default", "UI Theme Select", "ui_theme_select"),
-    "ADMIN_THEME_SELECT": ("adminlte", "Admin Theme Select", "admin_theme_select"),
-    "ADMIN_LOGO": ("adminlte/", "Admin Logo", "image_field"),
+    "UI_THEME_SELECT": ("default", _("UI Theme Select"), "ui_theme_select"),
+    "ADMIN_THEME_SELECT": ("adminlte", _("Admin Theme Select"), "admin_theme_select"),
+    "ADMIN_LOGO": ("adminlte/", _("Admin Logo"), "image_field"),
+    "ADMIN_SITE_HEADER": ("One", _("Admin Header")),
+    "ADMIN_SITE_TITLE": ("One", _("Admin Title")),
+    "ADMIN_INDEX_TITLE": ("One", _("Admin Index Title")),
 }
 
 CONSTANCE_CONFIG_FIELDSETS = {
-    "Images": ("ADMIN_LOGO",),
-    "Theme Options": (
-        "UI_THEME_SELECT",
+    "Admin Options": (
         "ADMIN_THEME_SELECT",
+        "ADMIN_LOGO",
+        "ADMIN_SITE_HEADER",
+        "ADMIN_SITE_TITLE",
+        "ADMIN_INDEX_TITLE",
     ),
+    "Theme Options": ("UI_THEME_SELECT",),
 }
 
 # Your stuff...
