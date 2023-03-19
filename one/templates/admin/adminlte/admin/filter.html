@@ -1,8 +1,16 @@
-{% load i18n %}
-<h3>{% blocktranslate with filter_title=title %} By {{ filter_title }} {% endblocktranslate %}</h3>
-<ul>
-{% for choice in choices %}
-    <li{% if choice.selected %} class="selected"{% endif %}>
-    <a href="{{ choice.query_string|iriencode }}" title="{{ choice.display }}">{{ choice.display }}</a></li>
-{% endfor %}
-</ul>
+<div class="form-group">
+  <label for="id_{{ title|slugify }}">{% blocktranslate with filter_title=title %} By
+    <code>{{ filter_title }}</code> {% endblocktranslate %}</label>
+  <select class="custom-select form-control-border" id="id_{{ title|slugify }}">
+    {% for choice in choices %}
+      <option value="{{ choice.query_string|iriencode }}"
+              {% if choice.selected %}selected{% endif %}>{{ choice.display }}</option>
+    {% endfor %}
+  </select>
+</div>
+
+<script>
+  $("#id_{{ title|slugify }}").on("change", function (e){
+    window.location.href = this.value;
+  })
+</script>
