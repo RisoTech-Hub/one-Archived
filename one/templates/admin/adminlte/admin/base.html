@@ -39,7 +39,10 @@
       <!-- j18n: translate lib -->
     {% endblock extrahead %}
     {% block responsive %}<!-- Django CSS for responsive  -->{% endblock responsive %}
-    {% block head-css-page-custom %}<!-- Page Css Inline  -->{% endblock head-css-page-custom %}
+    {% block head-css-page-custom %}
+      <!-- Page Css Inline  -->
+      <link rel="stylesheet" href="{% static 'adminlte/css/custom.css' %}">
+    {% endblock head-css-page-custom %}
   {% endblock head-css %}
 
   {% block head-js %}

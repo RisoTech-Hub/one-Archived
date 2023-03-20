@@ -17,17 +17,21 @@
                 <i class="fas fa-circle nav-icon"></i>
                 <p>{{ model.name }}</p>
               </a>
-              {% if model.add_url %}
-                <a href="{{ model.add_url }}" class="addlink"><i class="fas fa-plus"></i></a>
-              {% endif %}
-              {% if model.admin_url and show_changelinks %}
-                {% if model.view_only %}
-                  <a href="{{ model.admin_url }}" class="viewlink"><i class="fas fa-eye"></i></a>
-                {% else %}
-                  <a href="{{ model.admin_url }}" class="changelink"><i class="fas fa-pen"></i></a>
+              <div class="action-hover">
+                {% if model.add_url %}
+                  <a href="{{ model.add_url }}" class="text-primary addlink"><i class="fas fa-plus"></i></a>
                 {% endif %}
-              {% elif show_changelinks %}
-              {% endif %}
+                {% if model.admin_url and show_changelinks %}
+
+                  {% if model.view_only %}
+                    <a href="{{ model.admin_url }}" class="text-secondary viewlink"><i class="fas fa-eye"></i></a>
+                  {% else %}
+                    <a href="{{ model.admin_url }}" class="text-warning changelink"><i class="fas fa-pen"></i></a>
+                  {% endif %}
+
+                {% elif show_changelinks %}
+                {% endif %}
+              </div>
             </li>
           {% endfor %}
         </ul>
