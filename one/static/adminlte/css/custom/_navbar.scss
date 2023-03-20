@@ -11,7 +11,11 @@
   border-radius: 5px;
   padding: 4px;
 
-   transition: visibility 0s, opacity 0.5s linear;
+  -webkit-transition: visibility 0s, opacity 0.5s linear;
+  -moz-transition: visibility 0s, opacity 0.5s linear;
+  -ms-transition: visibility 0s, opacity 0.5s linear;
+  -o-transition: visibility 0s, opacity 0.5s linear;
+  transition: visibility 0s, opacity 0.5s linear;
 }
 
 .nav-treeview {
