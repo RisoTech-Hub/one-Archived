@@ -1,0 +1,29 @@
+
+.action-hover {
+  //display: none !important;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 5px;
+  z-index: 999;
+
+  background: #fefefe;
+  border-radius: 5px;
+  padding: 4px;
+
+   transition: visibility 0s, opacity 0.5s linear;
+}
+
+.nav-treeview {
+  .nav-item {
+    position: relative;
+
+    &:hover {
+      .action-hover {
+        opacity: 1 !important;
+        visibility: visible;
+        //display: block !important;
+      }
+    }
+  }
+}

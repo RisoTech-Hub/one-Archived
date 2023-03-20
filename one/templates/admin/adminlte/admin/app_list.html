@@ -14,7 +14,7 @@
             <li class="nav-item form-group">
               <a href="{% if model.admin_url %}{{ model.admin_url }}{% endif %}"
                  class="nav-link {% if model.admin_url in request.path|urlencode %} active{% endif %}">
-                <i class="fas fa-circle nav-icon"></i>
+                <i class="far fa-circle nav-icon"></i>
                 <p>{{ model.name }}</p>
               </a>
               <div class="action-hover">
