@@ -52,7 +52,11 @@
           {% endif %}
           <tr>
             {% for item in result %}
-              {{ item }}
+              {% if forloop.first %}
+                {{ item }}
+              {% else %}
+                {{ item }}
+              {% endif %}
             {% endfor %}
           </tr>
         {% endfor %}
