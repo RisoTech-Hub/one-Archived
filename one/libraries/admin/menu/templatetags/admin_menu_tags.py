@@ -55,7 +55,7 @@ def admin_tools_render_menu_item(context, item, index=None):
             "item": item,
             "index": index,
             "selected": item.is_selected(context["request"]),
-            "admin_url": reverse("%s:index" % get_admin_site_name(context)),
+            "admin_url": reverse(f"{get_admin_site_name(context)}:index"),
         }
     )
     return context
