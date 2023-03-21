@@ -14,7 +14,7 @@ def _get_menu_cls(menu_cls, context):
             admin_site_mod, admin_site_inst = key.rsplit(".", 1)
             admin_site_mod = import_module(admin_site_mod)
             admin_site = getattr(admin_site_mod, admin_site_inst)
-            admin_url = reverse("%s:index" % admin_site.name)
+            admin_url = reverse(f"{admin_site.name}:index")
             if curr_url.startswith(admin_url):
                 mod, inst = menu_cls[key].rsplit(".", 1)
                 mod = import_module(mod)
