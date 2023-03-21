@@ -1,0 +1,85 @@
+"""
+Menu template tags, the following menu tags are available:
+
+ * ``{% admin_tools_render_menu %}``
+ * ``{% admin_tools_render_menu_item %}``
+ * ``{% admin_tools_render_menu_css %}``
+
+To load the menu tags in your templates: ``{% load admin_menu_tags %}``.
+"""
+
+from django import template
+from django.urls import reverse
+
+from one.libraries.admin.menu.utils import get_admin_menu
+from one.libraries.admin.utils import get_admin_site_name
+
+register = template.Library()
+tag_func = register.inclusion_tag("menu/dummy.html", takes_context=True)
+
+
+def admin_tools_render_menu(context, menu=None):
+    """
+    Template tag that renders the menu, it takes an optional ``Menu`` instance
+    as unique argument, if not given, the menu will be retrieved with the
+    ``get_admin_menu`` function.
+    """
+    if menu is None:
+        menu = get_admin_menu(context)
+
+    menu.init_with_context(context)
+
+    context.update(
+        {
+            "template": menu.template,
+            "menu": menu,
+            "admin_url": reverse("%s:index" % get_admin_site_name(context)),
+        }
+    )
+    return context
+
+
+admin_tools_render_menu = tag_func(admin_tools_render_menu)
+
+
+def admin_tools_render_menu_item(context, item, index=None):
+    """
+    Template tag that renders a given menu item, it takes a ``MenuItem``
+    instance as unique parameter.
+    """
+    item.init_with_context(context)
+
+    context.update(
+        {
+            "template": item.template,
+            "item": item,
+            "index": index,
+            "selected": item.is_selected(context["request"]),
+            "admin_url": reverse("%s:index" % get_admin_site_name(context)),
+        }
+    )
+    return context
+
+
+admin_tools_render_menu_item = tag_func(admin_tools_render_menu_item)
+
+
+def admin_tools_render_menu_css(context, menu=None):
+    """
+    Template tag that renders the menu css files,, it takes an optional
+    ``Menu`` instance as unique argument, if not given, the menu will be
+    retrieved with the ``get_admin_menu`` function.
+    """
+    if menu is None:
+        menu = get_admin_menu(context)
+
+    context.update(
+        {
+            "template": "menu/css.html",
+            "css_files": menu.Media.css,
+        }
+    )
+    return context
+
+
+admin_tools_render_menu_css = tag_func(admin_tools_render_menu_css)

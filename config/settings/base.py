@@ -86,6 +86,7 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
+    "one.libraries.admin.menu",
     "one.users",
     # Your stuff: custom apps go here
 ]
@@ -199,6 +200,7 @@ TEMPLATES = [
                 "django.templatetags.static",
                 "django.templatetags.i18n",
                 "one.libraries.django.templatetags.flags",
+                "one.libraries.admin.menu.templatetags.admin_menu_tags",
             ],
         },
     }
