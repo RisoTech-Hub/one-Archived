@@ -11,7 +11,7 @@
   <!-- Sidebar -->
   <div class="sidebar" id="nav-sidebar">
     <!-- SidebarSearch Form -->
-    <div class="form-inline mt-3 pb-3 mb-3 d-flex">
+    <div class="form-inline mt-3 pb-3 d-flex">
       <div class="input-group" data-widget="sidebar-search">
         <input class="form-control form-control-sidebar"
                id="nav-filter"
@@ -26,11 +26,10 @@
       </div>
     </div>
 
-    <!-- Sidebar Menu -->
-    <nav class="mt-2">
-      {% include 'admin/app_list.html' with app_list=available_apps show_changelinks=True %}
+    <nav>
+      {% admin_tools_render_menu %}
     </nav>
-    <!-- /.sidebar-menu -->
   </div>
   <!-- /.sidebar -->
+
 </aside>

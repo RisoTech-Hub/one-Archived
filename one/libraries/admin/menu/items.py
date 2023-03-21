@@ -48,7 +48,7 @@ class MenuItem:
     accesskey = None
     description = None
     enabled = True
-    template = "menu/item.html"
+    template = "admin/menu/item.html"
     children = None
 
     def __init__(self, title=None, url=None, **kwargs):

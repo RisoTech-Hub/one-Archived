@@ -1,0 +1,11 @@
+{% load admin_menu_tags %}
+{% if menu.children %}
+  <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+    {% for item in menu.children %}
+      <li class="nav-header">
+        {{ item.title|capfirst }}
+      </li>
+      {% admin_tools_render_menu_item item item_template="admin/menu/group.html" %}
+    {% endfor %}
+  </ul>
+{% endif %}

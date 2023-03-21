@@ -1,0 +1,6 @@
+{% load admin_menu_tags %}
+{% if menu.children %}
+
+  {% for item in menu.children %}{% admin_tools_render_menu_item item forloop.counter %}{% endfor %}
+
+{% endif %}

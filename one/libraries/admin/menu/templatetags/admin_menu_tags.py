@@ -42,7 +42,7 @@ def admin_tools_render_menu(context, menu=None):
 admin_tools_render_menu = tag_func(admin_tools_render_menu)
 
 
-def admin_tools_render_menu_item(context, item, index=None):
+def admin_tools_render_menu_item(context, item, item_template=None):
     """
     Template tag that renders a given menu item, it takes a ``MenuItem``
     instance as unique parameter.
@@ -51,9 +51,8 @@ def admin_tools_render_menu_item(context, item, index=None):
 
     context.update(
         {
-            "template": item.template,
+            "template": item.template if item_template is None else item_template,
             "item": item,
-            "index": index,
             "selected": item.is_selected(context["request"]),
             "admin_url": reverse(f"{get_admin_site_name(context)}:index"),
         }

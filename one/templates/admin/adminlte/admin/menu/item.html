@@ -1,0 +1,25 @@
+{% load admin_menu_tags %}
+{% spaceless %}
+  {% if not item.is_empty %}
+    <li class="nav-item {% if selected %} menu-open{% endif %}">
+      <a href="#"
+        {% if item.description %}
+         title="{{ item.description }}"
+        {% endif %}
+        {% if item.accesskey %}
+         accesskey="{{ item.accesskey }}"
+        {% endif %}
+         class="nav-link {% if selected %} active{% endif %}">
+        <i class="nav-icon fas fa-tachometer-alt"></i>
+        <p> {{ item.title|capfirst }} <i class="right fas fa-angle-left"></i></p>
+      </a>
+      {% if item.children and item.enabled %}
+        <ul class="nav nav-treeview">
+          {% for child_item in item.children %}
+            {% admin_tools_render_menu_item child_item item_template="admin/menu/child.html" %}
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </li>
+  {% endif %}
+{% endspaceless %}

@@ -1,0 +1,10 @@
+{% load admin_menu_tags %}
+{% spaceless %}
+  {% if not item.is_empty %}
+    {% if item.children and item.enabled %}
+      {% for child_item in item.children %}
+        {% admin_tools_render_menu_item child_item %}
+      {% endfor %}
+    {% endif %}
+  {% endif %}
+{% endspaceless %}
