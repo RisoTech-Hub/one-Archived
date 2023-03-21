@@ -33,7 +33,7 @@ def admin_tools_render_menu(context, menu=None):
         {
             "template": menu.template,
             "menu": menu,
-            "admin_url": reverse("%s:index" % get_admin_site_name(context)),
+            "admin_url": reverse(f"{get_admin_site_name(context)}:index"),
         }
     )
     return context
