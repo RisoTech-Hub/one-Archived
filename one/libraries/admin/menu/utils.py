@@ -23,7 +23,7 @@ def _get_menu_cls(menu_cls, context):
         mod, inst = menu_cls.rsplit(".", 1)
         mod = import_module(mod)
         return getattr(mod, inst)
-    raise ValueError('Dashboard menu matching "%s" not found' % menu_cls)
+    raise ValueError(f'Dashboard menu matching "{menu_cls}" not found')
 
 
 def get_admin_menu(context):
