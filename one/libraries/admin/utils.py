@@ -124,7 +124,7 @@ class AppListElementMixin:
         Returns the admin change url.
         """
         app_label = model._meta.app_label  # noqa
-        return reverse("%s:app_list" % get_admin_site_name(context), args=(app_label,))
+        return reverse(f"{get_admin_site_name(context)}:app_list", args=(app_label,))
 
     def _get_admin_change_url(self, model, context):  # noqa
         """
