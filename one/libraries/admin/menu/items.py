@@ -1,5 +1,6 @@
 from django.apps import apps as django_apps
 
+from one.libraries.admin.menu.constants import MENU_EXTRA_DETAILS
 from one.libraries.admin.utils import AppListElementMixin
 
 
@@ -44,6 +45,7 @@ class MenuItem:
 
     title = "Untitled menu item"
     url = "#"
+    fas_icon = None
     css_classes = None
     accesskey = None
     description = None
@@ -190,12 +192,14 @@ class AppList(MenuItem, AppListElementMixin):
             app_label = model._meta.app_label  # noqa
             if app_label not in apps:
                 apps[app_label] = {
+                    "app_label": app_label,
                     "title": django_apps.get_app_config(app_label).verbose_name,
                     "url": self._get_admin_app_list_url(model, context),
                     "models": [],
                 }
             apps[app_label]["models"].append(
                 {
+                    "app_label": app_label,
                     "title": model._meta.verbose_name_plural,  # noqa
                     "url": self._get_admin_change_url(model, context),
                 }
@@ -203,7 +207,15 @@ class AppList(MenuItem, AppListElementMixin):
 
         for app in sorted(apps.keys()):
             app_dict = apps[app]
-            item = MenuItem(title=app_dict["title"], url=app_dict["url"])
+            title = app_dict["title"]
+            icon = "fa-cube"
+            if app in MENU_EXTRA_DETAILS:
+                if "title" in MENU_EXTRA_DETAILS[app]:
+                    title = MENU_EXTRA_DETAILS[app]["title"]
+                if "icon" in MENU_EXTRA_DETAILS[app]:
+                    icon = MENU_EXTRA_DETAILS[app]["icon"]
+
+            item = MenuItem(title=title, url=app_dict["url"], fas_icon=icon)
             # sort model list alphabetically
             apps[app]["models"].sort(key=lambda x: x["title"])
             for model_dict in apps[app]["models"]:

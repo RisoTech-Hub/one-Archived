@@ -54,6 +54,7 @@ def admin_tools_render_menu_item(context, item, item_template=None):
             "template": item.template if item_template is None else item_template,
             "item": item,
             "selected": item.is_selected(context["request"]),
+            "fas_icon": item.fas_icon,
             "admin_url": reverse(f"{get_admin_site_name(context)}:index"),
         }
     )
