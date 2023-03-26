@@ -34,10 +34,6 @@
       <!-- Django Page CSS  -->
     {% endblock extrastyle %}
     {% if LANGUAGE_BIDI %}<!-- Django CSS for RTL  -->{% endif %}
-    {% block extrahead %}
-      <!-- Django Page Media  -->
-      <!-- j18n: translate lib -->
-    {% endblock extrahead %}
     {% block responsive %}<!-- Django CSS for responsive  -->{% endblock responsive %}
     {% block head-css-page-custom %}
       <!-- Page Css Inline  -->
@@ -54,6 +50,10 @@
     <script>
       $.widget.bridge('uibutton', $.ui.button)
     </script>
+    {% block extrahead %}
+      <!-- Django Page Media  -->
+      <!-- j18n: translate lib -->
+    {% endblock extrahead %}
     <!-- Page JS -->
     {% block head-js-extend %}{% endblock head-js-extend %}
     <!-- Page JS Inline -->

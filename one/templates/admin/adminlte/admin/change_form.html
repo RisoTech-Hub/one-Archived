@@ -37,7 +37,7 @@
     </li>
   {% endblock %}
 {% endif %}
-
+{% block content_subtitle %}{% endblock %}
 {% block content %}
   <div id="content-main">
     <form
@@ -64,6 +64,9 @@
         <div class="col-md-12">
           <div class="card card-outline card-info">
             <div class="card-header">
+              <h1 class="card-title">
+                {% if subtitle %}{{ subtitle }}{% endif %}
+              </h1>
               <div class="card-tools">
                 {% block object-tools %}
                   {% if change %}{% if not is_popup %}

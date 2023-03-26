@@ -3,6 +3,7 @@
 /* FORM ROWS */
 
 .form-row {
+    display: revert;
     overflow: hidden;
     padding: 10px;
     font-size: 13px;
