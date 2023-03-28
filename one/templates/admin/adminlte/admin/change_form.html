@@ -43,6 +43,7 @@
     <form
       {% if has_file_field %}enctype="multipart/form-data"{% endif %}
       {% if form_url %}action="{{ form_url }}"{% endif %}
+      class="needs-validation{% if adminform.errors %} was-validated{% endif %}"
       method="post" id="{{ opts.model_name }}_form" novalidate>
       {% csrf_token %}
 
@@ -61,38 +62,46 @@
       {% endif %}
 
       <div class="row">
-        <div class="col-md-12">
-          <div class="card card-outline card-info">
-            <div class="card-header">
-              <h1 class="card-title">
-                {% if subtitle %}{{ subtitle }}{% endif %}
-              </h1>
-              <div class="card-tools">
-                {% block object-tools %}
-                  {% if change %}{% if not is_popup %}
-                    {% block object-tools-items %}
-                      {% change_form_object_tools %}
-                    {% endblock %}
-                  {% endif %}{% endif %}
-                {% endblock %}
-                <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                  <i class="fas fa-minus"></i>
-                </button>
+        {% block field_sets %}
+          {% for fieldset in adminform %}
+            <div class="col-md-12">
+              <div class="card card-outline card-info">
+                <div class="card-header">
+                  <h1 class="card-title">
+                    {% if forloop.first %}
+                      {% if subtitle %}{{ subtitle }}{% endif %}
+                    {% else %}
+                      {{ fieldset.name }}
+                      {% if fieldset.description %}
+                        <small><cite>{{ fieldset.description|safe }}</cite></small>
+                      {% endif %}
+                    {% endif %}
+                  </h1>
+                  <div class="card-tools">
+                    {% if forloop.first %}
+                      {% block object-tools %}
+                        {% if change %}{% if not is_popup %}
+                          {% block object-tools-items %}
+                            {% change_form_object_tools %}
+                          {% endblock %}
+                        {% endif %}{% endif %}
+                      {% endblock %}
+                    {% endif %}
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                  </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  {% include "admin/includes/fieldset.html" %}
+                </div>
               </div>
             </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-              {% block field_sets %}
-                {% for fieldset in adminform %}
-                  {% include "admin/includes/fieldset.html" %}
-                {% endfor %}
-              {% endblock %}
+          {% endfor %}
+        {% endblock %}
 
-              {% block after_field_sets %}{% endblock %}
-            </div>
-          </div>
-        </div>
-        <!-- /.col-->
+        {% block after_field_sets %}{% endblock %}
 
         {% block inline_field_sets %}
           {% for inline_admin_formset in inline_admin_formsets %}

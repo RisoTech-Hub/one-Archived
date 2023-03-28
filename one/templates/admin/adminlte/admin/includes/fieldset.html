@@ -1,44 +1,77 @@
-{% if fieldset.name %}<h4>{{ fieldset.name }}</h4>{% endif %}
-{% if fieldset.description %}
-  <div class="description">{{ fieldset.description|safe }}</div>
-{% endif %}
-<div class="row">
+<fieldset class="module aligned {{ fieldset.classes }}">
   {% for line in fieldset %}
-    <div class="col-md-6
-                    {% if line.fields|length_is:'1' and line.errors %} errors{% endif %}
-                    {% if not line.has_visible_field %} hidden{% endif %}
-                    {% for field in line %}
+    {% if line.fields|length_is:'1' %}
+      <div class="form-row
+                  {% if line.fields|length_is:'1' and line.errors %} errors{% endif %}
+                  {% if not line.has_visible_field %} hidden{% endif %}
+                  {% for field in line %}
                     {% if field.field.name %} field-{{ field.field.name }}{% endif %}
-                    {% endfor %}">
+                  {% endfor %}">
+        {% for field in line %}
+          <div class="form-group row
+                      {% if not line.fields|length_is:'1' %}
+                        fieldBox
+                        {% if field.field.name %} field-{{ field.field.name }}{% endif %}
+                        {% if not field.is_readonly and field.errors %} errors{% endif %}
+                        {% if field.field.is_hidden %} hidden{% endif %}
+                      {% elif field.is_checkbox %}
+                        checkbox-row
+                      {% endif %}">
+            <div class="col-2">
+              {{ field.label_tag }}
+            </div>
+            <div class="col-8">
+              {% if field.is_readonly %}
+                <div class="readonly">{{ field.contents }}</div>
+              {% else %}
+                {{ field.field }}
+              {% endif %}
+              {% if field.field.help_text %}
+                <small class="form-text text-muted">{{ field.field.help_text|safe }}</small>
+              {% endif %}
 
-      {% for field in line %}
-        <div
-          {% if not line.fields|length_is:'1' %}
-            class="fieldBox
+              {% if line.fields|length_is:'1' %}{{ line.errors }}{% endif %}
+              {% if not line.fields|length_is:'1' and not field.is_readonly %}{{ field.errors }}{% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="row
+                  {% if not line.has_visible_field %} hidden{% endif %}
+                  {% for field in line %}
                     {% if field.field.name %} field-{{ field.field.name }}{% endif %}
-                    {% if not field.is_readonly and field.errors %} errors{% endif %}
-                    {% if field.field.is_hidden %} hidden{% endif %}"
-          {% elif field.is_checkbox %}
-            class="checkbox-row"
-          {% endif %}
-        >
-          {% if not line.fields|length_is:'1' and not field.is_readonly %}{{ field.errors }}{% endif %}
-          {% if field.is_checkbox %}
-            {{ field.field }}{{ field.label_tag }}
-          {% else %}
-            {{ field.label_tag }}
-            {% if field.is_readonly %}
-              <div class="readonly">{{ field.contents }}</div>
-            {% else %}
-              {{ field.field }}
-            {% endif %}
-          {% endif %}
-          {% if field.field.help_text %}
-            <div class="help">{{ field.field.help_text|safe }}</div>
-          {% endif %}
-        {% if line.fields|length_is:'1' %}{{ line.errors }}{% endif %}
-        </div>
-      {% endfor %}
-    </div>
+                  {% endfor %}">
+        {% for field in line %}
+          <div class="col-6
+                      {% if not line.fields|length_is:'1' %}
+                        {% if field.field.name %} field-{{ field.field.name }}{% endif %}
+                        {% if not field.is_readonly and field.errors %} errors{% endif %}
+                        {% if field.field.is_hidden %} hidden{% endif %}
+                      {% elif field.is_checkbox %}
+                        checkbox-row
+                      {% endif %}">
+            <div class="form-group">
+
+              {{ field.label_tag }}
+              <div class="form-group">
+                  {% if field.is_readonly %}
+                    <div class="readonly">{{ field.contents }}</div>
+                  {% else %}
+                    {{ field.field }}
+                  {% endif %}
+                {% if field.field.help_text %}
+                  <small class="form-text text-muted">{{ field.field.help_text|safe }}</small>
+                {% endif %}
+                {% if field.errors and not field.is_readonly %}
+                  {{ field.errors }}
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
   {% endfor %}
-</div>
+</fieldset>
