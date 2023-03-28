@@ -363,9 +363,8 @@ CONSTANCE_ADDITIONAL_FIELDS = {
         {
             "widget": "django.forms.Select",
             "choices": (
-                ("django", "Django"),
+                ("admin", "Django"),
                 ("adminlte", "AdminLTE"),
-                ("metronic", "Metronic"),
             ),
         },
     ],
@@ -374,7 +373,7 @@ CONSTANCE_ADDITIONAL_FIELDS = {
 
 CONSTANCE_CONFIG = {
     "UI_THEME_SELECT": ("default", _("UI Theme Select"), "ui_theme_select"),
-    "ADMIN_THEME_SELECT": ("django", _("Admin Theme Select"), "admin_theme_select"),
+    "ADMIN_THEME_SELECT": ("admin", _("Admin Theme Select"), "admin_theme_select"),
     "ADMIN_LOGO": ("adminlte/", _("Admin Logo"), "image_field"),
     "ADMIN_SITE_HEADER": ("One", _("Admin Header")),
     "ADMIN_SITE_TITLE": ("One", _("Admin Title")),
