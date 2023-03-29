@@ -50,7 +50,7 @@ class MenuItem:
     accesskey = None
     description = None
     enabled = True
-    template = "admin/menu/item.html"
+    template = "libraries/menu/item.html"
     children = None
 
     def __init__(self, title=None, url=None, **kwargs):

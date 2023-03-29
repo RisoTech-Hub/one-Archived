@@ -56,7 +56,7 @@ class Menu:
     .. image:: images/menu_example.png
     """
 
-    template = "admin/menu/menu.html"
+    template = "libraries/menu/menu.html"
     children = None
 
     class Media:

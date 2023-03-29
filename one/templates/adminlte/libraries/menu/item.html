@@ -16,7 +16,7 @@
       {% if item.children and item.enabled %}
         <ul class="nav nav-treeview">
           {% for child_item in item.children %}
-            {% admin_tools_render_menu_item child_item item_template="admin/menu/child.html" %}
+            {% admin_tools_render_menu_item child_item item_template="libraries/menu/child.html" %}
           {% endfor %}
         </ul>
       {% endif %}

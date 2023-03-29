@@ -4,7 +4,7 @@ register = template.Library()
 
 
 # switch_languages
-@register.inclusion_tag("switch_languages.html", takes_context=True)
+@register.inclusion_tag("libraries/language/switch_languages.html", takes_context=True)
 def switch_languages(context, flag_type="", tag_type="", **kwargs):
     """
     Templatetag languages
