@@ -362,7 +362,10 @@ CONSTANCE_ADDITIONAL_FIELDS = {
         "django.forms.fields.ChoiceField",
         {
             "widget": "django.forms.Select",
-            "choices": (("admin", "Django"),),
+            "choices": (
+                ("admin", "Django"),
+                ("jet", "Keen Jet"),
+            ),
         },
     ],
     "image_field": ["django.forms.ImageField", {}],

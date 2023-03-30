@@ -1,3 +1,5 @@
+import os
+
 from .base import *  # noqa
 from .base import env
 
@@ -35,7 +37,6 @@ EMAIL_PORT = 1025
 # http://whitenoise.evans.io/en/latest/django.html#using-whitenoise-in-development
 INSTALLED_APPS = ["whitenoise.runserver_nostatic"] + INSTALLED_APPS  # noqa F405
 
-
 # django-debug-toolbar
 # ------------------------------------------------------------------------------
 # https://django-debug-toolbar.readthedocs.io/en/latest/installation.html#prerequisites
@@ -70,5 +71,12 @@ INSTALLED_APPS += ["django_extensions"]  # noqa F405
 
 # https://docs.celeryq.dev/en/stable/userguide/configuration.html#task-eager-propagates
 CELERY_TASK_EAGER_PROPAGATES = True
+# Local Static path for IDE
+# ------------------------------------------------------------------------------
+STATICFILES_DIRS += [  # noqa F405
+    os.path.join(
+        os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "one", "static"
+    )
+]
 # Your stuff...
 # ------------------------------------------------------------------------------
