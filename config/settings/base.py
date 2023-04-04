@@ -72,6 +72,7 @@ DJANGO_APPS = [
     "django.forms",
 ]
 THIRD_PARTY_APPS = [
+    "filebrowser",  # Filebrowser
     "crispy_forms",
     "crispy_bootstrap5",
     "allauth",
@@ -168,6 +169,9 @@ STATICFILES_FINDERS = [
 MEDIA_ROOT = str(APPS_DIR / "media")
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-url
 MEDIA_URL = "/media/"
+# https://django-filebrowser.readthedocs.io/en/latest/settings.html#settings
+FILEBROWSER_DIRECTORY = ""
+DIRECTORY = ""
 
 # TEMPLATES
 # ------------------------------------------------------------------------------
@@ -387,6 +391,10 @@ CONSTANCE_CONFIG_FIELDSETS = {
     ),
     "Theme Options": ("UI_THEME_SELECT",),
 }
+
+# Django FileBrowser
+# ------------------------------------------------------------------------------
+FILEBROWSER_SHOW_IN_DASHBOARD = False
 
 # Your stuff...
 # ------------------------------------------------------------------------------
