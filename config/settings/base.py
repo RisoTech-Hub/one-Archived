@@ -88,6 +88,8 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "one.libraries.admin.menu",
     "one.users",
+    "one.cms.carousel",
+    "one.cms.testimonial",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
