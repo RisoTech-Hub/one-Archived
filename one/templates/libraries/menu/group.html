@@ -7,10 +7,16 @@
   {% if not item.is_empty %}
     <div class="module" style="margin-bottom: 10px;">
       <table>
-        <caption class="section" style="background: var(--secondary); text-align: center;">{{ item.title|capfirst }}</caption>
+        <caption class="section"
+                 style="background: var(--secondary); text-align: center;">{{ item.title|capfirst }}</caption>
+        {% if item.is_short %}
+          {% for child_item in item.children %}
+            {% admin_tools_render_menu_item child_item %}
+          {% endfor %}
+        {% endif %}
       </table>
     </div>
-    {% if item.children and item.enabled %}
+    {% if not item.is_short and item.children and item.enabled %}
       {% for child_item in item.children %}
         {% admin_tools_render_menu_item child_item item_template="libraries/menu/page.html" %}
       {% endfor %}
