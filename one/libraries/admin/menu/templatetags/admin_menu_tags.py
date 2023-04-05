@@ -75,7 +75,7 @@ def admin_tools_render_menu_css(context, menu=None):
 
     context.update(
         {
-            "template": "menu/css.html",
+            "template": "libraries/menu/css.html",
             "css_files": menu.Media.css,
         }
     )
