@@ -5,10 +5,15 @@
   {#  {% if item.description %}title="{{ item.description }}"{% endif %}#}
   {#  {% if item.accesskey %} accesskey="{{ item.accesskey }}"{% endif %}#}
   {% if not item.is_empty %}
-    <tr {% if selected %}class="current-model"{% endif %}>
-      <th scope="row">
-        <a href="{{ item.url }}" {% if selected %}aria-current="page"{% endif %}>{{ item.title|capfirst }}</a>
-      </th>
-    </tr>
+    <div>
+      <table>
+        <caption class="section">{{ item.title|capfirst }}</caption>
+      </table>
+    </div>
+    {% if item.children and item.enabled %}
+      {% for child_item in item.children %}
+        {% admin_tools_render_menu_item child_item item_template="libraries/menu/page.html" %}
+      {% endfor %}
+    {% endif %}
   {% endif %}
 {% endspaceless %}

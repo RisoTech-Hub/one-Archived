@@ -1,47 +1,5 @@
-{% load i18n static admin_menu_tags %}
 {% if menu.children %}
-<script type="text/javascript" src="{% static "libraries/menu/js/utils.js" %}"></script>
-<script type="text/javascript" charset="utf-8">
-
-    // Load js files synchronously and conditionally
-    var js_files = [
-        {
-            src : '{% static "libraries/js/jquery/jquery.min.js" %}',
-            test: function() { return typeof(jQuery) == 'undefined'; }
-        },
-        {
-            src : '{% static "libraries/js/json.min.js" %}',
-            test: function() { return typeof(JSON.stringify) == 'undefined'; }
-        },
-        {
-            src : '{% static "libraries/menu/js/menu.js" %}',
-            test: function() { return true; }
-        }{% for js in menu.Media.js %},
-        {
-            src : '{% static js %}',
-            test: function() { return true; }
-        }{% endfor %}
-    ];
-
-    loadScripts(js_files, function(){});
-
-</script>
-<!--[if IE 6]>
-<script type="text/javascript">
-  jQuery(document).ready(function () {
-    jQuery('#navigation-menu').children('li').hover(
-      function () {
-        jQuery(this).addClass('over');
-      },
-      function () {
-        jQuery(this).removeClass('over');
-      }
-    );
-  });
-</script>
-<![endif]-->
-
-<ul id="navigation-menu">
-    {% for item in menu.children %}{% admin_tools_render_menu_item item forloop.counter %}{% endfor %}
-</ul>
+  {% for item in menu.children %}
+    {% admin_tools_render_menu_item item item_template="libraries/menu/group.html" %}
+  {% endfor %}
 {% endif %}
