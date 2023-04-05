@@ -5,9 +5,9 @@
   {#  {% if item.description %}title="{{ item.description }}"{% endif %}#}
   {#  {% if item.accesskey %} accesskey="{{ item.accesskey }}"{% endif %}#}
   {% if not item.is_empty %}
-    <div>
+    <div class="module" style="margin-bottom: 10px;">
       <table>
-        <caption class="section">{{ item.title|capfirst }}</caption>
+        <caption class="section" style="background: var(--secondary); text-align: center;">{{ item.title|capfirst }}</caption>
       </table>
     </div>
     {% if item.children and item.enabled %}
