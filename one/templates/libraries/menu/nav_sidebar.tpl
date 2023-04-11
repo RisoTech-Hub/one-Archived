@@ -1,0 +1,44 @@
+<script type="text/javascript" src="{% static "libraries/menu/js/utils.js" %}"></script>
+<script type="text/javascript" charset="utf-8">
+
+  // Load js files synchronously and conditionally
+  var js_files = [
+    {
+      src: '{% static "libraries/js/jquery/jquery.min.js" %}',
+      test: function () {
+        return typeof (jQuery) == 'undefined';
+      }
+    },
+    {
+      src: '{% static "libraries/js/json.min.js" %}',
+      test: function () {
+        return typeof (JSON.stringify) == 'undefined';
+      }
+    },
+    {
+      src: '{% static "libraries/menu/js/menu.js" %}',
+      test: function () {
+        return true;
+      }
+    }{% for js in menu.Media.js %},
+      {
+        src: '{% static js %}',
+        test: function () {
+          return true;
+        }
+      }{% endfor %}
+  ];
+
+  loadScripts(js_files, function () {
+  });
+
+</script>
+
+<button class="sticky toggle-nav-sidebar" id="toggle-nav-sidebar"
+        aria-label="{% translate 'Toggle navigation' %}"></button>
+<nav class="sticky" id="nav-sidebar">
+  <input type="search" id="nav-filter"
+         placeholder="{% translate 'Start typing to filter…' %}"
+         aria-label="{% translate 'Filter navigation items' %}">
+  {% admin_tools_render_menu %}
+</nav>

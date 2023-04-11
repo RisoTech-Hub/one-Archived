@@ -15,7 +15,7 @@ from one.libraries.admin.menu.utils import get_admin_menu
 from one.libraries.admin.utils import get_admin_site_name
 
 register = template.Library()
-tag_func = register.inclusion_tag("libraries/menu/dummy.html", takes_context=True)
+tag_func = register.inclusion_tag("libraries/menu/app_list.html", takes_context=True)
 
 
 def admin_tools_render_menu(context, menu=None):
@@ -75,7 +75,7 @@ def admin_tools_render_menu_css(context, menu=None):
 
     context.update(
         {
-            "template": "menu/css.html",
+            "template": "libraries/menu/css.html",
             "css_files": menu.Media.css,
         }
     )
