@@ -52,6 +52,7 @@ class MenuItem:
     enabled = True
     template = "libraries/menu/item.html"
     children = None
+    is_short = False
 
     def __init__(self, title=None, url=None, **kwargs):
         if title is not None:

@@ -68,7 +68,7 @@ DJANGO_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.humanize",  # Handy template tags
-    "one.libraries.admin.apps.AdminConfig",  # replaces 'django.contrib.admin'
+    "django.contrib.admin",
     "django.forms",
 ]
 THIRD_PARTY_APPS = [
@@ -84,9 +84,11 @@ THIRD_PARTY_APPS = [
     "corsheaders",
     "drf_spectacular",
     "constance",
+    "better_json_widget",
 ]
 
 LOCAL_APPS = [
+    "one.libraries.eventtracking",
     "one.libraries.admin.menu",
     "one.users",
     # Your stuff: custom apps go here
@@ -125,9 +127,7 @@ PASSWORD_HASHERS = [
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-password-validators
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
-    },
+    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
@@ -147,6 +147,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "one.libraries.eventtracking.middleware.CurrentUserMiddleware",
 ]
 
 # STATIC
@@ -229,8 +230,6 @@ FIXTURE_DIRS = (str(APPS_DIR / "fixtures"),)
 SESSION_COOKIE_HTTPONLY = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#csrf-cookie-httponly
 CSRF_COOKIE_HTTPONLY = True
-# https://docs.djangoproject.com/en/dev/ref/settings/#secure-browser-xss-filter
-SECURE_BROWSER_XSS_FILTER = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#x-frame-options
 X_FRAME_OPTIONS = "DENY"
 
@@ -263,9 +262,8 @@ LOGGING = {
     "disable_existing_loggers": False,
     "formatters": {
         "verbose": {
-            "format": "%(levelname)s %(asctime)s %(module)s "
-            "%(process)d %(thread)d %(message)s"
-        }
+            "format": "%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s",
+        },
     },
     "handlers": {
         "console": {
@@ -398,6 +396,10 @@ CONSTANCE_CONFIG_FIELDSETS = {
 # Django FileBrowser
 # ------------------------------------------------------------------------------
 FILEBROWSER_SHOW_IN_DASHBOARD = False
+
+# Model Event Tracking
+# ------------------------------------------------------------------------------
+DISABLE_EVENT_TRACKING_SIGNALS = env.bool("DISABLE_EVENT_TRACKING_SIGNALS", False)
 
 # Your stuff...
 # ------------------------------------------------------------------------------

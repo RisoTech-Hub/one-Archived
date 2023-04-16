@@ -21,7 +21,7 @@ services:
       - ./.envs/.local/.django-docker
       - ./.envs/.local/.postgres-docker
     ports:
-      - "8000:8000"
+      - '8000:8000'
     command: /start
 
   postgres:
@@ -49,14 +49,14 @@ services:
       - ./config:/app/config:z
       - ./one:/app/one:z
     ports:
-      - "9000:9000"
+      - '9000:9000'
     command: /start-docs
 
   mailhog:
     image: mailhog/mailhog:v1.0.0
     container_name: one_local_mailhog
     ports:
-      - "8025:8025"
+      - '8025:8025'
 
   redis:
     image: redis:6
@@ -89,7 +89,7 @@ services:
     image: one_local_flower
     container_name: one_local_flower
     ports:
-      - "5555:5555"
+      - '5555:5555'
     command: /start-flower
 
   node:
@@ -106,6 +106,6 @@ services:
       - /app/node_modules
     command: npm run dev
     ports:
-      - "3000:3000"
+      - '3000:3000'
       # Expose browsersync UI: https://www.browsersync.io/docs/options/#option-ui
-      - "3001:3001"
+      - '3001:3001'
