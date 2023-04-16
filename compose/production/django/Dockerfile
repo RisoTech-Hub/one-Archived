@@ -7,9 +7,8 @@ COPY ./package.json ${APP_HOME}
 RUN npm install && npm cache clean --force
 COPY . ${APP_HOME}
 RUN npm run build
-
 # define an alias for the specfic python version used in this file.
-FROM python:3.10.10-slim-bullseye as python
+FROM python:3.11.3-slim-bullseye as python
 
 # Python build stage
 FROM python as python-build-stage
