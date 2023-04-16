@@ -1,7 +1,7 @@
 from contextvars import ContextVar  # noqa
 
 from django.conf import settings
-from django.contrib.admin.models import ACTION_FLAG_CHOICES, ADDITION, CHANGE, DELETION, LogEntry
+from django.contrib.admin.models import ADDITION, CHANGE, DELETION, LogEntry
 from django.contrib.auth.models import Permission
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.sessions.models import Session
@@ -27,6 +27,12 @@ ACTION_VERB_CHOICES = (
     (ADDITION, _("Added a")),
     (CHANGE, _("Changed the")),
     (DELETION, _("Deleted the")),
+)
+
+ACTION_FLAG_CHOICES = (
+    (ADDITION, "Addition"),
+    (CHANGE, "Change"),
+    (DELETION, "Deletion"),
 )
 
 
