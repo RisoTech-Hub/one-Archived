@@ -358,7 +358,13 @@ CONSTANCE_REDIS_CONNECTION = env("REDIS_URL")
 CONSTANCE_ADDITIONAL_FIELDS = {
     "ui_theme_select": [
         "django.forms.fields.ChoiceField",
-        {"widget": "django.forms.Select", "choices": (("default", "Default"),)},
+        {
+            "widget": "django.forms.Select",
+            "choices": (
+                ("default", "Default"),
+                ("jet", "Jet"),
+            ),
+        },
     ],
     "admin_theme_select": [
         "django.forms.fields.ChoiceField",

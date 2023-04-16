@@ -88,6 +88,8 @@ class DefaultMenu(Menu):
     def init_with_context(self, context):
         self.children += [
             items.ModelList(_("CMS"), models=("one.cms.*",), is_short=True),
-            items.AppList(_("Applications"), exclude=("django.contrib.*", "one.cms.*")),
-            items.AppList(_("Administration"), models=("django.contrib.*",)),
         ]
+        if context["request"].user.is_superuser:
+            self.children += [
+                items.AppList(_("Administration"), exclude=("constance.*",)),
+            ]
