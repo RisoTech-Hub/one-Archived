@@ -394,5 +394,9 @@ CONSTANCE_CONFIG_FIELDSETS = {
 # ------------------------------------------------------------------------------
 FILEBROWSER_SHOW_IN_DASHBOARD = False
 
+# Model Event Tracking
+# ------------------------------------------------------------------------------
+DISABLE_EVENT_TRACKING_SIGNALS = env.bool("DISABLE_EVENT_TRACKING_SIGNALS", False)
+
 # Your stuff...
 # ------------------------------------------------------------------------------

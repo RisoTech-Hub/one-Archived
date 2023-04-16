@@ -1,22 +1,13 @@
 from contextvars import ContextVar  # noqa
 
-from django.contrib.admin.models import (
-    ACTION_FLAG_CHOICES,
-    ADDITION,
-    CHANGE,
-    DELETION,
-    LogEntry,
-)
+from django.conf import settings
+from django.contrib.admin.models import ACTION_FLAG_CHOICES, ADDITION, CHANGE, DELETION, LogEntry
 from django.contrib.auth.models import Permission
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.sessions.models import Session
 from django.utils.translation import gettext_lazy as _
 
-from one.libraries.eventtracking.middleware import (
-    get_current_user,
-    get_request_ip,
-    get_request_path,
-)
+from one.libraries.eventtracking.middleware import get_current_user, get_request_ip, get_request_path
 from one.libraries.eventtracking.models import EventTracking
 from one.libraries.eventtracking.utils import format_field_value, get_field_diff
 
@@ -47,7 +38,7 @@ def model_event_pre_save_tracking(event_name=None):  # noqa: C901
     def decorator(func):
         def wrapper(*args, **kwargs):
             sender = kwargs.get("sender")
-            if sender in EXCLUDE_MODELS or "Migration" in sender.__name__:
+            if sender in EXCLUDE_MODELS or "Migration" in sender.__name__ or settings.DISABLE_EVENT_TRACKING_SIGNALS:
                 return func(*args, **kwargs)
 
             is_admin_action = is_admin_site_action()
@@ -61,18 +52,14 @@ def model_event_pre_save_tracking(event_name=None):  # noqa: C901
             action_flag_id = ADDITION if not getattr(instance, "id", None) else CHANGE
             action_flag = dict(ACTION_FLAG_CHOICES)[action_flag_id]
 
-            current_event_code = "{}.{}.{}.{}".format(
-                event_prefix, action_flag, sender.__name__, instance.__str__()
-            )
+            current_event_code = f"{event_prefix}.{action_flag}.{sender.__name__}.{instance.__str__()}"
 
             try:
                 root_event_code = root_event_object.get()
                 if root_event_code == current_event_code:
                     return func(*args, **kwargs)
 
-                current_event_code = "{} => {}".format(
-                    root_event_code, current_event_code
-                )
+                current_event_code = f"{root_event_code} => {current_event_code}"
             except LookupError:
                 root_event_code = current_event_code
                 token = root_event_object.set(root_event_code)
@@ -161,7 +148,7 @@ def model_event_post_save_tracking(event_name=None):
     def decorator(func):
         def wrapper(*args, **kwargs):
             sender = kwargs.get("sender")
-            if sender in EXCLUDE_MODELS or "Migration" in sender.__name__:
+            if sender in EXCLUDE_MODELS or "Migration" in sender.__name__ or settings.DISABLE_EVENT_TRACKING_SIGNALS:
                 return func(*args, **kwargs)
 
             instance = kwargs.get("instance")
@@ -186,7 +173,7 @@ def model_event_post_delete_tracking(event_name=None):
     def decorator(func):
         def wrapper(*args, **kwargs):
             sender = kwargs.get("sender")
-            if sender in EXCLUDE_MODELS or "Migration" in sender.__name__:
+            if sender in EXCLUDE_MODELS or "Migration" in sender.__name__ or settings.DISABLE_EVENT_TRACKING_SIGNALS:
                 return func(*args, **kwargs)
 
             is_admin_action = is_admin_site_action()
@@ -203,9 +190,7 @@ def model_event_post_delete_tracking(event_name=None):
                 if root_event_code == current_event_code:
                     return func(*args, **kwargs)
 
-                current_event_code = "{} => {}".format(
-                    root_event_code, current_event_code
-                )
+                current_event_code = f"{root_event_code} => {current_event_code}"
             except LookupError:
                 root_event_code = current_event_code
                 token = root_event_object.set(root_event_code)

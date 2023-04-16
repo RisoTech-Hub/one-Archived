@@ -29,5 +29,8 @@ EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"
 # ------------------------------------------------------------------------------
 TEMPLATES[0]["OPTIONS"]["debug"] = True  # type: ignore # noqa: F405
 TEMPLATES[0]["DIRS"] = [str(APPS_DIR / "templates/ui")]  # type: ignore # noqa F405
+# Model Event Tracking
+# ------------------------------------------------------------------------------
+DISABLE_EVENT_TRACKING_SIGNALS = True
 # Your stuff...
 # ------------------------------------------------------------------------------
