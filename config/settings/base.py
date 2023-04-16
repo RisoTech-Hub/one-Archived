@@ -68,7 +68,7 @@ DJANGO_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.humanize",  # Handy template tags
-    "one.libraries.admin.apps.AdminConfig",  # replaces 'django.contrib.admin'
+    "django.contrib.admin",
     "django.forms",
 ]
 THIRD_PARTY_APPS = [
@@ -84,9 +84,11 @@ THIRD_PARTY_APPS = [
     "corsheaders",
     "drf_spectacular",
     "constance",
+    "better_json_widget",
 ]
 
 LOCAL_APPS = [
+    "one.libraries.eventtracking",
     "one.libraries.admin.menu",
     "one.users",
     # Your stuff: custom apps go here
@@ -147,6 +149,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "one.libraries.eventtracking.middleware.CurrentUserMiddleware",
 ]
 
 # STATIC
