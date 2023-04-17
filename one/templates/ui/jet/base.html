@@ -26,9 +26,15 @@
     <link href="{% static 'jet/css/style.bundle.css' %}" rel="stylesheet" type="text/css"/>
     <!--end::Global Stylesheets Bundle-->
 
-    <!-- Your stuff: Third-party CSS libraries go here -->
-    <!-- This file stores project-specific CSS -->
-    {#    <link href="{% static 'default/css/project.css' %}" rel="stylesheet">#}
+    {% block page-vendor-css %}
+      <!-- Your stuff: Third-party CSS libraries go here -->
+    {% endblock page-vendor-css %}
+
+    {% block page-custom-css %}
+      <!-- This file stores project-specific CSS -->
+        <link href="{% static 'default/css/project.css' %}" rel="stylesheet">
+    {% endblock page-custom-css %}
+
   {% endblock %}
 
   <!-- Le javascript
