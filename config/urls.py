@@ -6,7 +6,7 @@ from django.urls import include, path
 from django.views import defaults as default_views
 from django.views.generic import TemplateView
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
-from filebrowser.sites import site
+from filebrowser.sites import site  # noqa
 from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
@@ -16,6 +16,7 @@ urlpatterns = [
     path("i18n/", include("django.conf.urls.i18n")),
     # Django FileBrowser
     path(settings.ADMIN_URL + "filebrowser/", site.urls),
+    # path(settings.ADMIN_URL + 'doc/', include('django.contrib.admindocs.urls')),
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
