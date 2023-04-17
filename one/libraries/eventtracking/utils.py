@@ -57,9 +57,7 @@ def format_field_value(field, value):
         return value.strftime("%Y-%m-%d") if value else ""
     elif isinstance(field, (DateTimeField, DurationField)):
         return value.strftime("%Y-%m-%d %H:%M:%S") if value else ""
-    elif isinstance(
-        field, (EmailField, URLField, FilePathField, CharField, TextField, UUIDField)
-    ):
+    elif isinstance(field, (EmailField, URLField, FilePathField, CharField, TextField, UUIDField)):
         return value
     elif isinstance(field, (ImageField, FileField)):
         return value.url if value else ""
