@@ -62,6 +62,7 @@ WSGI_APPLICATION = "config.wsgi.application"
 # ------------------------------------------------------------------------------
 DJANGO_APPS = [
     "django.contrib.auth",
+    # "django.contrib.admindocs",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.sites",

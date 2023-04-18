@@ -68,9 +68,7 @@ def filter_models(request, models, exclude):  # noqa: C901
                     wildcard_models.append(item)
             if wildcard_models:
                 # sort wildcard matches alphabetically before adding them
-                wildcard_models.sort(
-                    key=lambda x: x[0]._meta.verbose_name_plural  # noqa
-                )
+                wildcard_models.sort(key=lambda x: x[0]._meta.verbose_name_plural)  # noqa
                 included += wildcard_models
 
     result = included[:]
@@ -131,19 +129,11 @@ class AppListElementMixin:
         Returns the admin change url.
         """
         app_label = model._meta.app_label  # noqa
-        return reverse(
-            "{}:{}_{}_changelist".format(
-                get_admin_site_name(context), app_label, model.__name__.lower()
-            )
-        )
+        return reverse("{}:{}_{}_changelist".format(get_admin_site_name(context), app_label, model.__name__.lower()))
 
     def _get_admin_add_url(self, model, context):  # noqa
         """
         Returns the admin add url.
         """
         app_label = model._meta.app_label  # noqa
-        return reverse(
-            "{}:{}_{}_add".format(
-                get_admin_site_name(context), app_label, model.__name__.lower()
-            )
-        )
+        return reverse("{}:{}_{}_add".format(get_admin_site_name(context), app_label, model.__name__.lower()))

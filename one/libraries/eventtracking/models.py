@@ -1,15 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
-from django.db.models import (
-    CASCADE,
-    SET_NULL,
-    CharField,
-    ForeignKey,
-    JSONField,
-    PositiveIntegerField,
-    TextField,
-)
+from django.db.models import CASCADE, SET_NULL, CharField, ForeignKey, JSONField, PositiveIntegerField, TextField
 from django.utils.translation import gettext_lazy as _
 from model_utils import Choices
 from model_utils.models import StatusModel, TimeStampedModel
@@ -31,9 +23,7 @@ class EventTracking(TimeStampedModel, StatusModel):
 
     logs = JSONField(verbose_name=_("Event Logs"), default=list, blank=True, null=True)
 
-    parent = ForeignKey(
-        "self", blank=True, null=True, on_delete=CASCADE, related_name="event_children"
-    )
+    parent = ForeignKey("self", blank=True, null=True, on_delete=CASCADE, related_name="event_children")
     root_code = CharField(_("Parent Event Code"), max_length=64, blank=True, null=True)
 
     # for generic relation

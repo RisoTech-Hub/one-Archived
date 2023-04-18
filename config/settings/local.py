@@ -74,9 +74,7 @@ CELERY_TASK_EAGER_PROPAGATES = True
 # Local Static path for IDE
 # ------------------------------------------------------------------------------
 STATICFILES_DIRS += [  # noqa F405
-    os.path.join(
-        os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "one", "static"
-    )
+    os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "one", "static")
 ]
 # Your stuff...
 # ------------------------------------------------------------------------------
