@@ -1,0 +1,36 @@
+{% extends "account/base.html" %}
+
+{% block wide-wrapper %}
+  <div class="mb-10 text-center">
+    <!--begin::Title-->
+    <h1 class="text-dark mb-3">{% translate "Verify Your E-mail Address" %}</h1>
+    <!--end::Title-->
+  </div>
+
+  {% url 'account_email' as email_url %}
+
+  <!--begin::Message-->
+  <div class="fs-3 fw-bold text-muted mb-10">
+    {% blocktranslate %}This part of the site requires us to verify that
+      you are who you claim to be. For this purpose, we require that you
+      verify ownership of your e-mail address. {% endblocktranslate %}
+  </div>
+  <!--end::Message-->
+
+  <!--begin::Message-->
+  <div class="fs-3 fw-bold text-muted mb-10">
+    {% blocktranslate %}We have sent an e-mail to you for
+      verification. Please click on the link inside this e-mail. Please
+      contact us if you do not receive it within a few minutes.{% endblocktranslate %}
+  </div>
+  <!--end::Message-->
+
+  <!--begin::Message-->
+  <div class="fs-3 fw-bold text-muted mb-10">
+    {% blocktranslate %}<strong>Note:</strong> you can still
+      <a class="link-primary fw-bolder" href="{{ email_url }}">change your e-mail address</a>
+      .{% endblocktranslate %}
+  </div>
+  <!--end::Message-->
+
+{% endblock wide-wrapper %}

@@ -1,0 +1,15 @@
+{% extends "account/base.html" %}
+
+
+{% block wide-wrapper %}
+  <div class="mb-10 text-center">
+    <!--begin::Title-->
+    <h1 class="text-dark mb-3">{% translate "Sign Up Closed" %}</h1>
+    <!--end::Title-->
+  </div>
+  <!--begin::Message-->
+  <div class="fs-3 fw-bold text-muted mb-10">
+    {% translate "We are sorry, but the sign up is currently closed." %}
+  </div>
+  <!--end::Message-->
+{% endblock wide-wrapper %}
