@@ -6,10 +6,8 @@
 {% for language in languages %}
   <li class="menu-item">
     <a href="#{{ language.code }}" onclick="set_language('{{ language.code }}')"
-       class="menu-link px-2"
-       title="{{ language.name_local }}">
-      {{ language.name_local }}
-    </a>
+       class="{% if language.code == LANGUAGE_CODE %}{% else %}text-muted {% endif %}menu-link px-2"
+       title="{{ language.name_local }}">{{ language.name_local }}</a>
   </li>
 {% endfor %}
 
