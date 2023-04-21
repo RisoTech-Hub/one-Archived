@@ -1,0 +1,142 @@
+{% extends "account/base.html" %}
+
+{% block content %}
+  <!--begin::Form-->
+  <form class="form w-100 fv-plugins-bootstrap5 fv-plugins-framework" novalidate="novalidate" id="signup_form"
+        method="post" action="{% url 'account_signup' %}">
+    {% csrf_token %}
+    {% if redirect_field_value %}
+      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+    {% endif %}
+    <!--begin::Heading-->
+    <div class="mb-10 text-center">
+      <!--begin::Title-->
+      <h1 class="text-dark mb-3">{% trans 'Create an Account' %}</h1>
+      <!--end::Title-->
+
+      <!--begin::Link-->
+      <div class="text-gray-400 fw-bold fs-4">
+        {% trans 'Already have an account?' %}
+        <a href="{{ login_url }}" class="link-primary fw-bolder">{% trans 'Sign in here' %}</a>
+      </div>
+      <!--end::Link-->
+    </div>
+    <!--end::Heading-->
+
+    <!--begin::Input group-->
+    <div class="fv-row mb-7 fv-plugins-icon-container{% if form.username.errors %} has-validation{% endif %}">
+      <!--begin::Wrapper-->
+      <div class="mb-1">
+        <label class="form-label fw-bolder text-dark fs-6">{% trans 'Username' %}</label>
+        <input
+          class="form-control form-control-lg form-control-solid{% if form.username.errors %} is-invalid{% endif %}"
+          type="text" placeholder="" name="username" autocomplete="off"
+          value="{{ form.username.value|default_if_none:'' }}">
+        {% if form.username.errors %}
+          {% for error in form.username.errors %}
+            <div class="fv-plugins-message-container invalid-feedback">
+              <div data-field="username" data-validator="notEmpty">{{ error }}</div>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+      <!--end::Wrapper-->
+    </div>
+    <!--end::Input group--->
+
+    <!--begin::Input group-->
+    <div class="fv-row mb-7 fv-plugins-icon-container{% if form.email.errors %} has-validation{% endif %}">
+      <!--begin::Wrapper-->
+      <div class="mb-1">
+        <label class="form-label fw-bolder text-dark fs-6">{% trans 'Email' %}</label>
+        <input
+          class="form-control form-control-lg form-control-solid{% if form.email.errors %} is-invalid{% endif %}"
+          type="email" placeholder="" name="email" autocomplete="off"
+          value="{{ form.email.value|default_if_none:'' }}">
+        {% if form.email.errors %}
+          {% for error in form.email.errors %}
+            <div class="fv-plugins-message-container invalid-feedback">
+              <div data-field="email" data-validator="notEmpty">{{ error }}</div>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+      <!--end::Wrapper-->
+    </div>
+    <!--end::Input group--->
+
+    <!--begin::Input group-->
+    <div class="fv-row mb-7 fv-plugins-icon-container{% if form.password1.errors %} has-validation{% endif %}">
+      <!--begin::Wrapper-->
+      <div class="mb-1">
+        <label class="form-label fw-bolder text-dark fs-6">{% trans 'Password' %}</label>
+        <input
+          class="form-control form-control-lg form-control-solid{% if form.password1.errors %} is-invalid{% endif %}"
+          type="password" placeholder="" name="password1" autocomplete="off"
+          value="{{ form.password1.value|default_if_none:'' }}">
+        {% if form.password1.errors %}
+          {% for error in form.password1.errors %}
+            <div class="fv-plugins-message-container invalid-feedback">
+              <div data-field="password1" data-validator="notEmpty">{{ error }}</div>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+      <!--end::Wrapper-->
+      <!--begin::Hint-->
+      <div class="text-muted">
+        {% trans 'Use 8 or more characters with a mix of letters, numbers &amp; symbols.' %}
+      </div>
+      <!--end::Hint-->
+    </div>
+    <!--end::Input group--->
+
+    <!--begin::Input group-->
+    <div class="fv-row mb-7 fv-plugins-icon-container{% if form.password2.errors %} has-validation{% endif %}">
+      <label class="form-label fw-bolder text-dark fs-6">{% trans 'Confirm Password' %}</label>
+      <input class="form-control form-control-lg form-control-solid{% if form.password2.errors %} is-invalid{% endif %}"
+             type="password" placeholder="" name="password2" autocomplete="off"
+             value="{{ form.password2.value|default_if_none:'' }}">
+      {% if form.password2.errors %}
+        {% for error in form.password2.errors %}
+          <div class="fv-plugins-message-container invalid-feedback">
+            <div data-field="password2" data-validator="notEmpty">{{ error }}</div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+    <!--end::Input group-->
+
+    <!--begin::Input group-->
+    <div class="fv-row mb-7 fv-plugins-icon-container{% if form.tnc.errors %} has-validation{% endif %}">
+      <label
+        class="form-check form-check-custom form-check-solid form-check-inline{% if form.tnc.errors %} is-invalid{% endif %}">
+        <input class="form-check-input" type="checkbox" name="tnc" {% if form.tnc.value %}checked{% endif %}>
+        <span class="form-check-label fw-bold text-gray-700 fs-6">
+          {% trans 'I Agree' %} <a href="#" class="ms-1 link-primary">{% trans 'Terms and conditions' %}</a>.
+        </span>
+      </label>
+      {% if form.tnc.errors %}
+        {% for error in form.tnc.errors %}
+          <div class="fv-plugins-message-container invalid-feedback">
+            <div data-field="tnc" data-validator="notEmpty">{{ error }}</div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+    <!--end::Input group-->
+
+    <!--begin::Actions-->
+    <div class="text-center">
+      <button type="submit" class="btn btn-lg btn-primary">
+        <span class="indicator-label">{% trans 'Sign Up' %}</span>
+        <span class="indicator-progress">{% trans 'Please wait...' %}
+          <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+        </span>
+      </button>
+    </div>
+    <!--end::Actions-->
+    <div></div>
+  </form>
+  <!--end::Form-->
+{% endblock content %}

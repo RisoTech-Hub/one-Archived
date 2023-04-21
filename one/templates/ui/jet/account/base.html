@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
+<!--begin::Head-->
+<head>
+  <base href="">
+  <meta charset="utf-8"/>
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>{% block title %}{{ config.seo_title|default:'One' }}{% endblock title %}</title>
+  <meta name="description"
+        content="{% block description %}{{ config.seo_description|default:'One' }}{% endblock description %}"/>
+  <meta name="keywords" content="{% block keywords %}{{ config.seo_keywords|default:'One' }}{% endblock keywords %}"/>
+  <meta name="author" content="{% block author %}{{ config.seo_author|default:'One' }}{% endblock author %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <link rel="canonical" href="{% block canonical %}{{ config.seo_canonical|default:'One' }}{% endblock canonical %}"/>
+  <link rel="shortcut icon" href="{% static 'jet/media/logos/favicon.ico' %}"/>
+
+  <!--begin::Fonts-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700"/>
+  <!--end::Fonts-->
+
+  {% block css %}
+    <!--begin::Global Stylesheets Bundle(used by all pages)-->
+    <link href="{% static 'jet/plugins/global/plugins.bundle.css' %}" rel="stylesheet" type="text/css"/>
+    <link href="{% static 'jet/css/style.bundle.css' %}" rel="stylesheet" type="text/css"/>
+    <!--end::Global Stylesheets Bundle-->
+
+    {% block page-vendor-css %}
+    {% endblock page-vendor-css %}
+
+    {% block page-custom-css %}
+    {% endblock page-custom-css %}
+  {% endblock %}
+
+  <!-- Le javascript
+  ================================================== -->
+  {# Placed at the top of the document so pages load faster with defer #}
+  {% block javascript %}
+    <!--begin::Javascript-->
+    <!--begin::Global Javascript Bundle(used by all pages)-->
+    <script src="{% static 'jet/plugins/global/plugins.bundle.js' %}"></script>
+    <script src="{% static 'jet/js/scripts.bundle.js' %}"></script>
+    <!--end::Global Javascript Bundle-->
+
+    {% block page-vendor-javascript %}
+    {% endblock page-vendor-javascript %}
+
+    {% block page-custom-javascript %}
+    {% endblock page-custom-javascript %}
+
+  {% endblock javascript %}
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+<body id="kt_body" class="auth-bg">
+<!--begin::Main-->
+
+<div class="d-flex flex-column flex-root">
+  <!--begin::Authentication - Sign-in -->
+  <div
+    class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed"
+    style="background-image: url({% static 'jet/media/illustrations/14.png' %})">
+
+    <!--begin::Content-->
+    <div class="d-flex flex-center flex-column flex-column-fluid p-5 pb-lg-0">
+      <!--begin::Logo-->
+      <a href="{% url 'home' %}" class="mb-5">
+        <img alt="Logo" src="{% static 'jet/media/logos/logo-default.svg' %}" class="h-60px">
+      </a>
+      <!--end::Logo-->
+
+      {% block wide-wrapper %}
+        <!--begin::Wrapper-->
+        <div class="w-lg-500px bg-white rounded shadow-sm p-10 p-lg-10 mx-auto">
+          {% block content %}
+          {% endblock content %}
+        </div>
+        <!--end::Wrapper-->
+      {% endblock wide-wrapper %}
+    </div>
+    <!--end::Content-->
+
+    <!--begin::Footer-->
+    <div class="d-flex flex-center flex-column-auto p-10">
+      <!--begin::Links-->
+      <div class="d-flex align-items-center fw-bold fs-6">
+        <li class="menu-item">
+          <a href="{% url 'faq' %}" class="text-muted text-hover-primary px-2">{% trans 'FAQ' %}</a>
+        </li>
+        <li class="menu-item">
+          <a href="{% url 'about' %}" class="text-muted text-hover-primary px-2">{% trans 'About' %}</a>
+        </li>
+        {% switch_languages %}
+      </div>
+      <!--end::Links-->
+    </div>
+    <!--end::Footer-->
+  </div>
+  <!--end::Authentication - Sign-in-->
+</div>
+<!--end::Main-->
+
+{% block inline_javascript %}
+{% endblock inline_javascript %}
+</body>
+<!--end::Body-->
+</html>

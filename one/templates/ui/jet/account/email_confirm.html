@@ -1,0 +1,45 @@
+{% extends "account/base.html" %}
+
+{% load account %}
+
+{% block wide-wrapper %}
+  <h1>{% translate "Confirm E-mail Address" %}</h1>
+
+  {% if confirmation %}
+    {% user_display confirmation.email_address.user as user_display %}
+    <!--begin::Message-->
+    <div class="fs-3 fw-bold text-muted mb-10 text-center">
+      {% blocktranslate with confirmation.email_address.email as email %}Please confirm that
+        <a href="mailto:{{ email }}">{{ email }}</a> is an e-mail address for user {{ user_display }}
+        .{% endblocktranslate %}
+    </div>
+    <!--end::Message-->
+
+    <!--begin::Action-->
+    <div class="text-center mb-10">
+      <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
+        {% csrf_token %}
+        <button class="btn btn-lg btn-primary fw-bolder" type="submit">{% translate 'Confirm' %}</button>
+      </form>
+    </div>
+    <!--end::Action-->
+
+    <!--begin::Action-->
+    {#    <div class="fs-5">#}
+    {#      <span class="fw-bold text-gray-700">Did’t receive an email?</span>#}
+    {##}
+    {#      <a href="/jet-html-free/?page=authentication/sign-up/basic" class="link-primary fw-bolder">Resend</a>#}
+    {#    </div>#}
+    <!--end::Action-->
+  {% else %}
+    {% url 'account_email' as email_url %}
+    <!--begin::Message-->
+    <div class="fs-3 fw-bold text-muted mb-10 text-center">
+      {% blocktranslate %}This e-mail confirmation link expired or is invalid.{% endblocktranslate %}<br>
+      {% blocktranslate %}
+        Please <a href="{{ email_url }}" class="link-primary fw-bolder">issue a new e-mail confirmation request</a>.
+      {% endblocktranslate %}
+    </div>
+    <!--end::Message-->
+  {% endif %}
+{% endblock wide-wrapper %}
