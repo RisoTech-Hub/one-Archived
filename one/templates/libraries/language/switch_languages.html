@@ -8,8 +8,7 @@
 {% if tag_type == 'li' %}
   {% for language in languages %}
     <li {% if classes.li_class != '' %} class="{{ classes.li_class }}" {% endif %}>
-      <a href="#{{ language.code }}"
-         onclick="set_language('{{ language.code }}')"
+      <a href="#{{ language.code }}" onclick="set_language('{{ language.code }}')"
         {% if classes.a_class != '' %} class="{{ classes.a_class }}" {% endif %}
          title="{{ language.name_local }}">
         <span class="flag-icon flag-icon-{{ language.code }} {{ icon_class }}"></span>
@@ -36,9 +35,6 @@
     {% endfor %}
   </p>
 {% endif %}
-
-
-
 
 <form action="{% url 'set_language' %}" method="post" id="setlang">
   {% csrf_token %}
