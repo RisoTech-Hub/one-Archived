@@ -3,7 +3,11 @@
 {% load account %}
 
 {% block wide-wrapper %}
-  <h1>{% translate "Confirm E-mail Address" %}</h1>
+  <div class="mb-10 text-center">
+    <!--begin::Title-->
+    <h1 class="text-dark mb-3">{% translate "Confirm E-mail Address" %}</h1>
+    <!--end::Title-->
+  </div>
 
   {% if confirmation %}
     {% user_display confirmation.email_address.user as user_display %}

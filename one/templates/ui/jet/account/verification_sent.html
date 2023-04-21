@@ -1,28 +1,32 @@
 {% extends "account/base.html" %}
 
 {% block wide-wrapper %}
-
-  <h1>{% translate "Verify Your E-mail Address" %}</h1>
+  <div class="mb-10 text-center">
+    <!--begin::Title-->
+    <h1 class="text-dark mb-3">{% translate "Verify Your E-mail Address" %}</h1>
+    <!--end::Title-->
+  </div>
 
   <!--begin::Message-->
   <div class="fs-3 fw-bold text-muted mb-10 text-center">
     {% blocktranslate %}We have sent an e-mail to you for verification.{% endblocktranslate %}<br>
-    {% blocktranslate %}Follow the link provided to finalize the signup process. Please contact us if you do not receive it within a few minutes.{% endblocktranslate %}
+    {% blocktranslate %}Follow the link provided to finalize the signup process. Please contact us if you do not receive
+      it within a few minutes.{% endblocktranslate %}
   </div>
   <!--end::Message-->
 
   <!--begin::Action-->
-{#  <div class="text-center mb-10">#}
-{#    <a href="/jet-html-free/?page=authentication/sign-in/basic" class="btn btn-lg btn-primary fw-bolder">Skip for#}
-{#      now</a>#}
-{#  </div>#}
+  {#  <div class="text-center mb-10">#}
+  {#    <a href="/jet-html-free/?page=authentication/sign-in/basic" class="btn btn-lg btn-primary fw-bolder">Skip for#}
+  {#      now</a>#}
+  {#  </div>#}
   <!--end::Action-->
 
   <!--begin::Action-->
-{#  <div class="fs-5">#}
-{#    <span class="fw-bold text-gray-700">Did’t receive an email?</span>#}
-{##}
-{#    <a href="/jet-html-free/?page=authentication/sign-up/basic" class="link-primary fw-bolder">Resend</a>#}
-{#  </div>#}
+  {#  <div class="fs-5">#}
+  {#    <span class="fw-bold text-gray-700">Did’t receive an email?</span>#}
+  {##}
+  {#    <a href="/jet-html-free/?page=authentication/sign-up/basic" class="link-primary fw-bolder">Resend</a>#}
+  {#  </div>#}
   <!--end::Action-->
 {% endblock wide-wrapper %}
