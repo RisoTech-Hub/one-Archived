@@ -1,0 +1,27 @@
+<!--begin::Footer-->
+      <div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
+        <!--begin::Container-->
+        <div class="container-fluid d-flex flex-column flex-md-row flex-stack">
+          <!--begin::Copyright-->
+          <div class="text-dark order-2 order-md-1">
+            <span class="text-gray-400 fw-bold me-1">{% trans 'A product of ' %}</span>
+            <a href="https://risotech.vn" target="_blank" class="text-muted text-hover-primary fw-bold me-2 fs-6">
+              {% trans 'Riso Tech' %}
+            </a>
+          </div>
+          <!--end::Copyright-->
+          <!--begin::Menu-->
+          <ul class="d-flex align-items-center fw-bold fs-6 order-1">
+            <li class="menu-item">
+              <a href="{% url 'faq' %}" target="_blank" class="text-muted menu-link px-2">{% trans 'FAQ' %}</a>
+            </li>
+            <li class="menu-item">
+              <a href="{% url 'about' %}" target="_blank" class="text-muted menu-link px-2">{% trans 'About' %}</a>
+            </li>
+            {% switch_languages %}
+          </ul>
+          <!--end::Menu-->
+        </div>
+        <!--end::Container-->
+      </div>
+      <!--end::Footer-->

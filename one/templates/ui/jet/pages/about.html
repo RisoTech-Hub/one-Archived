@@ -6,13 +6,152 @@
   <!--end::Page Vendors Javascript-->
 {% endblock page-vendor-javascript %}
 
+{% block primary-navbar %}
+      <!--begin::Primary-->
+      <div class="aside-primary d-flex flex-column align-items-lg-center flex-row-auto">
+        <!--begin::Logo-->
+        <div class="aside-logo d-none d-lg-flex flex-column align-items-center flex-column-auto pt-10"
+             id="kt_aside_logo">
+          <a href="{% url 'home' %}">
+            <img alt="Logo" src="{% static 'jet/media/logos/logo-compact.svg' %}" class="h-55px"/>
+          </a>
+        </div>
+        <!--end::Logo-->
+        <!--begin::Nav-->
+        <div class="aside-nav d-flex flex-column flex-lg-center flex-column-fluid w-100 pt-5 pt-lg-0" id="kt_aside_nav">
+          <!--begin::Primary menu-->
+          <div id="kt_aside_menu"
+               class="menu menu-column menu-title-gray-600 menu-icon-gray-400 menu-state-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-bold fs-5"
+               data-kt-menu="true">
+            <div class="menu-item py-2">
+              <a class="menu-link menu-center" href="#id_about_section_1" title="Dashboard" data-bs-toggle="tooltip"
+                 data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
+            <span class="menu-icon me-0">
+              <!--begin::Svg Icon | path: icons/duotone/Home/Home2.svg-->
+              <span class="svg-icon svg-icon-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M21.4622 10.699C21.4618 10.6986 21.4613 10.6981 21.4609 10.6977L13.3016 2.53955C12.9538 2.19165 12.4914 2 11.9996 2C11.5078 2 11.0454 2.1915 10.6974 2.5394L2.54246 10.6934C2.53971 10.6961 2.53696 10.699 2.53422 10.7018C1.82003 11.42 1.82125 12.5853 2.53773 13.3017C2.86506 13.6292 3.29739 13.8188 3.75962 13.8387C3.77839 13.8405 3.79732 13.8414 3.81639 13.8414H4.14159V19.8453C4.14159 21.0334 5.10833 22 6.29681 22H9.48897C9.81249 22 10.075 21.7377 10.075 21.4141V16.707C10.075 16.1649 10.516 15.7239 11.0582 15.7239H12.941C13.4832 15.7239 13.9242 16.1649 13.9242 16.707V21.4141C13.9242 21.7377 14.1866 22 14.5102 22H17.7024C18.8909 22 19.8576 21.0334 19.8576 19.8453V13.8414H20.1592C20.6508 13.8414 21.1132 13.6499 21.4613 13.302C22.1786 12.5844 22.1789 11.4171 21.4622 10.699V10.699Z"
+                    fill="#00B2FF"/>
+                </svg>
+              </span>
+              <!--end::Svg Icon-->
+            </span>
+              </a>
+            </div>
+
+            <div class="menu-item py-2">
+              <a class="menu-link menu-center" href="#id_about_section_2" title="Dashboard" data-bs-toggle="tooltip"
+                 data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
+            <span class="menu-icon me-0">
+              <!--begin::Svg Icon | path: icons/duotone/General/User.svg-->
+              <span class="svg-icon svg-icon-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24"
+                     version="1.1">
+                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <polygon points="0 0 24 0 24 24 0 24"/>
+                    <path
+                      d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z"
+                      fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+                    <path
+                      d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z"
+                      fill="#000000" fill-rule="nonzero"/>
+                  </g>
+                </svg>
+              </span>
+              <!--end::Svg Icon-->
+            </span>
+              </a>
+            </div>
+
+            <div class="menu-item py-2">
+              <a class="menu-link menu-center" href="#id_about_section_3" title="Dashboard" data-bs-toggle="tooltip"
+                 data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
+            <span class="menu-icon me-0">
+              <!--begin::Svg Icon | path: icons/duotone/General/User.svg-->
+              <span class="svg-icon svg-icon-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24"
+                     version="1.1">
+                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <polygon points="0 0 24 0 24 24 0 24"/>
+                    <path
+                      d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z"
+                      fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+                    <path
+                      d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z"
+                      fill="#000000" fill-rule="nonzero"/>
+                  </g>
+                </svg>
+              </span>
+              <!--end::Svg Icon-->
+            </span>
+              </a>
+            </div>
+
+
+            <div class="menu-item py-2">
+              <a class="menu-link menu-center" href="#id_about_section_4" title="Dashboard" data-bs-toggle="tooltip"
+                 data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
+            <span class="menu-icon me-0">
+              <!--begin::Svg Icon | path: icons/duotone/General/User.svg-->
+              <span class="svg-icon svg-icon-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24"
+                     version="1.1">
+                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <polygon points="0 0 24 0 24 24 0 24"/>
+                    <path
+                      d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z"
+                      fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+                    <path
+                      d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z"
+                      fill="#000000" fill-rule="nonzero"/>
+                  </g>
+                </svg>
+              </span>
+              <!--end::Svg Icon-->
+            </span>
+              </a>
+            </div>
+
+            <div class="menu-item py-2">
+              <a class="menu-link menu-center" href="#id_about_section_5" title="Dashboard" data-bs-toggle="tooltip"
+                 data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
+            <span class="menu-icon me-0">
+              <!--begin::Svg Icon | path: icons/duotone/General/User.svg-->
+              <span class="svg-icon svg-icon-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24"
+                     version="1.1">
+                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <polygon points="0 0 24 0 24 24 0 24"/>
+                    <path
+                      d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z"
+                      fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+                    <path
+                      d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z"
+                      fill="#000000" fill-rule="nonzero"/>
+                  </g>
+                </svg>
+              </span>
+              <!--end::Svg Icon-->
+            </span>
+              </a>
+            </div>
+
+          </div>
+          <!--end::Primary menu-->
+        </div>
+        <!--end::Nav-->
+      </div>
+      <!--end::Primary-->
+      {% endblock primary-navbar %}
+
 {% block content %}
   <!--begin::About card-->
   <div class="card">
     <!--begin::Body-->
     <div class="card-body p-lg-17">
       <!--begin::About-->
-      <div class="mb-18">
+      <div class="mb-18" id="id_about_section_1">
         <!--begin::Wrapper-->
         <div class="mb-10">
           <!--begin::Top-->
@@ -81,7 +220,7 @@
       </div>
       <!--end::About-->
       <!--begin::Statistics-->
-      <div class="card bg-light mb-18">
+      <div class="card bg-light mb-18" id="id_about_section_2">
         <!--begin::Body-->
         <div class="card-body py-15">
           <!--begin::Wrapper-->
@@ -236,7 +375,7 @@
       </div>
       <!--end::Statistics-->
       <!--begin::Section-->
-      <div class="mb-16">
+      <div class="mb-16" id="id_about_section_3">
         <!--begin::Top-->
         <div class="text-center mb-12">
           <!--begin::Title-->
@@ -395,7 +534,7 @@
       </div>
       <!--end::Section-->
       <!--begin::Team-->
-      <div class="mb-18">
+      <div class="mb-18" id="id_about_section_4">
         <!--begin::Heading-->
         <div class="text-center mb-12">
           <!--begin::Title-->
@@ -594,7 +733,7 @@
       </div>
       <!--end::Team-->
       <!--begin::Card-->
-      <div class="card bg-light text-center">
+      <div class="card bg-light text-center" id="id_about_section_5">
         <!--begin::Body-->
         <div class="card-body py-12">
           <!--begin::Icon-->

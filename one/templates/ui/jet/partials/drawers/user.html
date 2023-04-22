@@ -1,0 +1,55 @@
+<!--begin::User drawer-->
+<div id="kt_user_drawer" class="explore bg-white" data-kt-drawer="true" data-kt-drawer-name="user_drawer"
+     data-kt-drawer-activate="true" data-kt-drawer-overlay="true"
+     data-kt-drawer-width="{default:'300px', 'lg': '440px'}" data-kt-drawer-direction="end"
+     data-kt-drawer-toggle="#kt_user_drawer_toggle" data-kt-drawer-close="#kt_user_drawer_close">
+  <!--begin::Card-->
+  <div class="card shadow-none w-100">
+    <!--begin::Header-->
+    <div class="card-header" id="kt_user_drawer_header">
+      <h5 class="card-title fw-bold text-gray-600">{% trans 'User Panel' %}</h5>
+      <div class="card-toolbar">
+        <button type="button" class="btn btn-sm btn-icon explore-btn-dismiss me-n5" id="kt_user_drawer_close">
+          <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+          <span class="svg-icon svg-icon-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+									<g
+                    transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)"
+                    fill="#000000">
+										<rect fill="#000000" x="0" y="7" width="16" height="2" rx="1"/>
+										<rect fill="#000000" opacity="0.5"
+                          transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                          x="0" y="7" width="16" height="2" rx="1"/>
+									</g>
+								</svg>
+							</span>
+          <!--end::Svg Icon-->
+        </button>
+      </div>
+    </div>
+    <!--end::Header-->
+    <!--begin::Body-->
+    <div class="card-body" id="kt_user_drawer_body">
+      <!--begin::Content-->
+      <div id="kt_user_drawer_scroll" class="scroll-y me-n5 pe-5" data-kt-scroll="true" data-kt-scroll-height="auto"
+           data-kt-scroll-wrappers="#kt_user_drawer_body"
+           data-kt-scroll-dependencies="#kt_user_drawer_header, #kt_user_drawer_footer" data-kt-scroll-offset="5px">
+        <!--begin::Licenses-->
+        <div class="mb-5">
+
+        </div>
+        <!--end::Licenses-->
+      </div>
+      <!--end::Content-->
+    </div>
+    <!--end::Body-->
+    <!--begin::Footer-->
+    <div class="card-footer py-5 text-center" id="kt_user_drawer_footer">
+      <a href="{% url 'account_logout' %}" class="btn btn-lg explore-btn-secondary w-100">
+        <span class="fw-bolder ms-1">{% trans 'Sign Out' %}</span></a>
+    </div>
+    <!--end::Footer-->
+  </div>
+  <!--end::Card-->
+</div>
+<!--end::User drawer-->
