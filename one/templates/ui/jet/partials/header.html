@@ -1,5 +1,4 @@
 <!--begin::Header-->
-
 <div id="kt_header" class="header" data-kt-sticky="true" data-kt-sticky-name="header"
      data-kt-sticky-offset="{default: '200px', lg: '300px'}">
   <!--begin::Container-->
@@ -77,10 +76,22 @@
       {% else %}
         {% if ACCOUNT_ALLOW_REGISTRATION %}
           {# URL provided by django-allauth/account/urls.py #}
-          <a id="sign-up-link" class="nav-link" href="{% url 'account_signup' %}">{% translate "Sign Up" %}</a>
+          <!--begin::SignUp-->{% comment %}{% endcomment %}
+          <div class="text-center py-7 mb-18">
+            <a href="{% url 'account_signup' %}" class="btn btn-primary">
+              <span class="svg-icon svg-icon-1"><i class="fas fa-user-plus"></i></span>{% trans 'Sign Up' %}
+            </a>
+          </div>
+          <!--end::SignUp-->
         {% endif %}
         {# URL provided by django-allauth/account/urls.py #}
-        <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">{% translate "Sign In" %}</a>
+        <!--begin::SignIn-->
+        <div class="text-center py-7 mb-18 ms-5">
+          <a href="{% url 'account_login' %}" class="btn btn-success">
+            <span class="svg-icon svg-icon-1"><i class="fas fa-user"></i></span>{% trans 'Sign In' %}
+          </a>
+        </div>
+        <!--end::SignIn-->
       {% endif %}
     </div>
     <!--end::Toolbar wrapper-->
