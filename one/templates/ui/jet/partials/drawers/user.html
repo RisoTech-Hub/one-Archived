@@ -12,17 +12,17 @@
         <button type="button" class="btn btn-sm btn-icon explore-btn-dismiss me-n5" id="kt_user_drawer_close">
           <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
           <span class="svg-icon svg-icon-2">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-									<g
-                    transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)"
-                    fill="#000000">
-										<rect fill="#000000" x="0" y="7" width="16" height="2" rx="1"/>
-										<rect fill="#000000" opacity="0.5"
-                          transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
-                          x="0" y="7" width="16" height="2" rx="1"/>
-									</g>
-								</svg>
-							</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+              <g
+                transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)"
+                fill="#000000">
+                <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1"/>
+                <rect fill="#000000" opacity="0.5"
+                      transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                      x="0" y="7" width="16" height="2" rx="1"/>
+              </g>
+            </svg>
+          </span>
           <!--end::Svg Icon-->
         </button>
       </div>
@@ -47,6 +47,8 @@
     <div class="card-footer py-5 text-center" id="kt_user_drawer_footer">
       <a href="{% url 'account_logout' %}" class="btn btn-lg explore-btn-secondary w-100">
         <span class="fw-bolder ms-1">{% trans 'Sign Out' %}</span></a>
+      <a href="{% url 'users:detail' user.username %}" class="btn btn-lg explore-btn-secondary w-100">
+        <span class="fw-bolder ms-1">{% trans Profile %}</span></a>
     </div>
     <!--end::Footer-->
   </div>
