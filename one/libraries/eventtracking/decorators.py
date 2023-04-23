@@ -58,8 +58,7 @@ def model_event_pre_save_tracking(event_name=None):  # noqa: C901
             action_flag_id = ADDITION if not getattr(instance, "id", None) else CHANGE
             action_flag = dict(ACTION_FLAG_CHOICES)[action_flag_id]
 
-            current_event_code = f"{event_prefix}.{action_flag}.{sender.__name__}.{instance.__str__()}"
-
+            current_event_code = f"{event_prefix}.{action_flag}.{sender.__name__}"
             try:
                 root_event_code = root_event_object.get()
                 if root_event_code == current_event_code:
