@@ -92,6 +92,8 @@ LOCAL_APPS = [
     "one.libraries.eventtracking",
     "one.libraries.admin.menu",
     "one.users",
+    "one.masterdata.uom",
+    "one.masterdata.package",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
