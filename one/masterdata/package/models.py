@@ -5,8 +5,6 @@ from one.libraries.utils.models import MasterModel, UserStampedModel
 
 
 class Package(MasterModel, TimeStampedModel, UserStampedModel):
-    is_active = None
-
     class Meta:
         verbose_name = _("Package")
         verbose_name_plural = _("Packages")

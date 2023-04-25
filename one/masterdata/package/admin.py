@@ -9,5 +9,5 @@ from .models import Package
 class PackageAdmin(MasterModelAdmin):
     def get_fieldsets(self, request, obj=None):
         fieldsets = super().get_fieldsets(request, obj)
-        fieldsets[0][1]["fields"] += ("base_uom", "quantity")
+        fieldsets[0][1]["fields"] += ("is_active",)
         return fieldsets
