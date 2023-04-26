@@ -16,14 +16,14 @@ class ModelAdmin(BaseModelAdmin):
 
     # override save_formset method to add creator
     def save_formset(self, request, form, formset, change):
-        instances = formset.save(commit=False)
-        for instance in instances:
-            user = request.user
-            if not instance.pk:
-                instance.creator = user
-            instance.last_modified_by = user
-            instance.save()
-        formset.save_m2m()
+        super().save_formset(request, form, formset, change)
+        for _form in formset:
+            if not _form.cleaned_data.get("DELETE", False):
+                instance = _form.instance
+                if instance.creator is None:
+                    instance.creator = request.user
+                instance.last_modified_by = request.user
+                instance.save()
 
 
 class MasterModelAdmin(ModelAdmin):
