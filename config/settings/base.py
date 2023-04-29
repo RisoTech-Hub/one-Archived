@@ -97,6 +97,7 @@ LOCAL_APPS = [
     "one.supplier.level",
     "one.customer",
     "one.customer.customerprofile",
+    "one.customer.rank",
     "one.masterdata.uom",
     "one.masterdata.package",
     "one.masterdata.sku",
