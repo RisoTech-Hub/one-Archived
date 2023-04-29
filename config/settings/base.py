@@ -92,6 +92,8 @@ LOCAL_APPS = [
     "one.libraries.eventtracking",
     "one.libraries.admin.menu",
     "one.users",
+    "one.supplier",
+    "one.customer",
     "one.masterdata.uom",
     "one.masterdata.package",
     "one.masterdata.sku",
