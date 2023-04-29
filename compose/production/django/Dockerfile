@@ -1,4 +1,4 @@
-FROM node:16-bullseye-slim as client-builder
+FROM node:18-bullseye-slim as client-builder
 
 ARG APP_HOME=/app
 WORKDIR ${APP_HOME}
@@ -7,7 +7,7 @@ COPY ./package.json ${APP_HOME}
 RUN npm install && npm cache clean --force
 COPY . ${APP_HOME}
 RUN npm run build
-# define an alias for the specfic python version used in this file.
+# define an alias for the specific python version used in this file.
 FROM python:3.11.3-slim-bullseye as python
 
 # Python build stage
