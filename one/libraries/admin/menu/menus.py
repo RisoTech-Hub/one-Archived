@@ -87,7 +87,24 @@ class DefaultMenu(Menu):
 
     def init_with_context(self, context):
         self.children += [
-            items.ModelList(_("CMS"), models=("one.cms.*",), is_short=True),
-            items.AppList(_("Applications"), exclude=("django.contrib.*", "one.cms.*")),
-            items.AppList(_("Administration"), models=("django.contrib.*",)),
+            items.ModelList(
+                _("Master Data"),
+                models=(
+                    "one.masterdata.*",
+                    "one.users.*" "django.contrib.*",
+                ),
+                is_short=True,
+            ),
+            items.ModelList(_("Customers"), models=("one.customer.*",), is_short=True),
+            items.ModelList(_("Suppliers"), models=("one.supplier.*",), is_short=True),
+            # items.AppList(
+            #     _("Administration"),
+            #     exclude=(
+            #         "django.contrib.*",
+            #         'one.masterdata.*',
+            #         "one.customer.*",
+            #         "one.supplier.*",
+            #         "one.users.*",
+            #     )
+            # ),
         ]
