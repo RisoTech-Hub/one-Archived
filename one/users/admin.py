@@ -17,16 +17,15 @@ class EmailAddressInline(admin.TabularInline):
 class UserAdmin(auth_admin.UserAdmin):
     form = UserAdminChangeForm
     add_form = UserAdminCreationForm
+    readonly_fields = ["date_joined", "last_login", "account_type"]
     fieldsets = (
-        (None, {"fields": ("username", "password")}),
+        (None, {"fields": ("account_type", "username", "password")}),
         (_("Personal info"), {"fields": ("name", "email")}),
         (
             _("Permissions"),
             {
-                # "classes": ("collapse",),
                 "description": "User permissions",
                 "fields": (
-                    # ("is_active", "is_staff", "is_superuser",),
                     "is_active",
                     "is_staff",
                     "is_superuser",
