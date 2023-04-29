@@ -10,4 +10,9 @@ from .supplierprofile.admin import SupplierProfileInline
 @admin.register(Supplier)
 class SupplierAdmin(UserAdmin):
     add_form = SupplierAdminCreationForm
-    inlines = [SupplierProfileInline]
+
+    def get_inlines(self, request, obj=None):
+        inlines = super().get_inlines(request, obj)
+        if obj is None:
+            return inlines
+        return inlines + (SupplierProfileInline,)  # noqa
