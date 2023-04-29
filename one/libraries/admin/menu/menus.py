@@ -89,11 +89,16 @@ class DefaultMenu(Menu):
         self.children += [
             items.ModelList(
                 _("Master Data"),
+                models=("one.masterdata.*",),
+                is_short=True,
+            ),
+            items.ModelList(
+                _("Platform Master Data"),
                 models=(
-                    "one.masterdata.*",
                     "one.users.*",
                     "django.contrib.*",
                 ),
+                exclude=("django.contrib.sites.*",),
                 is_short=True,
             ),
             items.ModelList(_("Customers"), models=("one.customer.*",), is_short=True),
