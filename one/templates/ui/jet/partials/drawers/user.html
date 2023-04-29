@@ -1,7 +1,7 @@
 <!--begin::User drawer-->
 <div id="kt_user_drawer" class="explore bg-white" data-kt-drawer="true" data-kt-drawer-name="user_drawer"
      data-kt-drawer-activate="true" data-kt-drawer-overlay="true"
-     data-kt-drawer-width="{default:'300px', 'lg': '440px'}" data-kt-drawer-direction="end"
+     data-kt-drawer-width="{default:'350px', 'lg': '490px'}" data-kt-drawer-direction="end"
      data-kt-drawer-toggle="#kt_user_drawer_toggle" data-kt-drawer-close="#kt_user_drawer_close">
   <!--begin::Card-->
   <div class="card shadow-none w-100">
@@ -9,45 +9,52 @@
     <div class="card-header" id="kt_user_drawer_header">
       <h5 class="card-title fw-bold text-gray-600">
         <div class="d-flex">
-            <div class="cursor-pointer symbol symbol-60px symbol-md-60px me-7" data-kt-menu-trigger="click"
-                 data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
-              <img src="https://preview.keenthemes.com/jet-html-free/assets/media/avatars/300-1.jpg" alt="user">
+          <div class="cursor-pointer symbol symbol-60px symbol-md-60px me-7" data-kt-menu-trigger="click"
+               data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
+            <img src="https://preview.keenthemes.com/jet-html-free/assets/media/avatars/300-1.jpg" alt="user">
+          </div>
+          <div>
+            <div>
+              <a href="{% url 'users:detail' user.username %}"
+                 class="text-gray-900 text-hover-primary fs-3 fw-bolder me-1">{{ user.username }}</a>
             </div>
             <div>
-              <div>
-                <a href="#" class="text-gray-900 text-hover-primary fs-3 fw-bolder me-1">Max Smith</a>
-              </div>
-              <div>
-                <a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary mb-2">
-                  <!--begin::Svg Icon | path: icons/duotune/communication/com011.svg-->
-                  <span class="svg-icon svg-icon-4 me-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                              viewBox="0 0 24 24" fill="none">
-<path opacity="0.3" d="M21 19H3C2.4 19 2 18.6 2 18V6C2 5.4 2.4 5 3 5H21C21.6 5 22 5.4 22 6V18C22 18.6 21.6 19 21 19Z"
-      fill="currentColor"></path>
-<path
-  d="M21 5H2.99999C2.69999 5 2.49999 5.10005 2.29999 5.30005L11.2 13.3C11.7 13.7 12.4 13.7 12.8 13.3L21.7 5.30005C21.5 5.10005 21.3 5 21 5Z"
-  fill="currentColor"></path>
-</svg></span>
-                  <!--end::Svg Icon-->                                max@kt.com
-                </a>
-              </div>
-              <div>
-                <a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary me-5 mb-2">
-                  <!--begin::Svg Icon | path: icons/duotune/communication/com006.svg-->
-                  <span class="svg-icon svg-icon-4 me-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                              viewBox="0 0 24 24" fill="none">
-<path opacity="0.3"
-      d="M22 12C22 17.5 17.5 22 12 22C6.5 22 2 17.5 2 12C2 6.5 6.5 2 12 2C17.5 2 22 6.5 22 12ZM12 7C10.3 7 9 8.3 9 10C9 11.7 10.3 13 12 13C13.7 13 15 11.7 15 10C15 8.3 13.7 7 12 7Z"
-      fill="currentColor"></path>
-<path
-  d="M12 22C14.6 22 17 21 18.7 19.4C17.9 16.9 15.2 15 12 15C8.8 15 6.09999 16.9 5.29999 19.4C6.99999 21 9.4 22 12 22Z"
-  fill="currentColor"></path>
-</svg></span>
-                  <!--end::Svg Icon-->                                Developer
-                </a>
-              </div>
+              <a href="{% url 'users:detail' user.username %}"
+                 class="d-flex align-items-center text-gray-400 text-hover-primary mb-2">
+                <!--begin::Svg Icon | path: icons/duotune/communication/com011.svg-->
+                <span class="svg-icon svg-icon-4 me-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path opacity="0.3"
+                          d="M21 19H3C2.4 19 2 18.6 2 18V6C2 5.4 2.4 5 3 5H21C21.6 5 22 5.4 22 6V18C22 18.6 21.6 19 21 19Z"
+                          fill="currentColor"></path>
+                    <path
+                      d="M21 5H2.99999C2.69999 5 2.49999 5.10005 2.29999 5.30005L11.2 13.3C11.7 13.7 12.4 13.7 12.8 13.3L21.7 5.30005C21.5 5.10005 21.3 5 21 5Z"
+                      fill="currentColor"></path>
+                  </svg>
+                </span>
+                <!--end::Svg Icon-->
+                {{ user.email }}
+              </a>
+            </div>
+            <div>
+              <a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary me-5 mb-2">
+                <!--begin::Svg Icon | path: icons/duotune/communication/com006.svg-->
+                <span class="svg-icon svg-icon-4 me-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path opacity="0.3"
+                          d="M22 12C22 17.5 17.5 22 12 22C6.5 22 2 17.5 2 12C2 6.5 6.5 2 12 2C17.5 2 22 6.5 22 12ZM12 7C10.3 7 9 8.3 9 10C9 11.7 10.3 13 12 13C13.7 13 15 11.7 15 10C15 8.3 13.7 7 12 7Z"
+                          fill="currentColor"></path>
+                    <path
+                      d="M12 22C14.6 22 17 21 18.7 19.4C17.9 16.9 15.2 15 12 15C8.8 15 6.09999 16.9 5.29999 19.4C6.99999 21 9.4 22 12 22Z"
+                      fill="currentColor"></path>
+                  </svg>
+                </span>
+                <!--end::Svg Icon-->
+                Developer
+              </a>
             </div>
           </div>
+        </div>
       </h5>
       <div class="card-toolbar">
         <button type="button" class="btn btn-sm btn-icon explore-btn-dismiss me-n5" id="kt_user_drawer_close">
@@ -77,8 +84,6 @@
            data-kt-scroll-dependencies="#kt_user_drawer_header, #kt_user_drawer_footer" data-kt-scroll-offset="5px">
         <!--begin::Licenses-->
         <div class="mb-5">
-
-
           <div class="card card-bordered mb-5 ">
             <div class="row card-body p-4">
               <div class="col-md-6">
@@ -93,12 +98,13 @@
                     d="M12 22C14.6 22 17 21 18.7 19.4C17.9 16.9 15.2 15 12 15C8.8 15 6.09999 16.9 5.29999 19.4C6.99999 21 9.4 22 12 22Z"
                     fill="currentColor"></path>
                   </svg></span>
-                  <!--end::Svg Icon-->                                My Account
+                  <!--end::Svg Icon-->
+                  My Account
                 </a>
               </div>
               <div class="col-md-6">
-                <a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary me-5 mb-2">
-                  <i class="bi bi-sliders me-1"></i> Admin control
+                <a href="{% url 'account_logout' %}" class="d-flex align-items-center text-gray-400 text-hover-primary me-5 mb-2">
+                  <i class="bi bi-sliders me-1"></i> {% trans 'Sign Out' %}
                 </a>
               </div>
             </div>
@@ -130,50 +136,50 @@
           <div class="card card-bordered mb-5 ">
             <div class="card-body p-4">
               <div class="row">
-            <!--begin::Col-->
-            <div class="col">
-                <div class="card card-dashed flex-center min-w-175px my-3 p-6">
+                <!--begin::Col-->
+                <div class="col">
+                  <div class="card card-dashed flex-center min-w-175px my-3 p-6">
                     <span class="fs-4 fw-bold text-info pb-1 px-2">Net Earnings</span>
                     <span class="fs-lg-2tx fw-bolder d-flex justify-content-center">
                         $<span data-kt-countup="true" data-kt-countup-value="63,240.00" class="counted">63,240</span>
                     </span>
+                  </div>
                 </div>
-            </div>
-            <!--end::Col-->
+                <!--end::Col-->
 
-            <!--begin::Col-->
-            <div class="col">
-                <div class="card card-dashed flex-center min-w-175px my-3 p-6">
+                <!--begin::Col-->
+                <div class="col">
+                  <div class="card card-dashed flex-center min-w-175px my-3 p-6">
                     <span class="fs-4 fw-bold text-success pb-1 px-2">Balance</span>
                     <span class="fs-lg-2tx fw-bolder d-flex justify-content-center">
                         $<span data-kt-countup="true" data-kt-countup-value="8,530.00" class="counted">8,530</span>
                     </span>
+                  </div>
                 </div>
-            </div>
-            <!--end::Col-->
+                <!--end::Col-->
 
-            <!--begin::Col-->
-            <div class="col">
-                <div class="card card-dashed flex-center min-w-175px my-3 p-6">
+                <!--begin::Col-->
+                <div class="col">
+                  <div class="card card-dashed flex-center min-w-175px my-3 p-6">
                     <span class="fs-4 fw-bold text-danger pb-1 px-2">Avg Deal Size</span>
                     <span class="fs-lg-2tx fw-bolder d-flex justify-content-center">
                         $<span data-kt-countup="true" data-kt-countup-value="2,600" class="counted">2,600</span>
                     </span>
+                  </div>
                 </div>
-            </div>
-            <!--end::Col-->
+                <!--end::Col-->
 
-            <!--begin::Col-->
-            <div class="col">
-                <div class="card card-dashed flex-center min-w-175px my-3 p-6">
+                <!--begin::Col-->
+                <div class="col">
+                  <div class="card card-dashed flex-center min-w-175px my-3 p-6">
                     <span class="fs-4 fw-bold text-primary pb-1 px-2">Referral Signups</span>
                     <span class="fs-lg-2tx fw-bolder d-flex justify-content-center">
                         $<span data-kt-countup="true" data-kt-countup-value="783&quot;" class="counted">783</span>
                     </span>
+                  </div>
                 </div>
-            </div>
-            <!--end::Col-->
-        </div>
+                <!--end::Col-->
+              </div>
             </div>
             <div class="row card-body p-4">
               <div class="col-md-6">
@@ -195,12 +201,6 @@
     </div>
     <!--end::Body-->
     <!--begin::Footer-->
-    <div class="card-footer py-5 text-center" id="kt_user_drawer_footer">
-      <a href="{% url 'account_logout' %}" class="btn btn-lg explore-btn-secondary w-100">
-        <span class="fw-bolder ms-1">{% trans 'Sign Out' %}</span></a>
-      <a href="{% url 'users:detail' user.username %}" class="btn btn-lg explore-btn-secondary w-100">
-        <span class="fw-bolder ms-1">{% trans Profile %}</span></a>
-    </div>
     <!--end::Footer-->
   </div>
   <!--end::Card-->
