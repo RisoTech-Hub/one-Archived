@@ -91,7 +91,8 @@ class DefaultMenu(Menu):
                 _("Master Data"),
                 models=(
                     "one.masterdata.*",
-                    "one.users.*" "django.contrib.*",
+                    "one.users.*",
+                    "django.contrib.*",
                 ),
                 is_short=True,
             ),
