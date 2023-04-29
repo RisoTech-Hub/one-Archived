@@ -5,7 +5,7 @@ from one.supplier.models import Supplier
 
 
 class SupplierProfile(Model):
-    """Model definition for SupplierProfile."""
+    """Model definition for Supplier Profile."""
 
     supplier = OneToOneField(Supplier, verbose_name=_("Supplier Profile"), on_delete=CASCADE)
 
