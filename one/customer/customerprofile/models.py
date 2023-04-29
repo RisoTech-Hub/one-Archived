@@ -8,3 +8,8 @@ class CustomerProfile(Model):
     """Model definition for SupplierProfile."""
 
     supplier = OneToOneField(Customer, verbose_name=_("Customer Profile"), on_delete=CASCADE)
+
+    class Meta:
+        verbose_name = _("Customer Profile")
+        verbose_name_plural = _("Customer Profiles")
+        db_table = "customer_profile"
