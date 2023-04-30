@@ -102,6 +102,7 @@ LOCAL_APPS = [
     "one.masterdata.sku",
     "one.masterdata.level",
     "one.masterdata.uomconversion",
+    "one.masterdata.category",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
