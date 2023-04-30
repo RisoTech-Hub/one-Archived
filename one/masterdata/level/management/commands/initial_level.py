@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 
-from one.supplier.level.models import Level
+from one.masterdata.level.models import Level
 
 
 class Command(BaseCommand):

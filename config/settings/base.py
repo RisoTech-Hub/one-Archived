@@ -94,13 +94,13 @@ LOCAL_APPS = [
     "one.users",
     "one.supplier",
     "one.supplier.supplierprofile",
-    "one.supplier.level",
     "one.customer",
     "one.customer.customerprofile",
-    "one.customer.rank",
+    "one.masterdata.rank",
     "one.masterdata.uom",
     "one.masterdata.package",
     "one.masterdata.sku",
+    "one.masterdata.level",
     "one.masterdata.uomconversion",
     # Your stuff: custom apps go here
 ]

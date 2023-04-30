@@ -8,7 +8,7 @@ class Level(MasterModel, TimeStampedModel, UserStampedModel):
     class Meta:
         verbose_name = _("Level")
         verbose_name_plural = _("Levels")
-        db_table = "supplier_level"
+        db_table = "master_data_supplier_level"
 
     def __str__(self):
         return f"{self.name}"

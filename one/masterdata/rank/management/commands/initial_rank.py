@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 
-from one.customer.rank.models import Rank
+from one.masterdata.rank.models import Rank
 
 
 class Command(BaseCommand):

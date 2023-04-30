@@ -2,13 +2,13 @@ from django.apps import AppConfig
 from django.utils.translation import gettext_lazy as _
 
 
-class LevelConfig(AppConfig):
+class RankConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
-    name = "one.supplier.level"
-    verbose_name = _("Supplier Level")
+    name = "one.masterdata.rank"
+    verbose_name = _("Rank Level")
 
     def ready(self):
         try:
-            import one.supplier.level.signals  # noqa: F401
+            import one.masterdata.rank.signals  # noqa: F401
         except ImportError:
             pass
