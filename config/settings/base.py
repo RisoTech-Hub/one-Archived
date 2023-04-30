@@ -103,6 +103,7 @@ LOCAL_APPS = [
     "one.masterdata.level",
     "one.masterdata.uomconversion",
     "one.masterdata.category",
+    "one.masterdata.pricelist",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
