@@ -9,7 +9,7 @@ from one.masterdata.uom.models import UOM
 class SKU(MasterModel, TimeStampedModel, UserStampedModel):
     base_uom = ForeignKey(UOM, verbose_name=_("Base UOM"), on_delete=CASCADE, related_name="master_data_skus")
     point = FloatField(_("Point"), default=1)
-    markup = FloatField(_("Markup"), default=0)
+    markup = FloatField(_("Markup"), default=1)
 
     class Meta:
         verbose_name = _("SKU")
