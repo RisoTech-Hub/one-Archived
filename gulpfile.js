@@ -104,7 +104,7 @@ function asyncRunServer() {
   const cmd = spawn(
     'gunicorn',
     ['config.asgi', '-k', 'uvicorn.workers.UvicornWorker', '--reload'],
-    { stdio: 'inherit' },
+    {stdio: 'inherit'},
   );
   cmd.on('close', function (code) {
     console.log('gunicorn exited with code ' + code);
