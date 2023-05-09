@@ -18,7 +18,6 @@ from django.db.models import (
     ImageField,
     IntegerField,
     ManyToManyField,
-    NullBooleanField,
     OneToOneField,
     PositiveIntegerField,
     PositiveSmallIntegerField,
