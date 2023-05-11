@@ -724,10 +724,18 @@
   -ms-touch-action: manipulation;
   touch-action: manipulation;
   background: #fff;
-  -webkit-box-shadow: 1px 0 0 #e6e6e6, -1px 0 0 #e6e6e6, 0 1px 0 #e6e6e6,
-    0 -1px 0 #e6e6e6, 0 3px 13px rgba(0, 0, 0, 0.08);
-  box-shadow: 1px 0 0 #e6e6e6, -1px 0 0 #e6e6e6, 0 1px 0 #e6e6e6,
-    0 -1px 0 #e6e6e6, 0 3px 13px rgba(0, 0, 0, 0.08);
+  -webkit-box-shadow:
+    1px 0 0 #e6e6e6,
+    -1px 0 0 #e6e6e6,
+    0 1px 0 #e6e6e6,
+    0 -1px 0 #e6e6e6,
+    0 3px 13px rgba(0, 0, 0, 0.08);
+  box-shadow:
+    1px 0 0 #e6e6e6,
+    -1px 0 0 #e6e6e6,
+    0 1px 0 #e6e6e6,
+    0 -1px 0 #e6e6e6,
+    0 3px 13px rgba(0, 0, 0, 0.08);
 }
 .flatpickr-calendar.inline,
 .flatpickr-calendar.open {
@@ -767,8 +775,12 @@
   .flatpickr-days
   .dayContainer:nth-child(n + 2)
   .flatpickr-day.inRange:nth-child(7n + 1) {
-  -webkit-box-shadow: -2px 0 0 #e6e6e6, 5px 0 0 #e6e6e6;
-  box-shadow: -2px 0 0 #e6e6e6, 5px 0 0 #e6e6e6;
+  -webkit-box-shadow:
+    -2px 0 0 #e6e6e6,
+    5px 0 0 #e6e6e6;
+  box-shadow:
+    -2px 0 0 #e6e6e6,
+    5px 0 0 #e6e6e6;
 }
 .flatpickr-calendar .hasTime .dayContainer,
 .flatpickr-calendar .hasWeeks .dayContainer {
@@ -1281,8 +1293,12 @@ span.flatpickr-weekday {
 }
 .flatpickr-day.inRange {
   border-radius: 0;
-  -webkit-box-shadow: -5px 0 0 #e6e6e6, 5px 0 0 #e6e6e6;
-  box-shadow: -5px 0 0 #e6e6e6, 5px 0 0 #e6e6e6;
+  -webkit-box-shadow:
+    -5px 0 0 #e6e6e6,
+    5px 0 0 #e6e6e6;
+  box-shadow:
+    -5px 0 0 #e6e6e6,
+    5px 0 0 #e6e6e6;
 }
 .flatpickr-day.flatpickr-disabled,
 .flatpickr-day.flatpickr-disabled:hover,
@@ -1303,8 +1319,12 @@ span.flatpickr-weekday {
 }
 .flatpickr-day.week.selected {
   border-radius: 0;
-  -webkit-box-shadow: -5px 0 0 #569ff7, 5px 0 0 #569ff7;
-  box-shadow: -5px 0 0 #569ff7, 5px 0 0 #569ff7;
+  -webkit-box-shadow:
+    -5px 0 0 #569ff7,
+    5px 0 0 #569ff7;
+  box-shadow:
+    -5px 0 0 #569ff7,
+    5px 0 0 #569ff7;
 }
 .flatpickr-day.hidden {
   visibility: hidden;
@@ -1884,9 +1904,15 @@ span.flatpickr-weekday {
 .tns-gallery > .tns-item {
   position: absolute;
   left: -100%;
-  -webkit-transition: transform 0s, opacity 0s;
-  -moz-transition: transform 0s, opacity 0s;
-  transition: transform 0s, opacity 0s;
+  -webkit-transition:
+    transform 0s,
+    opacity 0s;
+  -moz-transition:
+    transform 0s,
+    opacity 0s;
+  transition:
+    transform 0s,
+    opacity 0s;
 }
 .tns-gallery > .tns-slide-active {
   position: relative;
@@ -2070,7 +2096,9 @@ span.flatpickr-weekday {
   background: #fafafa;
   border-radius: 4px;
   border: 1px solid #d3d3d3;
-  box-shadow: inset 0 1px 1px #f0f0f0, 0 3px 6px -5px #bbb;
+  box-shadow:
+    inset 0 1px 1px #f0f0f0,
+    0 3px 6px -5px #bbb;
 }
 .noUi-connects {
   border-radius: 3px;
@@ -2089,10 +2117,16 @@ span.flatpickr-weekday {
   border-radius: 3px;
   background: #fff;
   cursor: default;
-  box-shadow: inset 0 0 1px #fff, inset 0 1px 7px #ebebeb, 0 3px 6px -3px #bbb;
+  box-shadow:
+    inset 0 0 1px #fff,
+    inset 0 1px 7px #ebebeb,
+    0 3px 6px -3px #bbb;
 }
 .noUi-active {
-  box-shadow: inset 0 0 1px #fff, inset 0 1px 7px #ddd, 0 3px 6px -3px #bbb;
+  box-shadow:
+    inset 0 0 1px #fff,
+    inset 0 1px 7px #ddd,
+    0 3px 6px -3px #bbb;
 }
 .noUi-handle:after,
 .noUi-handle:before {
@@ -3076,10 +3110,16 @@ span.flatpickr-weekday {
   color: #93f;
 }
 .ql-editor .ql-font-serif {
-  font-family: Georgia, Times New Roman, serif;
+  font-family:
+    Georgia,
+    Times New Roman,
+    serif;
 }
 .ql-editor .ql-font-monospace {
-  font-family: Monaco, Courier New, monospace;
+  font-family:
+    Monaco,
+    Courier New,
+    monospace;
 }
 .ql-editor .ql-size-small {
   font-size: 0.75em;
@@ -3535,10 +3575,16 @@ span.flatpickr-weekday {
   content: 'Monospace';
 }
 .ql-snow .ql-picker.ql-font .ql-picker-item[data-value='serif']::before {
-  font-family: Georgia, Times New Roman, serif;
+  font-family:
+    Georgia,
+    Times New Roman,
+    serif;
 }
 .ql-snow .ql-picker.ql-font .ql-picker-item[data-value='monospace']::before {
-  font-family: Monaco, Courier New, monospace;
+  font-family:
+    Monaco,
+    Courier New,
+    monospace;
 }
 .ql-snow .ql-picker.ql-size {
   width: 98px;
@@ -3818,7 +3864,9 @@ span.flatpickr-weekday {
   max-width: auto;
   min-width: var(--tag--min-width, 1ch);
   max-width: var(--tag--max-width, auto);
-  transition: 0.8s ease, 0.1s color;
+  transition:
+    0.8s ease,
+    0.1s color;
 }
 .tagify__tag > div > [contenteditable] {
   outline: 0;
@@ -3963,7 +4011,9 @@ span.flatpickr-weekday {
 }
 .tagify__tag__removeBtn::after {
   content: '×';
-  transition: 0.3s, color 0s;
+  transition:
+    0.3s,
+    color 0s;
 }
 .tagify__tag__removeBtn:hover {
   color: #fff;
@@ -5055,7 +5105,9 @@ button.toast-close-button {
   font-size: 1em;
 }
 .swal2-popup.swal2-toast .swal2-styled:focus {
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px rgba(100, 150, 200, 0.5);
+  box-shadow:
+    0 0 0 1px #fff,
+    0 0 0 3px rgba(100, 150, 200, 0.5);
 }
 .swal2-popup.swal2-toast .swal2-success {
   border-color: #a5dc86;
@@ -5459,7 +5511,9 @@ button.toast-close-button {
 .swal2-textarea {
   box-sizing: border-box;
   width: 100%;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
   border: 1px solid #d9d9d9;
   border-radius: 0.1875em;
   background: inherit;
@@ -10750,8 +10804,8 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-right {
   font-weight: 400;
   font-display: auto;
   src: url(fonts/line-awesome/la-brands-400.eot);
-  src: url(fonts/line-awesome/la-brands-400.eot?#iefix)
-      format('embedded-opentype'),
+  src:
+    url(fonts/line-awesome/la-brands-400.eot?#iefix) format('embedded-opentype'),
     url(fonts/line-awesome/la-brands-400.woff2) format('woff2'),
     url(fonts/line-awesome/la-brands-400.woff) format('woff'),
     url(fonts/line-awesome/la-brands-400.ttf) format('truetype'),
@@ -10766,7 +10820,8 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-right {
   font-weight: 400;
   font-display: auto;
   src: url(fonts/line-awesome/la-regular-400.eot);
-  src: url(fonts/line-awesome/la-regular-400.eot?#iefix)
+  src:
+    url(fonts/line-awesome/la-regular-400.eot?#iefix)
       format('embedded-opentype'),
     url(fonts/line-awesome/la-regular-400.woff2) format('woff2'),
     url(fonts/line-awesome/la-regular-400.woff) format('woff'),
@@ -10783,8 +10838,8 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-right {
   font-weight: 900;
   font-display: auto;
   src: url(fonts/line-awesome/la-solid-900.eot);
-  src: url(fonts/line-awesome/la-solid-900.eot?#iefix)
-      format('embedded-opentype'),
+  src:
+    url(fonts/line-awesome/la-solid-900.eot?#iefix) format('embedded-opentype'),
     url(fonts/line-awesome/la-solid-900.woff2) format('woff2'),
     url(fonts/line-awesome/la-solid-900.woff) format('woff'),
     url(fonts/line-awesome/la-solid-900.ttf) format('truetype'),
@@ -12960,7 +13015,8 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-right {
 }
 @font-face {
   font-family: bootstrap-icons;
-  src: url(fonts/bootstrap-icons/bootstrap-icons.woff2?856008caa5eb66df68595e734e59580d)
+  src:
+    url(fonts/bootstrap-icons/bootstrap-icons.woff2?856008caa5eb66df68595e734e59580d)
       format('woff2'),
     url(fonts/bootstrap-icons/bootstrap-icons.woff?856008caa5eb66df68595e734e59580d)
       format('woff');
@@ -21678,8 +21734,8 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-right {
   font-weight: 400;
   font-display: block;
   src: url(fonts/@fortawesome/fa-brands-400.eot);
-  src: url(fonts/@fortawesome/fa-brands-400.eot?#iefix)
-      format('embedded-opentype'),
+  src:
+    url(fonts/@fortawesome/fa-brands-400.eot?#iefix) format('embedded-opentype'),
     url(fonts/@fortawesome/fa-brands-400.woff2) format('woff2'),
     url(fonts/@fortawesome/fa-brands-400.woff) format('woff'),
     url(fonts/@fortawesome/fa-brands-400.ttf) format('truetype'),
@@ -21694,7 +21750,8 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-right {
   font-weight: 400;
   font-display: block;
   src: url(fonts/@fortawesome/fa-regular-400.eot);
-  src: url(fonts/@fortawesome/fa-regular-400.eot?#iefix)
+  src:
+    url(fonts/@fortawesome/fa-regular-400.eot?#iefix)
       format('embedded-opentype'),
     url(fonts/@fortawesome/fa-regular-400.woff2) format('woff2'),
     url(fonts/@fortawesome/fa-regular-400.woff) format('woff'),
@@ -21711,8 +21768,8 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-right {
   font-weight: 900;
   font-display: block;
   src: url(fonts/@fortawesome/fa-solid-900.eot);
-  src: url(fonts/@fortawesome/fa-solid-900.eot?#iefix)
-      format('embedded-opentype'),
+  src:
+    url(fonts/@fortawesome/fa-solid-900.eot?#iefix) format('embedded-opentype'),
     url(fonts/@fortawesome/fa-solid-900.woff2) format('woff2'),
     url(fonts/@fortawesome/fa-solid-900.woff) format('woff'),
     url(fonts/@fortawesome/fa-solid-900.ttf) format('truetype'),
@@ -21923,7 +21980,9 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-right {
   background-color: transparent;
   opacity: 0.3;
   border: 0;
-  transition: color 0.2s ease, background-color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
   top: 50%;
 }
 .select2-container--bootstrap5
@@ -21940,7 +21999,9 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-right {
   .select2-selection__choice
   .select2-selection__choice__remove:hover {
   opacity: 1;
-  transition: color 0.2s ease, background-color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
 }
 .select2-container--bootstrap5
   .select2-selection--multiple
@@ -22095,7 +22156,9 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-right {
 }
 .select2-container--bootstrap5 .select2-dropdown .select2-results__option {
   color: #5e6278;
-  transition: color 0.2s ease, background-color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
   padding: 0.75rem 1.25rem;
   margin: 0 0;
 }
@@ -22104,14 +22167,18 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-right {
   .select2-results__option.select2-results__option--highlighted {
   background-color: #f1faff;
   color: #00b2ff;
-  transition: color 0.2s ease, background-color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
 }
 .select2-container--bootstrap5
   .select2-dropdown
   .select2-results__option.select2-results__option--selected {
   background-color: #00b2ff;
   color: #fff;
-  transition: color 0.2s ease, background-color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
 }
 .select2-container--bootstrap5
   .select2-dropdown
