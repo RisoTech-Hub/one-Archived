@@ -129,11 +129,11 @@ class AppListElementMixin:
         Returns the admin change url.
         """
         app_label = model._meta.app_label  # noqa
-        return reverse("{}:{}_{}_changelist".format(get_admin_site_name(context), app_label, model.__name__.lower()))
+        return reverse(f"{get_admin_site_name(context)}:{app_label}_{model.__name__.lower()}_changelist")
 
     def _get_admin_add_url(self, model, context):  # noqa
         """
         Returns the admin add url.
         """
         app_label = model._meta.app_label  # noqa
-        return reverse("{}:{}_{}_add".format(get_admin_site_name(context), app_label, model.__name__.lower()))
+        return reverse(f"{get_admin_site_name(context)}:{app_label}_{model.__name__.lower()}_add")
