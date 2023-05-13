@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block breadcrumb %}
+{% endblock breadcrumb %}
+
+{% block w-content %}
+  <!--begin::Content-->
+  <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+    <!--begin::Container-->
+    <div class="container-fluid" id="kt_content_container">
+      {% block content %}
+
+      {% endblock content %}
+    </div>
+    <!--end::Container-->
+  </div>
+  <!--end::Content-->
+{% endblock w-content %}

@@ -63,7 +63,7 @@
 <!--end::Head-->
 <!--begin::Body-->
 <body
-  class="header-fixed header-tablet-and-mobile-fixed aside-fixed {% if secondary_menu %}aside-secondary-enabled{% else %}aside-secondary-disabled{% endif %}"
+  class="header-fixed header-tablet-and-mobile-fixed aside-fixed {% block secondary-menu-cls %}aside-secondary-disabled{% endblock secondary-menu-cls %}"
   {% if secondary_menu %}data-kt-aside-minimize="on"{% endif %} id="kt_body">
 <!--begin::Main-->
 
@@ -201,6 +201,7 @@
       <!--begin::Header-->
       {% include 'partials/header.html' %}
       <!--end::Header-->
+    {% block w-content %}
       <!--begin::Content-->
       <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
         <!--begin::Container-->
@@ -211,7 +212,7 @@
         <!--end::Container-->
       </div>
       <!--end::Content-->
-
+      {% endblock w-content %}
       <!--begin::Footer-->
       {% include 'partials/footer.html' %}
       <!--end::Footer-->
