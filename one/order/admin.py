@@ -11,7 +11,7 @@ class OrderLineInline(TabularInline):
 
 
 @admin.register(Order)
-class PriceListAdmin(ModelAdmin):
+class OrderAdmin(ModelAdmin):
     inlines = (OrderLineInline,)
 
     readonly_fields = ("created", "modified", "creator", "last_modified_by")
