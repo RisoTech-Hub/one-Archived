@@ -102,6 +102,7 @@ LOCAL_APPS = [
     "one.masterdata.pricelist",
     "one.supplier",
     "one.supplier.supplierprofile",
+    "one.supplier.supplierlevel",
     "one.customer",
     "one.customer.customerprofile",
     # Your stuff: custom apps go here
