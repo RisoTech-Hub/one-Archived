@@ -73,9 +73,7 @@
         <!--begin::Notifications-->
         {#        {% include 'partials/header/notifications.html' %}#}
         <!--end::Notifications-->
-        <!--begin::User-->
-        {% include 'partials/header/user.html' %}
-        <!--end::User -->
+
       {% else %}
         {% if ACCOUNT_ALLOW_REGISTRATION %}
           {# URL provided by django-allauth/account/urls.py #}

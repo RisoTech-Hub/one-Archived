@@ -93,6 +93,13 @@
 
           </div>
           <!--end::Nav-->
+          <div class="aside-footer d-flex flex-column align-items-center flex-column-auto">
+            <div class="mb-7">
+              <!--begin::User-->
+              {% include 'partials/header/user.html' %}
+              <!--end::User -->
+            </div>
+          </div>
         </div>
         <!--end::Primary-->
       {% endblock primary-navbar %}
@@ -201,17 +208,17 @@
       <!--begin::Header-->
       {% include 'partials/header.html' %}
       <!--end::Header-->
-    {% block w-content %}
-      <!--begin::Content-->
-      <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-        <!--begin::Container-->
-        <div class="container" id="kt_content_container">
-          {% block content %}
-          {% endblock content %}
+      {% block w-content %}
+        <!--begin::Content-->
+        <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+          <!--begin::Container-->
+          <div class="container" id="kt_content_container">
+            {% block content %}
+            {% endblock content %}
+          </div>
+          <!--end::Container-->
         </div>
-        <!--end::Container-->
-      </div>
-      <!--end::Content-->
+        <!--end::Content-->
       {% endblock w-content %}
       <!--begin::Footer-->
       {% include 'partials/footer.html' %}
