@@ -64,7 +64,7 @@ def format_field_value(field, value):
     elif isinstance(field, (AutoField, BigAutoField)):
         return str(value)
     elif isinstance(field, (OneToOneField, ForeignKey)):
-        return value.pk if value else ""
+        return field.related_model.objects.filter(pk=value).first().__str__() if value else ""
     elif isinstance(field, ManyToManyField):
         return list(value.values_list("pk", flat=True)) if value else ""
     else:

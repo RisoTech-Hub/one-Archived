@@ -65,6 +65,7 @@ services:
     <<: *django
     image: one_production_flower
     command: /start-flower
+
   nginx:
     build:
       context: .

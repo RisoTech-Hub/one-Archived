@@ -87,9 +87,30 @@ class DefaultMenu(Menu):
 
     def init_with_context(self, context):
         self.children += [
-            items.ModelList(_("CMS"), models=("one.cms.*",), is_short=True),
+            items.ModelList(
+                _("Master Data"),
+                models=("one.masterdata.*",),
+                is_short=True,
+            ),
+            items.ModelList(
+                _("Platform Master Data"),
+                models=(
+                    "one.users.*",
+                    "django.contrib.*",
+                ),
+                exclude=("django.contrib.sites.*",),
+                is_short=True,
+            ),
+            items.ModelList(_("Customers"), models=("one.customer.*",), is_short=True),
+            items.ModelList(_("Suppliers"), models=("one.supplier.*",), is_short=True),
+            # items.AppList(
+            #     _("Administration"),
+            #     exclude=(
+            #         "django.contrib.*",
+            #         'one.masterdata.*',
+            #         "one.customer.*",
+            #         "one.supplier.*",
+            #         "one.users.*",
+            #     )
+            # ),
         ]
-        if context["request"].user.is_superuser:
-            self.children += [
-                items.AppList(_("Administration"), exclude=("constance.*",)),
-            ]

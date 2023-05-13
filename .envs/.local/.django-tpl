@@ -2,6 +2,7 @@
 # ------------------------------------------------------------------------------
 USE_DOCKER=yes
 IPYTHONDIR=/app/.ipython
+
 # Redis
 # ------------------------------------------------------------------------------
 REDIS_URL=redis://localhost:6379/0
@@ -12,5 +13,6 @@ CELERY_BROKER_URL=redis://localhost:6379/0
 CELERY_NAMESPACE=CELERY_LOCAL
 
 # Flower
+# ------------------------------------------------------------------------------
 CELERY_FLOWER_USER=LhETjZFERtDOJHaigFptNEXozwVUUpSe
 CELERY_FLOWER_PASSWORD=NJngPFV7YcLOoBEM5pf8giiOpMjXMeEIKoSWJ7Jz1AgAPJUKyaEetyw6MQa7ihcQ
