@@ -1,6 +1,8 @@
 from django.contrib import admin
-from django.contrib.admin import TabularInline, ModelAdmin
+from django.contrib.admin import TabularInline
 from django.utils.translation import gettext_lazy as _
+
+from one.libraries.utils.admin import ModelAdmin
 from one.order.models import Order, OrderLine
 
 
