@@ -87,6 +87,9 @@ class DefaultMenu(Menu):
 
     def init_with_context(self, context):
         self.children += [
+            items.ModelList(_("Orders"), models=("one.order.*",), is_short=True),
+            items.ModelList(_("Customers"), models=("one.customer.*",), is_short=True),
+            items.ModelList(_("Suppliers"), models=("one.supplier.*",), is_short=True),
             items.ModelList(
                 _("Master Data"),
                 models=("one.masterdata.*",),
@@ -101,8 +104,6 @@ class DefaultMenu(Menu):
                 exclude=("django.contrib.sites.*",),
                 is_short=True,
             ),
-            items.ModelList(_("Customers"), models=("one.customer.*",), is_short=True),
-            items.ModelList(_("Suppliers"), models=("one.supplier.*",), is_short=True),
             # items.AppList(
             #     _("Administration"),
             #     exclude=(
