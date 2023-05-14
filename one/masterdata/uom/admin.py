@@ -11,3 +11,6 @@ class UOMAdmin(MasterModelAdmin):
         fieldsets = super().get_fieldsets(request, obj)
         fieldsets[0][1]["fields"] += ("base_uom",)
         return fieldsets
+
+    def get_list_display(self, request):
+        return self.list_display + ("code", "base_uom",)
