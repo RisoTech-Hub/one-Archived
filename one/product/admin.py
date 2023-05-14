@@ -9,12 +9,16 @@ from one.product.models import Product
 class ProductAdmin(ModelAdmin):
     readonly_fields = ("created", "modified", "creator", "last_modified_by")
 
-    # def get_fieldsets(self, request, obj=None):
-    #     if obj:
-    #         return (
-    #             (None, {"fields": ("customer",)}),
-    #             (_("User Stamped"), {"fields": ("creator", "last_modified_by")}),
-    #             (_("Time Stamped"), {"fields": ("created", "modified")}),
-    #         )
-    #     else:
-    #         return ((None, {"fields": ("customer",)}),)
+    def get_fieldsets(self, request, obj=None):
+        if obj:
+            return (
+                (None, {"fields": ("supplier", "code")}),
+                (_("Product"), {"fields": ("category", "sku", "oum", "quantity")}),
+                (_("User Stamped"), {"fields": ("creator", "last_modified_by")}),
+                (_("Time Stamped"), {"fields": ("created", "modified")}),
+            )
+        else:
+            return (
+                (None, {"fields": ("supplier", "code")}),
+                (_("Product"), {"fields": ("category", "sku", "oum", "quantity")}),
+            )
