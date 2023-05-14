@@ -5,7 +5,7 @@ from one.masterdata.uom.models import UOM
 
 
 class Command(BaseCommand):
-    help = "Create Package objects"
+    help = "Create SKU objects"
     sku_data = {
         "CREATIVE": [
             {"code": "SKU_POST_BLOG", "name": "Blog Post", "uom": "UOM_WORD", "markup": 1},
