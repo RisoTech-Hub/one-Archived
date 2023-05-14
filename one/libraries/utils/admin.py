@@ -18,7 +18,7 @@ class ModelAdmin(BaseModelAdmin):
     def save_formset(self, request, form, formset, change):
         super().save_formset(request, form, formset, change)
         for _form in formset:
-            if not _form.cleaned_data.get("DELETE", False):
+            if not _form.cleaned_data.get("DELETE", False) and hasattr(_form.instance, "creator"):
                 instance = _form.instance
                 if instance.creator is None:
                     instance.creator = request.user
