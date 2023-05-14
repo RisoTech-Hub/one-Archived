@@ -19,7 +19,7 @@ class UOMConversion(MasterModel, TimeStampedModel, UserStampedModel):
     child_uom = ForeignKey(UOM, verbose_name=_("Child UOM"), on_delete=CASCADE, related_name="as_child_conversions")
 
     ratio = PositiveBigIntegerField(_("Ratio"), default=0)
-    base_uom_ration = PositiveBigIntegerField(_("Base UOM Ratio"), default=0)
+    base_uom_ratio = PositiveBigIntegerField(_("Base UOM Ratio"), default=0)
 
     class Meta:
         verbose_name = _("UOM Conversion")
