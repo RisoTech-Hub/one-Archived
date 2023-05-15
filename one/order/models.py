@@ -1,5 +1,5 @@
+from django.db.models import CASCADE, ForeignKey, IntegerField, Model
 from django.utils.translation import gettext_lazy as _
-from django.db.models import CASCADE, ForeignKey, Model, IntegerField
 from model_utils.models import TimeStampedModel
 
 from one.libraries.utils.models import UserStampedModel

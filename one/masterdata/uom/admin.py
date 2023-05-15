@@ -14,4 +14,7 @@ class UOMAdmin(MasterModelAdmin):
 
     def get_list_display(self, request):
         list_display = super().get_list_display(request)
-        return list_display + ("code", "base_uom",)
+        return list_display + (
+            "code",
+            "base_uom",
+        )
