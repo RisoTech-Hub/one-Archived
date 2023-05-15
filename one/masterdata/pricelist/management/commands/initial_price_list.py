@@ -14,5 +14,6 @@ class Command(BaseCommand):
                 code=f"BASE_PRICE_{item.code.split('_')[-1]}", name=f"Base Price for {item.name}", level=item
             )
             for sku in SKU.objects.all():
-                price[0].price_line.update_or_create(sku=sku, base_price=[0.0, 0.0])
+                for uom in sku.conversions.all():
+                    price[0].price_line.update_or_create(sku=sku, uom=uom.parent_uom, defaults={"price": 0.00})
         self.stdout.write(self.style.SUCCESS("Successfully created Price List objects."))

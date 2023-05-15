@@ -98,7 +98,7 @@ LOCAL_APPS = [
     "one.masterdata.uom",
     "one.masterdata.sku",
     "one.masterdata.uomconversion",
-    # "one.masterdata.pricelist",
+    "one.masterdata.pricelist",
     # "one.masterdata.package",
     # "one.supplier",
     # "one.supplier.supplierprofile",

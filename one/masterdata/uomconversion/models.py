@@ -27,4 +27,4 @@ class UOMConversion(MasterModel, TimeStampedModel, UserStampedModel):
         db_table = "master_data_uom_conversion"
 
     def __str__(self):
-        return _("UOM Conversion for SKU").format(self.sku)
+        return "{}: {} = {} x {}".format(self.sku, self.parent_uom, self.ratio, self.child_uom)
