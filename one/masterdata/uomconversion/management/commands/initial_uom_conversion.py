@@ -11,12 +11,14 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         for sku in SKU.objects.all():
             for uom in UOM.objects.filter(base_uom=sku.base_uom):
-                UOMConversion.objects.create(
+                UOMConversion.objects.update_or_create(
                     sku=sku,
                     parent_uom=uom,
                     child_uom=sku.base_uom,
-                    ratio=1,
-                    base_uom_ratio=1,
+                    defaults={
+                        "ratio": 1,
+                        "base_uom_ratio": 1
+                    }
                 )
 
         self.stdout.write(self.style.SUCCESS("Successfully created UOM Conversion objects."))
