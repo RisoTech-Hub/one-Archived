@@ -27,7 +27,7 @@ class Command(BaseCommand):
             # {"code": "UOM_PACK_5_POST_901_1000", "name": "5 Bài 901 - 1000 chữ", "base_uom": "UOM_POST_901_1000"},
             # {"code": "UOM_PACK_5_POST_1001_3000", "name": "5 Bài 1001 - 3000 chữ", "base_uom": "UOM_POST_1001_3000"},
             # {"code": "UOM_PACK_5_POST_UPPER_3000", "name": "5 Bài trên 3000 chữ", "base_uom": "UOM_POST_UPPER_3000"},
-            #
+
             # {"code": "UOM_PACK_10_POST_LOWER_300", "name": "10 Bài dưới 300 chữ", "base_uom": "UOM_POST_LOWER_300"},
             # {"code": "UOM_PACK_10_POST_301_500", "name": "10 Bài 301 - 500 chữ", "base_uom": "UOM_POST_301_500"},
             # {"code": "UOM_PACK_10_POST_501_700", "name": "10 Bài 501 - 700 chữ", "base_uom": "UOM_POST_501_700"},

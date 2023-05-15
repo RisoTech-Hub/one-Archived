@@ -13,4 +13,5 @@ class UOMAdmin(MasterModelAdmin):
         return fieldsets
 
     def get_list_display(self, request):
-        return self.list_display + ("code", "base_uom",)
+        list_display = super().get_list_display(request)
+        return list_display + ("code", "base_uom",)
