@@ -1,4 +1,4 @@
-from django.db.models import CharField, ForeignKey, CASCADE, IntegerField, FloatField
+from django.db.models import CASCADE, CharField, FloatField, ForeignKey, IntegerField
 from django.utils.translation import gettext_lazy as _
 from model_utils.models import TimeStampedModel
 

@@ -1,4 +1,4 @@
-from django.db.models import CASCADE, Model, OneToOneField, ManyToManyField
+from django.db.models import CASCADE, ManyToManyField, Model, OneToOneField
 from django.utils.translation import gettext_lazy as _
 
 from one.masterdata.category.models import Category
