@@ -19,7 +19,7 @@ class UOMConversion(MasterModel, TimeStampedModel, UserStampedModel):
     child_uom = ForeignKey(UOM, verbose_name=_("Child UOM"), on_delete=CASCADE, related_name="as_child_conversions")
 
     ratio = PositiveBigIntegerField(_("Ratio"), default=0)
-    base_uom_ration = PositiveBigIntegerField(_("Base UOM Ratio"), default=0)
+    base_uom_ratio = PositiveBigIntegerField(_("Base UOM Ratio"), default=0)
 
     class Meta:
         verbose_name = _("UOM Conversion")
@@ -27,4 +27,4 @@ class UOMConversion(MasterModel, TimeStampedModel, UserStampedModel):
         db_table = "master_data_uom_conversion"
 
     def __str__(self):
-        return _("UOM Conversion for SKU").format(self.sku)
+        return "{}: {} = {} x {}".format(self.sku, self.parent_uom, self.ratio, self.child_uom)
