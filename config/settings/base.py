@@ -105,8 +105,8 @@ LOCAL_APPS = [
     "one.supplier.supplierlevel",
     "one.customer",
     "one.customer.customerprofile",
-    # "one.order",
-    # "one.product",
+    "one.order",
+    "one.product",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
