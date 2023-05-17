@@ -100,6 +100,7 @@ LOCAL_APPS = [
     "one.masterdata.uomconversion",
     "one.masterdata.pricelist",
     "one.masterdata.package",
+    "one.masterdata.extrafeetype",
     "one.supplier",
     "one.supplier.supplierprofile",
     "one.supplier.supplierlevel",
