@@ -1,4 +1,4 @@
-from django.db.models import CASCADE, ForeignKey, Model, DecimalField
+from django.db.models import CASCADE, DecimalField, ForeignKey, Model
 from django.utils.translation import gettext_lazy as _
 from model_utils.models import TimeStampedModel
 

@@ -18,7 +18,6 @@ from django.db.models import (
     ImageField,
     IntegerField,
     ManyToManyField,
-    NullBooleanField,
     OneToOneField,
     PositiveIntegerField,
     PositiveSmallIntegerField,
@@ -37,7 +36,7 @@ def get_field_diff(old_value, new_value):
 
 
 def format_field_value(field, value):
-    if isinstance(field, (BooleanField, NullBooleanField)):
+    if isinstance(field, BooleanField):
         return "No" if not value else "Yes"
     elif isinstance(
         field,

@@ -12,13 +12,7 @@ class Command(BaseCommand):
         for sku in SKU.objects.all():
             for uom in UOM.objects.filter(base_uom=sku.base_uom):
                 UOMConversion.objects.update_or_create(
-                    sku=sku,
-                    parent_uom=uom,
-                    child_uom=sku.base_uom,
-                    defaults={
-                        "ratio": 1,
-                        "base_uom_ratio": 1
-                    }
+                    sku=sku, parent_uom=uom, child_uom=sku.base_uom, defaults={"ratio": 1, "base_uom_ratio": 1}
                 )
 
         self.stdout.write(self.style.SUCCESS("Successfully created UOM Conversion objects."))

@@ -9,9 +9,7 @@ class Command(BaseCommand):
         "CREATIVE": [
             {"code": "UOM_PIECE", "name": "Sản phẩm"},
             {"code": "UOM_SECTION", "name": "Buổi"},
-
             {"code": "UOM_WORD", "name": "Chữ"},
-
             {"code": "UOM_POST_LOWER_300", "name": "Bài dưới 300 chữ", "base_uom": "UOM_WORD"},
             {"code": "UOM_POST_301_500", "name": "Bài 301 - 500 chữ", "base_uom": "UOM_WORD"},
             {"code": "UOM_POST_501_700", "name": "Bài 501 - 700 chữ", "base_uom": "UOM_WORD"},
@@ -19,14 +17,11 @@ class Command(BaseCommand):
             {"code": "UOM_POST_901_1000", "name": "Bài 901 - 1000 chữ", "base_uom": "UOM_WORD"},
             {"code": "UOM_POST_1001_3000", "name": "Bài 1001 - 3000 chữ", "base_uom": "UOM_WORD"},
             {"code": "UOM_POST_UPPER_3000", "name": "Bài trên 3000 chữ", "base_uom": "UOM_WORD"},
-
             {"code": "UOM_SECOND", "name": "Giây"},
-
             {"code": "UOM_SCRIPT_30_45", "name": "Kịch bản 30-45s", "base_uom": "UOM_SECOND"},
             {"code": "UOM_SCRIPT_60", "name": "Kịch bản 60s", "base_uom": "UOM_SECOND"},
             {"code": "UOM_SCRIPT_120", "name": "Kịch bản 120s", "base_uom": "UOM_SECOND"},
             {"code": "UOM_SCRIPT_180", "name": "Kịch bản 180s", "base_uom": "UOM_SECOND"},
-
         ],
     }
 
