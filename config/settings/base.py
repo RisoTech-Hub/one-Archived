@@ -102,6 +102,7 @@ LOCAL_APPS = [
     "one.masterdata.package",
     "one.masterdata.extrafeetype",
     "one.masterdata.processingtasktype",
+    "one.masterdata.valueaddedservicetype",
     "one.supplier",
     "one.supplier.supplierprofile",
     "one.supplier.supplierlevel",
