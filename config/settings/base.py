@@ -108,6 +108,7 @@ LOCAL_APPS = [
     "one.supplier.supplierlevel",
     "one.customer",
     "one.customer.customerprofile",
+    "one.finance.extrafee",
     "one.order",
     "one.product",
     # Your stuff: custom apps go here
@@ -390,6 +391,10 @@ CONSTANCE_ADDITIONAL_FIELDS = {
         },
     ],
     "image_field": ["django.forms.ImageField", {}],
+    "currency_choice": [
+        "django.forms.fields.ChoiceField",
+        {"widget": "django.forms.Select", "choices": (("VND", "VND"), ("USD", "USD"), )},
+    ],
 }
 
 CONSTANCE_CONFIG = {
@@ -399,6 +404,7 @@ CONSTANCE_CONFIG = {
     "ADMIN_SITE_HEADER": ("One", _("Admin Header")),
     "ADMIN_SITE_TITLE": ("One", _("Admin Title")),
     "ADMIN_INDEX_TITLE": ("One", _("Admin Index Title")),
+    "CURRENCY": ("VND", _("Currency"), "currency_choice"),
 }
 
 CONSTANCE_CONFIG_FIELDSETS = {
@@ -410,6 +416,7 @@ CONSTANCE_CONFIG_FIELDSETS = {
         "ADMIN_INDEX_TITLE",
     ),
     "Theme Options": ("UI_THEME_SELECT",),
+    "System Options": ("CURRENCY",),
 }
 
 # Django FileBrowser
