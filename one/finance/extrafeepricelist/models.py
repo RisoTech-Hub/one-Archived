@@ -1,4 +1,4 @@
-from django.db.models import ForeignKey, CASCADE, DateField, Model, CharField, DecimalField, FloatField
+from django.db.models import CASCADE, CharField, DateField, DecimalField, FloatField, ForeignKey, Model
 from django.utils.translation import gettext_lazy as _
 from model_utils.models import TimeStampedModel
 
@@ -7,20 +7,25 @@ from one.libraries.utils.models import MasterModel, UserStampedModel
 from one.masterdata.extrafeetype.models import ExtraFeeType
 
 
-class ExtraFee(MasterModel, TimeStampedModel, UserStampedModel):
+class ExtraFeePriceList(MasterModel, TimeStampedModel, UserStampedModel):
     customer = ForeignKey(
-        Customer, verbose_name=_("Customer"), related_name="extra_fees", on_delete=CASCADE, null=True, blank=True
+        Customer,
+        verbose_name=_("Customer"),
+        related_name="extra_fee_price_lists",
+        on_delete=CASCADE,
+        null=True,
+        blank=True,
     )
     effective_date = DateField(_("Effective Date"), blank=False, null=False)
     expiry_date = DateField(_("Expiry Date"), blank=False, null=False)
 
     class Meta:
-        verbose_name = _("Extra Fee")
-        verbose_name_plural = _("Extra Fees")
-        db_table = "finance_extra_fee"
+        verbose_name = _("Extra Fee Price List")
+        verbose_name_plural = _("Extra Fee Price Lists")
+        db_table = "finance_extra_fee_price_list"
 
 
-class ExtraFeeLine(Model):
+class ExtraFeePriceListLine(Model):
     CALCULATE_TYPE_PERCENTAGE = "PERCENTAGE"
     CALCULATE_TYPE_FIXED_AMOUNT = "FIXED_AMOUNT"
     CALCULATE_TYPE_MULTIPLY_QUANTITY = "MULTIPLY_QUANTITY"
@@ -31,10 +36,10 @@ class ExtraFeeLine(Model):
         (CALCULATE_TYPE_PERCENTAGE, _("Percentage")),
     )
 
-    extra_fee = ForeignKey(
-        ExtraFee,
-        verbose_name=_("Extra Fee"),
-        related_name="extra_fee_lines",
+    extra_fee_price_list = ForeignKey(
+        ExtraFeePriceList,
+        verbose_name=_("Extra Fee Price List"),
+        related_name="extra_fee_price_list_lines",
         on_delete=CASCADE,
         blank=False,
         null=False,
@@ -42,7 +47,7 @@ class ExtraFeeLine(Model):
 
     extra_fee_type = ForeignKey(
         ExtraFeeType,
-        verbose_name=_("Extra Fee"),
+        verbose_name=_("Extra Fee Type"),
         on_delete=CASCADE,
         blank=False,
         null=False,
@@ -55,9 +60,9 @@ class ExtraFeeLine(Model):
         default=CALCULATE_TYPE_FIXED_AMOUNT,
     )
     unit_price = DecimalField(_("Price"), max_digits=20, decimal_places=2, default=0.00)
-    percentage_price = FloatField(_("Percentage"), blank=True, null=True)
+    unit_percentage = FloatField(_("Percentage"), blank=True, null=True)
 
     class Meta:
-        verbose_name = _("Extra Fee Line")
-        verbose_name_plural = _("Extra Fee Lines")
-        db_table = "finance_extra_fee_line"
+        verbose_name = _("Extra Fee Price List Line")
+        verbose_name_plural = _("Extra Fee Price List Lines")
+        db_table = "finance_extra_fee_price_list_line"

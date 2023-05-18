@@ -108,7 +108,7 @@ LOCAL_APPS = [
     "one.supplier.supplierlevel",
     "one.customer",
     "one.customer.customerprofile",
-    "one.finance.extrafee",
+    "one.finance.extrafeepricelist",
     "one.order",
     "one.product",
     # Your stuff: custom apps go here
@@ -393,7 +393,13 @@ CONSTANCE_ADDITIONAL_FIELDS = {
     "image_field": ["django.forms.ImageField", {}],
     "currency_choice": [
         "django.forms.fields.ChoiceField",
-        {"widget": "django.forms.Select", "choices": (("VND", "VND"), ("USD", "USD"), )},
+        {
+            "widget": "django.forms.Select",
+            "choices": (
+                ("VND", "VND"),
+                ("USD", "USD"),
+            ),
+        },
     ],
 }
 
