@@ -12,6 +12,7 @@ class SKUAdmin(MasterModelAdmin):
     def get_fieldsets(self, request, obj=None):
         fieldsets = super().get_fieldsets(request, obj)
         fieldsets[0][1]["fields"] += (
+            "quantity_type",
             "base_uom",
             "point",
             "markup",
