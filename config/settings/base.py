@@ -103,12 +103,12 @@ LOCAL_APPS = [
     "one.masterdata.extrafeetype",
     "one.masterdata.processingtasktype",
     "one.masterdata.valueaddedservicetype",
+    "one.masterdata.extrafeepricelist",
     "one.supplier",
     "one.supplier.supplierprofile",
     "one.supplier.supplierlevel",
     "one.customer",
     "one.customer.customerprofile",
-    "one.finance.extrafeepricelist",
     "one.order",
     "one.product",
     # Your stuff: custom apps go here

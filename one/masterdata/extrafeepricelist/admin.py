@@ -3,18 +3,18 @@ from django.contrib.admin import TabularInline
 
 from one.libraries.utils.admin import MasterModelAdmin
 
-from .models import ExtraFeePriceList, ExtraFeePriceListLine
+from .models import ExtraFeePriceLine, ExtraFeePriceList
 
 
-class ExtraFeePriceListLineInline(TabularInline):
-    model = ExtraFeePriceListLine
+class ExtraFeePriceLineInline(TabularInline):
+    model = ExtraFeePriceLine
     can_delete = True
     extra = 0
 
 
 @admin.register(ExtraFeePriceList)
 class ExtraFeePriceListAdmin(MasterModelAdmin):
-    inlines = (ExtraFeePriceListLineInline,)
+    inlines = (ExtraFeePriceLineInline,)
 
     def get_fieldsets(self, request, obj=None):
         fieldsets = super().get_fieldsets(request, obj)

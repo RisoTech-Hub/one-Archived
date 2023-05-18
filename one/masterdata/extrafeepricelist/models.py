@@ -22,10 +22,10 @@ class ExtraFeePriceList(MasterModel, TimeStampedModel, UserStampedModel):
     class Meta:
         verbose_name = _("Extra Fee Price List")
         verbose_name_plural = _("Extra Fee Price Lists")
-        db_table = "finance_extra_fee_price_list"
+        db_table = "master_data_extra_fee_price_list"
 
 
-class ExtraFeePriceListLine(Model):
+class ExtraFeePriceLine(Model):
     CALCULATE_TYPE_PERCENTAGE = "PERCENTAGE"
     CALCULATE_TYPE_FIXED_AMOUNT = "FIXED_AMOUNT"
     CALCULATE_TYPE_MULTIPLY_QUANTITY = "MULTIPLY_QUANTITY"
@@ -39,7 +39,7 @@ class ExtraFeePriceListLine(Model):
     extra_fee_price_list = ForeignKey(
         ExtraFeePriceList,
         verbose_name=_("Extra Fee Price List"),
-        related_name="extra_fee_price_list_lines",
+        related_name="extra_fee_price_lines",
         on_delete=CASCADE,
         blank=False,
         null=False,
@@ -63,6 +63,6 @@ class ExtraFeePriceListLine(Model):
     unit_percentage = FloatField(_("Percentage"), blank=True, null=True)
 
     class Meta:
-        verbose_name = _("Extra Fee Price List Line")
-        verbose_name_plural = _("Extra Fee Price List Lines")
-        db_table = "finance_extra_fee_price_list_line"
+        verbose_name = _("Extra Fee Price Line")
+        verbose_name_plural = _("Extra Fee Price Lines")
+        db_table = "master_data_extra_fee_price_line"
