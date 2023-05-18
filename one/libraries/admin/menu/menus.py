@@ -91,11 +91,7 @@ class DefaultMenu(Menu):
             items.ModelList(_("Customers"), models=("one.customer.*",), is_short=True),
             items.ModelList(_("Suppliers"), models=("one.supplier.*",), is_short=True),
             items.ModelList(_("Products"), models=("one.product.*",), is_short=True),
-            items.ModelList(
-                _("Master Data"),
-                models=("one.masterdata.*",),
-                is_short=True,
-            ),
+            items.ModelList(_("Master Data"), models=("one.masterdata.*",), is_short=True),
             items.ModelList(
                 _("Platform Master Data"),
                 models=(
