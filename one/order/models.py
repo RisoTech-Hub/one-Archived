@@ -1,4 +1,4 @@
-from django.db.models import CASCADE, ForeignKey, IntegerField, Model
+from django.db.models import CASCADE, ForeignKey, IntegerField, Model, ManyToManyField
 from django.utils.translation import gettext_lazy as _
 from model_utils.models import TimeStampedModel
 
@@ -6,10 +6,16 @@ from one.libraries.utils.models import UserStampedModel
 from one.masterdata.category.models import Category
 from one.masterdata.sku.models import SKU
 from one.masterdata.uom.models import UOM
+from one.masterdata.valueaddedservicetype.models import ValueAddedServiceType
 
 
 class Order(TimeStampedModel, UserStampedModel):
     customer = ForeignKey("customer.Customer", verbose_name=_("Customer"), on_delete=CASCADE, null=True, blank=True)
+
+    value_added_service_type = ManyToManyField(
+        ValueAddedServiceType, verbose_name=_("Value Added Service Type"),
+        blank=True
+    )
 
     class Meta:
         verbose_name = _("Order")

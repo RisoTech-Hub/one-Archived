@@ -15,15 +15,19 @@ class OrderLineInline(TabularInline):
 @admin.register(Order)
 class OrderAdmin(ModelAdmin):
     inlines = (OrderLineInline,)
-
+    filter_horizontal = ("value_added_service_type",)
     readonly_fields = ("created", "modified", "creator", "last_modified_by")
 
     def get_fieldsets(self, request, obj=None):
         if obj:
             return (
                 (None, {"fields": ("customer",)}),
+                (_("Extra Services"), {"fields": ("value_added_service_type",)}),
                 (_("User Stamped"), {"fields": ("creator", "last_modified_by")}),
                 (_("Time Stamped"), {"fields": ("created", "modified")}),
             )
         else:
-            return ((None, {"fields": ("customer",)}),)
+            return (
+                (None, {"fields": ("customer",)}),
+                (_("Extra Services"), {"fields": ("value_added_service_type",)}),
+            )
