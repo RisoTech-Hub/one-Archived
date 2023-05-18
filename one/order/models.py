@@ -1,4 +1,4 @@
-from django.db.models import CASCADE, ForeignKey, IntegerField, Model, ManyToManyField
+from django.db.models import CASCADE, ForeignKey, IntegerField, ManyToManyField, Model
 from django.utils.translation import gettext_lazy as _
 from model_utils.models import TimeStampedModel
 
@@ -14,8 +14,7 @@ class Order(TimeStampedModel, UserStampedModel):
     customer = ForeignKey("customer.Customer", verbose_name=_("Customer"), on_delete=CASCADE, null=True, blank=True)
 
     value_added_service_type = ManyToManyField(
-        ValueAddedServiceType, verbose_name=_("Value Added Service Type"),
-        blank=True
+        ValueAddedServiceType, verbose_name=_("Value Added Service Type"), blank=True
     )
 
     class Meta:
@@ -33,7 +32,7 @@ class OrderLine(Model):
 
     quantity = IntegerField(_("Quantity"), default=0)
 
-    products = ManyToManyField(Product, through='OrderLineProduct')
+    products = ManyToManyField(Product, through="OrderLineProduct")
 
     class Meta:
         verbose_name = _("Order Line")

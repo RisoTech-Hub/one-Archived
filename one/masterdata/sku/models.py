@@ -1,4 +1,4 @@
-from django.db.models import CASCADE, FloatField, ForeignKey, CharField
+from django.db.models import CASCADE, CharField, FloatField, ForeignKey
 from django.utils.translation import gettext_lazy as _
 from model_utils.models import TimeStampedModel
 
@@ -19,8 +19,8 @@ class SKU(MasterModel, TimeStampedModel, UserStampedModel):
     markup = FloatField(_("Markup"), default=1)
 
     quantity_type = CharField(
-        _("Quantity Type"), max_length=255, choices=QUANTITY_TYPE_CHOICES,
-        default=QUANTITY_TYPE_SEPARATE)
+        _("Quantity Type"), max_length=255, choices=QUANTITY_TYPE_CHOICES, default=QUANTITY_TYPE_SEPARATE
+    )
 
     class Meta:
         verbose_name = _("SKU")
