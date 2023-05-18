@@ -7,6 +7,7 @@ from one.masterdata.category.models import Category
 from one.masterdata.sku.models import SKU
 from one.masterdata.uom.models import UOM
 from one.masterdata.valueaddedservicetype.models import ValueAddedServiceType
+from one.product.models import Product
 
 
 class Order(TimeStampedModel, UserStampedModel):
@@ -32,7 +33,20 @@ class OrderLine(Model):
 
     quantity = IntegerField(_("Quantity"), default=0)
 
+    products = ManyToManyField(Product, through='OrderLineProduct')
+
     class Meta:
         verbose_name = _("Order Line")
         verbose_name_plural = _("Order Lines")
         db_table = "order_order_line"
+
+
+class OrderLineProduct(Model):
+    order_line = ForeignKey(OrderLine, verbose_name=_("Order Line"), on_delete=CASCADE)
+    product = ForeignKey(Product, verbose_name=_("Product"), on_delete=CASCADE)
+    quantity = IntegerField(_("Quantity"), default=1)
+
+    class Meta:
+        verbose_name = _("Order Line Product")
+        verbose_name_plural = _("Order Line Products")
+        db_table = "order_order_line_product"
