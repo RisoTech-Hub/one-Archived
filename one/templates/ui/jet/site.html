@@ -3,6 +3,10 @@
 {% block breadcrumb %}
 {% endblock breadcrumb %}
 
+{% block page-vendor-javascript %}
+  <script src="{% static 'jet/js/plugins/custom/typedjs/typedjs.bundle.js' %}"></script>
+{% endblock page-vendor-javascript %}
+
 {% block w-content %}
   <!--begin::Content-->
   <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
