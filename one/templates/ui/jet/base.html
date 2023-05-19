@@ -63,7 +63,7 @@
 <!--end::Head-->
 <!--begin::Body-->
 <body
-  class="header-fixed header-tablet-and-mobile-fixed aside-fixed {% block secondary-menu-cls %}aside-secondary-disabled{% endblock secondary-menu-cls %}"
+  class="header-fixed header-tablet-and-mobile-fixed aside-fixed aside-secondary-enabled {% block secondary-menu-cls %}aside-secondary-disabled{% endblock secondary-menu-cls %}"
   {% if secondary_menu %}data-kt-aside-minimize="on"{% endif %} id="kt_body">
 <!--begin::Main-->
 
@@ -106,7 +106,7 @@
 
       <!--begin::Action-->
       {% block secondary-navbar %}
-        {% if secondary_menu %}
+{#        {% if secondary_menu %}#}
           <!--begin::Secondary-->
           <div class="aside-secondary d-flex flex-row-fluid">
             <!--begin::Workspace-->
@@ -176,7 +176,7 @@
 
           <!--begin::Aside Toggle-->
           <button
-            class="btn btn-sm btn-icon btn-white btn-active-primary position-absolute translate-middle mb-4 start-100 end-0 bottom-0 shadow-sm d-none d-lg-flex active"
+            class="btn btn-sm btn-icon btn-white btn-active-primary position-absolute translate-middle mb-4 start-100 end-0 bottom-0 shadow-sm d-none d-lg-flex "
             data-kt-toggle="true" data-kt-toggle-state="active" data-kt-toggle-target="body"
             data-kt-toggle-name="aside-minimize">
             <!--begin::Svg Icon | path: icons/duotone/Navigation/Left-2.svg-->
@@ -198,7 +198,7 @@
           </button>
           <!--end::Aside Toggle-->
           <!--end::Action-->
-        {% endif %}
+{#        {% endif %}#}
       {% endblock secondary-navbar %}
     </div>
     <!--end::Aside-->
