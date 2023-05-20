@@ -113,6 +113,7 @@ LOCAL_APPS = [
     "one.order",
     "one.product",
     "one.product.processingtask",
+    "one.product.rating",
     "one.finance.extrafee",
     # Your stuff: custom apps go here
 ]
