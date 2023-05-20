@@ -96,6 +96,7 @@ class DefaultMenu(Menu):
             items.ModelList(
                 _("Platform Master Data"),
                 models=(
+                    "one.staff.*",
                     "one.users.*",
                     "django.contrib.*",
                 ),

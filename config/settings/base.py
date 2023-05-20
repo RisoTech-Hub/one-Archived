@@ -109,6 +109,7 @@ LOCAL_APPS = [
     "one.supplier.supplierlevel",
     "one.customer",
     "one.customer.customerprofile",
+    "one.staff",
     "one.order",
     "one.product",
     "one.product.processingtask",
