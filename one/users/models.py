@@ -23,10 +23,12 @@ class User(AbstractUser, StatusModel):
     )
 
     ACCOUNT_TYPE_PROVIDER = "PROVIDER"
+    ACCOUNT_TYPE_STAFF = "STAFF"
     ACCOUNT_TYPE_SUPPLIER = "SUPPLIER"
     ACCOUNT_TYPE_CUSTOMER = "CUSTOMER"
     ACCOUNT_TYPE = Choices(
         (ACCOUNT_TYPE_PROVIDER, _("Platform Provider")),
+        (ACCOUNT_TYPE_STAFF, _("Platform Staff")),
         (ACCOUNT_TYPE_SUPPLIER, _("Supplier")),
         (ACCOUNT_TYPE_CUSTOMER, _("Customer")),
     )
