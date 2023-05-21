@@ -28,8 +28,8 @@ class Rating(TimeStampedModel, UserStampedModel):
     ]
 
     SECOND_MODEL_ALLOWED = [
-        {"app_label": "order", "model": "order"},
-        {"app_label": "product", "model": "product"},
+        {"app_label": "users", "model": "user"},
+        {"app_label": "staff", "model": "staff"},
     ]
 
     rating = SmallIntegerField(_("Rating"), choices=RATING_CHOICES, null=True, blank=True)
