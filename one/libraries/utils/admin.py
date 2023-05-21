@@ -1,4 +1,7 @@
 from django.contrib.admin import ModelAdmin as BaseModelAdmin
+from django.contrib.admin import TabularInline
+from django.contrib.contenttypes.models import ContentType
+from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
 
 
@@ -61,3 +64,13 @@ class MasterModelAdmin(ModelAdmin):
         else:
             # Use only the first item in list_display as link
             return list(list_display)[0:2]
+
+
+class GenericRelationTabularInline(TabularInline):
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if hasattr(self.model, "BASE_MODEL_ALLOWED"):
+            q_objects = Q()
+            for white_class in self.model.BASE_MODEL_ALLOWED:
+                q_objects |= Q(**white_class)
+            kwargs["queryset"] = ContentType.objects.filter(q_objects)
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
