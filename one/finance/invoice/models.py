@@ -43,9 +43,9 @@ class InvoiceLine(TimeStampedModel, UserStampedModel):
     invoice = ForeignKey(Invoice, verbose_name=_("Invoice"), on_delete=CASCADE, null=True, blank=True)
 
     # Based on Object
-    base_content_type = ForeignKey(ContentType, on_delete=CASCADE, related_name="+")
-    base_object_id = PositiveIntegerField()
-    base_object = GenericForeignKey(ct_field="base_content_type", fk_field="base_object_id")
+    content_type = ForeignKey(ContentType, on_delete=CASCADE, related_name="+")
+    object_id = PositiveIntegerField()
+    content_object = GenericForeignKey()
 
     description = CharField(_("Description"), max_length=2550, blank=True, null=True)
 

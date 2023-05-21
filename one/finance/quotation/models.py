@@ -42,9 +42,9 @@ class SubQuotation(TimeStampedModel, UserStampedModel):
     total_amount = DecimalField(_("Total Amount"), max_digits=20, decimal_places=2, default=0.00)
 
     # Based on Object
-    base_content_type = ForeignKey(ContentType, on_delete=CASCADE, related_name="+")
-    base_object_id = PositiveIntegerField()
-    base_object = GenericForeignKey(ct_field="base_content_type", fk_field="base_object_id")
+    content_type = ForeignKey(ContentType, on_delete=CASCADE, related_name="+")
+    object_id = PositiveIntegerField()
+    content_object = GenericForeignKey()
 
     class Meta:
         verbose_name = _("Quotation Sub")
@@ -59,9 +59,9 @@ class QuotationLine(TimeStampedModel, UserStampedModel):
     sub_quotation = ForeignKey(SubQuotation, verbose_name=_("Sub Quotation"), on_delete=CASCADE, null=True, blank=True)
 
     # Based on Object
-    base_content_type = ForeignKey(ContentType, on_delete=CASCADE, related_name="+")
-    base_object_id = PositiveIntegerField()
-    base_object = GenericForeignKey(ct_field="base_content_type", fk_field="base_object_id")
+    content_type = ForeignKey(ContentType, on_delete=CASCADE, related_name="+")
+    object_id = PositiveIntegerField()
+    content_object = GenericForeignKey()
 
     unit_price = DecimalField(_("Unit Price"), max_digits=20, decimal_places=2, default=0.00)
     unit_percentage = FloatField(_("Percentage"), blank=True, null=True, default=0)

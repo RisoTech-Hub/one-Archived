@@ -1,12 +1,12 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
 
-from one.libraries.utils.admin import ModelAdmin
+from one.libraries.utils.admin import GenericRelationAdmin, ModelAdmin
 from one.product.rating.models import Rating
 
 
 @admin.register(Rating)
-class RatingAdmin(ModelAdmin):
+class RatingAdmin(GenericRelationAdmin, ModelAdmin):
     readonly_fields = ("created", "modified", "creator", "last_modified_by", "content_object", "rated_object")
 
     def get_fieldsets(self, request, obj=None):

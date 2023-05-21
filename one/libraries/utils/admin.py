@@ -7,7 +7,7 @@ from django.utils.translation import gettext_lazy as _
 
 class GenericRelationAdmin(BaseModelAdmin):
     def formfield_for_foreignkey(self, db_field, request, **kwargs):  # noqa
-        if "content_type" in db_field.name:
+        if db_field.name == "content_type":
             if hasattr(self.model, "BASE_MODEL_ALLOWED"):
                 q_objects = Q()
                 for white_class in self.model.BASE_MODEL_ALLOWED:

@@ -21,18 +21,29 @@ class Rating(TimeStampedModel, UserStampedModel):
         (FOUR_STAR_RATING, _("Four Star")),
         (FIVE_STAR_RATING, _("Five Star")),
     )
+
+    BASE_MODEL_ALLOWED = [
+        {"app_label": "order", "model": "order"},
+        {"app_label": "product", "model": "product"},
+    ]
+
+    SECOND_MODEL_ALLOWED = [
+        {"app_label": "order", "model": "order"},
+        {"app_label": "product", "model": "product"},
+    ]
+
     rating = SmallIntegerField(_("Rating"), choices=RATING_CHOICES, null=True, blank=True)
     comment = CharField(_("Comment"), max_length=2000, null=True, blank=True)
-
-    # rating by
-    rated_content_type = ForeignKey(ContentType, on_delete=CASCADE, related_name="+")
-    rated_object_id = PositiveIntegerField()
-    rated_object = GenericForeignKey(ct_field="rated_content_type", fk_field="rated_object_id")
 
     # rating object
     content_type = ForeignKey(ContentType, on_delete=CASCADE, related_name="+")
     object_id = PositiveIntegerField()
     content_object = GenericForeignKey()
+
+    # rating by
+    rated_content_type = ForeignKey(ContentType, on_delete=CASCADE, related_name="+")
+    rated_object_id = PositiveIntegerField()
+    rated_object = GenericForeignKey(ct_field="rated_content_type", fk_field="rated_object_id")
 
     class Meta:
         verbose_name = _("Rating")
