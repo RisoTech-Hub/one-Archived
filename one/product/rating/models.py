@@ -28,7 +28,7 @@ class Rating(TimeStampedModel, UserStampedModel):
     ]
 
     SECOND_MODEL_ALLOWED = [
-        {"app_label": "users", "model": "user"},
+        {"app_label": "customer", "model": "customer"},
         {"app_label": "staff", "model": "staff"},
     ]
 

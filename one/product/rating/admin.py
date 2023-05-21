@@ -35,3 +35,7 @@ class RatingAdmin(GenericRelationAdmin, ModelAdmin):
                     q_objects |= Q(**white_class)
                 kwargs["queryset"] = ContentType.objects.filter(q_objects)
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
+
+    def get_list_display(self, request):
+        list_display = super().get_list_display(request)
+        return list_display + ("content_object", "rated_object")

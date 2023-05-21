@@ -22,3 +22,7 @@ class ProductAdmin(ModelAdmin):
                 (None, {"fields": ("supplier", "code")}),
                 (_("Product"), {"fields": ("category", "sku", "oum", "quantity")}),
             )
+
+    def get_list_display(self, request):
+        list_display = super().get_list_display(request)
+        return list_display + ("category", "sku", "oum", "quantity", "supplier")
