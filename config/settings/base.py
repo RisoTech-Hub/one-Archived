@@ -86,6 +86,7 @@ THIRD_PARTY_APPS = [
     "drf_spectacular",
     "constance",
     "better_json_widget",
+    "attachments",
 ]
 
 LOCAL_APPS = [
