@@ -116,6 +116,7 @@ LOCAL_APPS = [
     "one.product.rating",
     "one.finance.extrafee",
     "one.finance.quotation",
+    "one.finance.invoice",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
