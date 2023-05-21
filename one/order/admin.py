@@ -21,13 +21,17 @@ class OrderAdmin(ModelAdmin):
     def get_fieldsets(self, request, obj=None):
         if obj:
             return (
-                (None, {"fields": ("customer",)}),
+                (None, {"fields": ("customer", "status")}),
                 (_("Extra Services"), {"fields": ("value_added_service_type",)}),
                 (_("User Stamped"), {"fields": ("creator", "last_modified_by")}),
                 (_("Time Stamped"), {"fields": ("created", "modified")}),
             )
         else:
             return (
-                (None, {"fields": ("customer",)}),
+                (None, {"fields": ("customer", "status")}),
                 (_("Extra Services"), {"fields": ("value_added_service_type",)}),
             )
+
+    def get_list_display(self, request):
+        list_display = super().get_list_display(request)
+        return list_display + ("status", "customer", "created", "modified")

@@ -38,6 +38,9 @@ class User(AbstractUser, StatusModel):
 
     account_type = StatusField(_("Account Type"), choices_name="ACCOUNT_TYPE", default=ACCOUNT_TYPE_PROVIDER)
 
+    def __str__(self):
+        return self.name if self.name else self.username
+
     def get_absolute_url(self) -> str:
         """Get URL for user's detail view.
 

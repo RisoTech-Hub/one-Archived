@@ -1,6 +1,9 @@
 from django.db.models import CASCADE, ForeignKey, IntegerField, ManyToManyField, Model
 from django.utils.translation import gettext_lazy as _
-from model_utils.models import TimeStampedModel
+from model_utils import Choices
+
+# from model_utils.fields import StatusField
+from model_utils.models import StatusModel, TimeStampedModel
 
 from one.libraries.utils.models import UserStampedModel
 from one.masterdata.category.models import Category
@@ -10,8 +13,22 @@ from one.masterdata.valueaddedservicetype.models import ValueAddedServiceType
 from one.product.models import Product
 
 
-class Order(TimeStampedModel, UserStampedModel):
-    customer = ForeignKey("customer.Customer", verbose_name=_("Customer"), on_delete=CASCADE, null=True, blank=True)
+class Order(StatusModel, TimeStampedModel, UserStampedModel):
+    ORDER_STATUS_DRAFT = "DRAFT"
+    ORDER_STATUS_CONFIRMED = "CONFIRMED"
+    ORDER_STATUS_IN_PROGRESS = "IN_PROGRESS"
+    ORDER_STATUS_CANCELLED = "CANCELLED"
+    ORDER_STATUS_COMPLETED = "COMPLETED"
+
+    STATUS = Choices(
+        (ORDER_STATUS_DRAFT, _("Draft")),
+        (ORDER_STATUS_CONFIRMED, _("Confirmed")),
+        (ORDER_STATUS_IN_PROGRESS, _("In Progress")),
+        (ORDER_STATUS_CANCELLED, _("Cancelled")),
+        (ORDER_STATUS_COMPLETED, _("Completed")),
+    )
+
+    customer = ForeignKey("customer.Customer", verbose_name=_("Customer"), on_delete=CASCADE)
 
     value_added_service_type = ManyToManyField(
         ValueAddedServiceType, verbose_name=_("Value Added Service Type"), blank=True
@@ -21,6 +38,9 @@ class Order(TimeStampedModel, UserStampedModel):
         verbose_name = _("Order")
         verbose_name_plural = _("Orders")
         db_table = "order_order"
+
+    def __str__(self):
+        return "{} #{} {} {}".format(self._meta.verbose_name.title(), self.id, _("Customer"), self.customer)
 
 
 class OrderLine(Model):
