@@ -5,6 +5,17 @@ from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
 
 
+class GenericRelationAdmin(BaseModelAdmin):
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):  # noqa
+        if "content_type" in db_field.name:
+            if hasattr(self.model, "BASE_MODEL_ALLOWED"):
+                q_objects = Q()
+                for white_class in self.model.BASE_MODEL_ALLOWED:
+                    q_objects |= Q(**white_class)
+                kwargs["queryset"] = ContentType.objects.filter(q_objects)
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
+
+
 class ModelAdmin(BaseModelAdmin):
     ordering = ("-created",)
     readonly_fields = ("created", "modified")
@@ -71,7 +82,7 @@ class MasterModelAdmin(ModelAdmin):
 
 
 class GenericRelationTabularInline(TabularInline):
-    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):  # noqa
         if hasattr(self.model, "BASE_MODEL_ALLOWED"):
             q_objects = Q()
             for white_class in self.model.BASE_MODEL_ALLOWED:
