@@ -22,3 +22,15 @@ class ExtraFeeAdmin(ModelAdmin):
                 (None, {"fields": ("extra_fee_type", "product", "processing_task")}),
                 (_("Price"), {"fields": ("unit_price", "unit_percentage", "quantity", "unit_amount", "total_amount")}),
             )
+
+    def get_list_display(self, request):
+        list_display = super().get_list_display(request)
+        return list_display + (
+            "product",
+            "processing_task",
+            "unit_price",
+            "unit_percentage",
+            "quantity",
+            "unit_amount",
+            "total_amount",
+        )
