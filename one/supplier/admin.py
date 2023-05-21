@@ -4,8 +4,8 @@ from one.users.admin import UserAdmin
 
 from .forms import SupplierAdminCreationForm
 from .models import Supplier
-from .supplierprofile.admin import SupplierProfileInline
 from .supplierlevel.admin import SupplierLevelInline
+from .supplierprofile.admin import SupplierProfileInline
 
 
 @admin.register(Supplier)
@@ -16,4 +16,7 @@ class SupplierAdmin(UserAdmin):
         inlines = super().get_inlines(request, obj)
         if obj is None:
             return inlines
-        return inlines + (SupplierProfileInline, SupplierLevelInline,)  # noqa
+        return inlines + (
+            SupplierProfileInline,
+            SupplierLevelInline,
+        )  # noqa

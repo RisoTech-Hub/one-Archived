@@ -67065,12 +67065,10 @@ var tns = (function () {
           function w() {
             clearTimeout(s),
               (v.hideEta = 0),
-              l
-                .stop(!0, !0)
-                [r.showMethod]({
-                  duration: r.showDuration,
-                  easing: r.showEasing,
-                });
+              l.stop(!0, !0)[r.showMethod]({
+                duration: r.showDuration,
+                easing: r.showEasing,
+              });
           }
           function k() {
             var e = ((v.hideEta - new Date().getTime()) / v.maxHideTime) * 100;
@@ -85181,15 +85179,13 @@ var tns = (function () {
                   })),
                   e.forEach(function (e, s) {
                     var l = e.length === n.globals.dataPoints,
-                      c = t.graphics
-                        .group()
-                        .attr({
-                          class: 'apexcharts-series',
-                          'data:longestSeries': l,
-                          seriesName: p.escapeString(n.globals.seriesNames[s]),
-                          rel: s + 1,
-                          'data:realIndex': s,
-                        });
+                      c = t.graphics.group().attr({
+                        class: 'apexcharts-series',
+                        'data:longestSeries': l,
+                        seriesName: p.escapeString(n.globals.seriesNames[s]),
+                        rel: s + 1,
+                        'data:realIndex': s,
+                      });
                     (t.dataRadiusOfPercent[s] = []),
                       (t.dataRadius[s] = []),
                       (t.angleArr[s] = []),
@@ -89902,15 +89898,13 @@ var tns = (function () {
           })),
           i.extend(i.Defs, {
             pattern: function (e, t, n) {
-              return this.put(new i.Pattern())
-                .update(n)
-                .attr({
-                  x: 0,
-                  y: 0,
-                  width: e,
-                  height: t,
-                  patternUnits: 'userSpaceOnUse',
-                });
+              return this.put(new i.Pattern()).update(n).attr({
+                x: 0,
+                y: 0,
+                width: e,
+                height: t,
+                patternUnits: 'userSpaceOnUse',
+              });
             },
           }),
           (i.Shape = i.invent({

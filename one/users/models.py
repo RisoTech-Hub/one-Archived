@@ -23,10 +23,12 @@ class User(AbstractUser, StatusModel):
     )
 
     ACCOUNT_TYPE_PROVIDER = "PROVIDER"
+    ACCOUNT_TYPE_STAFF = "STAFF"
     ACCOUNT_TYPE_SUPPLIER = "SUPPLIER"
     ACCOUNT_TYPE_CUSTOMER = "CUSTOMER"
     ACCOUNT_TYPE = Choices(
         (ACCOUNT_TYPE_PROVIDER, _("Platform Provider")),
+        (ACCOUNT_TYPE_STAFF, _("Platform Staff")),
         (ACCOUNT_TYPE_SUPPLIER, _("Supplier")),
         (ACCOUNT_TYPE_CUSTOMER, _("Customer")),
     )
@@ -36,6 +38,9 @@ class User(AbstractUser, StatusModel):
     tnc = BooleanField(_("Terms and conditions"), default=False)
 
     account_type = StatusField(_("Account Type"), choices_name="ACCOUNT_TYPE", default=ACCOUNT_TYPE_PROVIDER)
+
+    def __str__(self):
+        return self.name if self.name else self.username
 
     def get_absolute_url(self) -> str:
         """Get URL for user's detail view.

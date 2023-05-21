@@ -1,4 +1,4 @@
-from django.db.models import CASCADE, Model, ForeignKey
+from django.db.models import CASCADE, ForeignKey, Model
 from django.utils.translation import gettext_lazy as _
 
 from one.masterdata.category.models import Category
@@ -15,12 +15,8 @@ class SupplierLevel(Model):
     category = ForeignKey(
         Category, verbose_name=_("Category"), blank=True, related_name="supplier_levels", on_delete=CASCADE
     )
-    sku = ForeignKey(
-        SKU, verbose_name=_("SKU"), blank=True, related_name="supplier_levels", on_delete=CASCADE
-    )
-    level = ForeignKey(
-        Level, verbose_name=_("Level"), blank=True, related_name="supplier_levels", on_delete=CASCADE
-    )
+    sku = ForeignKey(SKU, verbose_name=_("SKU"), blank=True, related_name="supplier_levels", on_delete=CASCADE)
+    level = ForeignKey(Level, verbose_name=_("Level"), blank=True, related_name="supplier_levels", on_delete=CASCADE)
 
     class Meta:
         verbose_name = _("Supplier Level")

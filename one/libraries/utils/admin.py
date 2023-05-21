@@ -1,5 +1,19 @@
 from django.contrib.admin import ModelAdmin as BaseModelAdmin
+from django.contrib.admin import TabularInline
+from django.contrib.contenttypes.models import ContentType
+from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
+
+
+class GenericRelationAdmin(BaseModelAdmin):
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):  # noqa
+        if db_field.name == "content_type":
+            if hasattr(self.model, "BASE_MODEL_ALLOWED"):
+                q_objects = Q()
+                for white_class in self.model.BASE_MODEL_ALLOWED:
+                    q_objects |= Q(**white_class)
+                kwargs["queryset"] = ContentType.objects.filter(q_objects)
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
 
 class ModelAdmin(BaseModelAdmin):
@@ -25,6 +39,22 @@ class ModelAdmin(BaseModelAdmin):
                 instance.last_modified_by = request.user
                 instance.save()
 
+    def get_list_display(self, request):
+        list_display = super().get_list_display(request)
+        return ("id",) + list_display
+
+    def get_list_display_links(self, request, list_display):
+        """
+        Return a sequence containing the fields to be displayed as links
+        on the changelist. The list_display parameter is the list of fields
+        returned by get_list_display().
+        """
+        if self.list_display_links or self.list_display_links is None or not list_display:
+            return self.list_display_links
+        else:
+            # Use only the first item in list_display as link
+            return list(list_display)[0:2]
+
 
 class MasterModelAdmin(ModelAdmin):
     readonly_fields = ("created", "modified", "creator", "last_modified_by")
@@ -48,20 +78,14 @@ class MasterModelAdmin(ModelAdmin):
 
     def get_list_display(self, request):
         list_display = super().get_list_display(request)
-        return ("id",) + list_display + ("code", "is_active")
+        return list_display + ("code", "is_active")
 
-    def get_list_display_links(self, request, list_display):
-        """
-        Return a sequence containing the fields to be displayed as links
-        on the changelist. The list_display parameter is the list of fields
-        returned by get_list_display().
-        """
-        if (
-            self.list_display_links
-            or self.list_display_links is None
-            or not list_display
-        ):
-            return self.list_display_links
-        else:
-            # Use only the first item in list_display as link
-            return list(list_display)[0:2]
+
+class GenericRelationTabularInline(TabularInline):
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):  # noqa
+        if hasattr(self.model, "BASE_MODEL_ALLOWED"):
+            q_objects = Q()
+            for white_class in self.model.BASE_MODEL_ALLOWED:
+                q_objects |= Q(**white_class)
+            kwargs["queryset"] = ContentType.objects.filter(q_objects)
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
