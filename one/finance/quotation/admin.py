@@ -42,7 +42,7 @@ class SubQuotationInline(GenericRelationTabularInline):
 
 
 @admin.register(Quotation)
-class OrderAdmin(ModelAdmin):
+class QuotationAdmin(ModelAdmin):
     inlines = (SubQuotationInline,)
     readonly_fields = ("created", "modified", "creator", "last_modified_by")
 
