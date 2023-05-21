@@ -89,3 +89,17 @@ Bootstrap v5 is installed using npm and customised by tweaking your variables in
 You can find a list of available variables [in the bootstrap source](https://github.com/twbs/bootstrap/blob/v5.1.3/scss/_variables.scss), or get explanations on them in the [Bootstrap docs](https://getbootstrap.com/docs/5.1/customize/sass/).
 
 Bootstrap's javascript as well as its dependencies are concatenated into a single file: `static/js/vendors.js`.
+
+# Initial Setup
+
+    ./manage.py initial_uom CREATIVE
+    ./manage.py initial_sku CREATIVE
+    ./manage.py initial_category CREATIVE
+    ./manage.py initial_level CREATIVE
+    ./manage.py initial_rank CREATIVE
+    ./manage.py initial_uom_conversion
+    ./manage.py initial_price_list
+    ./manage.py initial_extra_fee_type CREATIVE
+    ./manage.py initial_proc_task_type CREATIVE
+    ./manage.py initial_vas_type CREATIVE
+    ./manage.py initial_extra_fee_base_price CREATIVE

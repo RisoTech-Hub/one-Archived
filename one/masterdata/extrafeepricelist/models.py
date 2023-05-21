@@ -17,7 +17,7 @@ class ExtraFeePriceList(MasterModel, TimeStampedModel, UserStampedModel):
         blank=True,
     )
     effective_date = DateField(_("Effective Date"), blank=False, null=False)
-    expiry_date = DateField(_("Expiry Date"), blank=False, null=False)
+    expiry_date = DateField(_("Expiry Date"), blank=True, null=True)
 
     class Meta:
         verbose_name = _("Extra Fee Price List")
