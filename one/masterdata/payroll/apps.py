@@ -2,13 +2,13 @@ from django.apps import AppConfig
 from django.utils.translation import gettext_lazy as _
 
 
-class ExtraFeeTypeConfig(AppConfig):
+class PayrollConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
-    name = "one.masterdata.extrafeetype"
+    name = "one.masterdata.payroll"
     verbose_name = _("Master Data")
 
     def ready(self):
         try:
-            import one.masterdata.extrafeetype.signals  # noqa: F401
+            import one.masterdata.payroll.signals  # noqa: F401
         except ImportError:
             pass
