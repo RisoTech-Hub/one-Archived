@@ -103,3 +103,4 @@ Bootstrap's javascript as well as its dependencies are concatenated into a singl
     ./manage.py initial_proc_task_type CREATIVE
     ./manage.py initial_vas_type CREATIVE
     ./manage.py initial_extra_fee_base_price CREATIVE
+    ./manage.py initial_installment
