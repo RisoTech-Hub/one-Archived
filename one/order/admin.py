@@ -1,3 +1,4 @@
+from attachments.admin import AttachmentInlines
 from django.contrib import admin
 from django.contrib.admin import TabularInline
 from django.utils.translation import gettext_lazy as _
@@ -14,7 +15,10 @@ class OrderLineInline(TabularInline):
 
 @admin.register(Order)
 class OrderAdmin(ModelAdmin):
-    inlines = (OrderLineInline,)
+    inlines = (
+        OrderLineInline,
+        AttachmentInlines,
+    )
     filter_horizontal = ("value_added_service_type",)
     readonly_fields = ("created", "modified", "creator", "last_modified_by")
 

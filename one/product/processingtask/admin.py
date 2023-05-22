@@ -12,7 +12,7 @@ class ProcessingTaskAdmin(GenericRelationAdmin, ModelAdmin):
     def get_fieldsets(self, request, obj=None):
         if obj:
             return (
-                (None, {"fields": ("processing_task_type",)}),
+                (None, {"fields": ("processing_task_type", "status")}),
                 (
                     _("Task For"),
                     {
@@ -28,7 +28,7 @@ class ProcessingTaskAdmin(GenericRelationAdmin, ModelAdmin):
             )
         else:
             return (
-                (None, {"fields": ("processing_task_type",)}),
+                (None, {"fields": ("processing_task_type", "status")}),
                 (
                     _("Task For"),
                     {
@@ -42,4 +42,4 @@ class ProcessingTaskAdmin(GenericRelationAdmin, ModelAdmin):
 
     def get_list_display(self, request):
         list_display = super().get_list_display(request)
-        return list_display + ("content_object", "performed_by", "performed_at", "created")
+        return list_display + ("status", "content_object", "performed_by", "performed_at", "created")

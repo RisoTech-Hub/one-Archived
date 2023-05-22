@@ -86,6 +86,7 @@ THIRD_PARTY_APPS = [
     "drf_spectacular",
     "constance",
     "better_json_widget",
+    "attachments",
 ]
 
 LOCAL_APPS = [
@@ -117,6 +118,7 @@ LOCAL_APPS = [
     "one.finance.extrafee",
     "one.finance.quotation",
     "one.finance.invoice",
+    "one.masterdata.payroll",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

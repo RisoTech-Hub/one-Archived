@@ -2,14 +2,29 @@ from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.db.models import CASCADE, DateTimeField, ForeignKey, PositiveIntegerField
 from django.utils.translation import gettext_lazy as _
-from model_utils.models import TimeStampedModel
+from model_utils import Choices
+from model_utils.models import StatusModel, TimeStampedModel
 
 from one.libraries.utils.models import UserStampedModel
 from one.masterdata.processingtasktype.models import ProcessingTaskType
 from one.staff.models import Staff
 
 
-class ProcessingTask(TimeStampedModel, UserStampedModel):
+class ProcessingTask(StatusModel, TimeStampedModel, UserStampedModel):
+    TASK_STATUS_DRAFT = "DRAFT"
+    TASK_STATUS_PENDING = "PENDING"
+    TASK_STATUS_PROCESSING = "PROCESSING"
+    TASK_STATUS_COMPLETED = "COMPLETED"
+    TASK_STATUS_FAILED = "FAILED"
+
+    STATUS = Choices(
+        (TASK_STATUS_DRAFT, _("Draft")),
+        (TASK_STATUS_PENDING, _("Pending")),
+        (TASK_STATUS_PROCESSING, _("Processing")),
+        (TASK_STATUS_COMPLETED, _("Completed")),
+        (TASK_STATUS_FAILED, _("Failed")),
+    )
+
     BASE_MODEL_ALLOWED = [
         {"app_label": "order", "model": "order"},
         {"app_label": "product", "model": "product"},

@@ -39,6 +39,8 @@ class User(AbstractUser, StatusModel):
 
     account_type = StatusField(_("Account Type"), choices_name="ACCOUNT_TYPE", default=ACCOUNT_TYPE_PROVIDER)
 
+    tnc = BooleanField(_("Terms and conditions"), default=False)
+
     def __str__(self):
         return self.name if self.name else self.username
 
