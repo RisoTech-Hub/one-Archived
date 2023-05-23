@@ -92,7 +92,10 @@ class DefaultMenu(Menu):
             items.ModelList(
                 _("Finance"),
                 models=("one.finance.*",),
-                exclude=("one.finance.quotation.models.SubQuotation",),
+                exclude=(
+                    "one.finance.quotation.models.SubQuotation",
+                    "one.finance.payment.models.PaymentLine",
+                ),
                 is_short=True,
             ),
             items.ModelList(_("Customers"), models=("one.customer.*",), is_short=True),
