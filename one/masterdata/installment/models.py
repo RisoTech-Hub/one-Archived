@@ -22,7 +22,7 @@ class InstallmentLine(Model):
         related_name="installment_lines",
         verbose_name=_("Installment"),
     )
-    installment_number = IntegerField()
+    installment_number = IntegerField(_("Installment Number"), default=1)
     percentage = DecimalField(max_digits=5, decimal_places=2)
     description = CharField(_("Description"), max_length=255, blank=True, default="")
 
