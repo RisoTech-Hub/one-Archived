@@ -35,7 +35,6 @@ class User(AbstractUser, StatusModel):
 
     # First and last name do not cover name patterns around the globe
     name = CharField(_("Name of User"), blank=True, max_length=255)
-    tnc = BooleanField(_("Terms and conditions"), default=False)
 
     account_type = StatusField(_("Account Type"), choices_name="ACCOUNT_TYPE", default=ACCOUNT_TYPE_PROVIDER)
 
