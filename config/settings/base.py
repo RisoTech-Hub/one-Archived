@@ -105,6 +105,8 @@ LOCAL_APPS = [
     "one.masterdata.processingtasktype",
     "one.masterdata.valueaddedservicetype",
     "one.masterdata.extrafeepricelist",
+    "one.masterdata.payroll",
+    "one.masterdata.installment",
     "one.supplier",
     "one.supplier.supplierprofile",
     "one.supplier.supplierlevel",
@@ -118,7 +120,6 @@ LOCAL_APPS = [
     "one.finance.extrafee",
     "one.finance.quotation",
     "one.finance.invoice",
-    "one.masterdata.payroll",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
