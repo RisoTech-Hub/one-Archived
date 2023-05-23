@@ -24,7 +24,7 @@ class InstallmentLine(Model):
     )
     installment_number = IntegerField()
     percentage = DecimalField(max_digits=5, decimal_places=2)
-    description = CharField(_("Description"), max_length=255, blank=True, null=True)
+    description = CharField(_("Description"), max_length=255, blank=True, default="")
 
     class Meta:
         verbose_name = _("Installment Line")
