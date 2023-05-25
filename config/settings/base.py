@@ -124,6 +124,7 @@ LOCAL_APPS = [
     "one.workflow",
     "one.workflow.workflowstep",
     "one.workflow.workflowtransition",
+    "one.workflow.workflowinstance",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
