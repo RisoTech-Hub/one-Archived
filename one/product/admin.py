@@ -1,12 +1,13 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
+from import_export.admin import ImportMixin
 
 from one.libraries.utils.admin import ModelAdmin
 from one.product.models import Product
 
 
 @admin.register(Product)
-class ProductAdmin(ModelAdmin):
+class ProductAdmin(ImportMixin, ModelAdmin):
     readonly_fields = ("created", "modified", "creator", "last_modified_by")
 
     def get_fieldsets(self, request, obj=None):

@@ -87,6 +87,7 @@ THIRD_PARTY_APPS = [
     "constance",
     "better_json_widget",
     "attachments",
+    "import_export",
 ]
 
 LOCAL_APPS = [
