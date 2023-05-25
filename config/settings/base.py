@@ -122,6 +122,7 @@ LOCAL_APPS = [
     "one.finance.invoice",
     "one.finance.payment",
     "one.workflow",
+    "one.workflow.workflowstep",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

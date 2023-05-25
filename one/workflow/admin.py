@@ -4,10 +4,13 @@ from django.db.models import Q
 
 from one.libraries.utils.admin import MasterModelAdmin
 from one.workflow.models import Workflow
+from one.workflow.workflowstep.admin import WorkflowStepInline
 
 
 @admin.register(Workflow)
 class WorkflowAdmin(MasterModelAdmin):
+    inlines = [WorkflowStepInline]
+
     def get_fieldsets(self, request, obj=None):
         fieldsets = super().get_fieldsets(request, obj)
         fieldsets[0][1]["fields"] += ("triggered_by",)
