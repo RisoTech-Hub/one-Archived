@@ -5,11 +5,12 @@ from django.db.models import Q
 from one.libraries.utils.admin import MasterModelAdmin
 from one.workflow.models import Workflow
 from one.workflow.workflowstep.admin import WorkflowStepInline
+from one.workflow.workflowtransition.admin import WorkflowTransitionInline
 
 
 @admin.register(Workflow)
 class WorkflowAdmin(MasterModelAdmin):
-    inlines = [WorkflowStepInline]
+    inlines = [WorkflowStepInline, WorkflowTransitionInline]
 
     def get_fieldsets(self, request, obj=None):
         fieldsets = super().get_fieldsets(request, obj)
