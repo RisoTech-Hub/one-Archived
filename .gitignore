@@ -323,3 +323,5 @@ vendors.js
 /.envs/.local/.postgres
 /.envs/.production/.django
 /.envs/.production/.postgres
+/.envs/.home/*
+/.envs/.remote/*
