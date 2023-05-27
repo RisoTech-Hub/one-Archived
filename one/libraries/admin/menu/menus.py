@@ -117,14 +117,15 @@ class DefaultMenu(Menu):
                 exclude=("django.contrib.sites.*",),
                 is_short=True,
             ),
-            # items.AppList(
-            #     _("Administration"),
-            #     exclude=(
-            #         "django.contrib.*",
-            #         'one.masterdata.*',
-            #         "one.customer.*",
-            #         "one.supplier.*",
-            #         "one.users.*",
-            #     )
-            # ),
+            items.AppList(
+                _("Administration"),
+                models=("constance.*",)
+                # exclude=(
+                #     "django.contrib.*",
+                #     'one.masterdata.*',
+                #     "one.customer.*",
+                #     "one.supplier.*",
+                #     "one.users.*",
+                # )
+            ),
         ]
