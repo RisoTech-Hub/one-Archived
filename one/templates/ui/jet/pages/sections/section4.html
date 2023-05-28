@@ -1,10 +1,12 @@
 {#SECTION4: STATISTIC REPORT#}
 <div id="section3">
-  <div class="container">
-    <div class="text-center mb-10">
+  <div class="container-fluid">
+    <div class="text-center mb-10" id="background_typed_js">
       <span id="kt_typedjs_process" class="fs-1 fw-bolder"></span>
     </div>
+  </div>
 
+  <div class="container">
     <!--begin::Wrapper-->
     <div class="mb-10">
       <!--begin::Top-->
@@ -193,7 +195,31 @@
     <!--end::Statistics-->
   </div>
 </div>
+<style>
+  @keyframes bg-animation {
+    0% {
+      background-position: top
+    }
 
+    50% {
+      background-position: bottom
+    }
+
+    100% {
+      background-position: top
+    }
+  }
+
+  #background_typed_js {
+    padding: 30px 0;
+    background-image: url('{% static 'jet/media/misc/pattern-1.jpg' %}');
+    background-size: cover;
+    color: #fff;
+
+    -webkit-animation: bg-animation 25s ease-in-out infinite;
+    animation: bg-animation 25s ease-in-out infinite;
+  }
+</style>
 <script src="{% static 'jet/plugins/custom/typedjs/typedjs.bundle.js' %}"></script>
 <script>
   var typed = new Typed("#kt_typedjs_process", {
