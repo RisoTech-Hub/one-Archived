@@ -174,6 +174,7 @@ class AppList(MenuItem, AppListElementMixin):
         self.exclude = list(kwargs.pop("exclude", []))
         self.include_list = kwargs.pop("include_list", [])  # deprecated
         self.exclude_list = kwargs.pop("exclude_list", [])  # deprecated
+        self.icon = kwargs.pop("icon", None)
         super().__init__(title, **kwargs)
 
     def init_with_context(self, context):
@@ -284,6 +285,7 @@ class ModelList(MenuItem, AppListElementMixin):
         self.exclude = list(exclude or [])
         self.include_list = kwargs.pop("include_list", [])  # deprecated
         self.exclude_list = kwargs.pop("exclude_list", [])  # deprecated
+        self.icon = kwargs.pop("icon", "bi-three-dots")
 
         super().__init__(title, **kwargs)
 
