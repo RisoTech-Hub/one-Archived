@@ -1,0 +1,24 @@
+{% extends "registration/base.html" %}
+{% block content %}
+  <!--begin::Form-->
+  <form class="form w-100 fv-plugins-bootstrap5 fv-plugins-framework" novalidate="novalidate" action="#">
+    <!--begin::Heading-->
+    <div class="text-center mb-10">
+      <!--begin::Title-->
+      <h1 class="text-dark mb-3">{{ site_header|default:_('Django administration') }}</h1>
+      <!--end::Title-->
+
+      <!--begin::Link-->
+      <div class="text-gray-400 fw-semibold fs-4">
+        {% trans 'Thanks for spending some quality time with the web site today' %}.
+      </div>
+      <div class="text-gray-400 fw-semibold fs-4">
+        <a href="{% url 'admin:index' %}" class="link-primary fw-bold">
+          {% trans 'Login again' %}
+        </a>
+      </div>
+      <!--end::Link-->
+    </div>
+    <!--begin::Heading-->
+  </form>
+{% endblock content %}
