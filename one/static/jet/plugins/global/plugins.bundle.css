@@ -23312,3 +23312,40 @@ body.swal2-height-auto {
     margin: 0 2rem;
   }
 }
+.tns .tns-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tns .tns-controls button {
+  outline: none;
+  border: 0;
+  margin: 0 0.25rem;
+  border-radius: 0.475rem;
+  padding: 0.5rem 0.75rem;
+  background-color: #00b2ff;
+  color: #ffffff;
+}
+.tns .tns-controls button:hover {
+  background-color: #0098da;
+}
+.tns .tns-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+.tns .tns-nav button {
+  display: block;
+  outline: none;
+  width: 1.25rem;
+  height: 0.75rem;
+  background-color: #eff2f5;
+  margin: 0 0.25rem;
+  border: 0;
+  border-radius: 0.35rem;
+}
+.tns .tns-nav button.tns-nav-active {
+  background-color: #00b2ff;
+}
