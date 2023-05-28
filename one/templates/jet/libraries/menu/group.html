@@ -1,0 +1,268 @@
+{% spaceless %}
+  {#  {% if selected %}{% endif %}#}
+  {#  {% if item.css_classes %} {{ item.css_classes|join:' ' }}{% endif %}#}
+  {#  {% if item.url and item.enabled %}{% endif %}#}
+  {#  {% if item.description %}title="{{ item.description }}"{% endif %}#}
+  {#  {% if item.accesskey %} accesskey="{{ item.accesskey }}"{% endif %}#}
+  {% if not item.is_empty %}
+    <div data-kt-menu-trigger="click" data-kt-menu-placement="right-start"
+         data-kt-menu-flip="bottom" class="menu-item py-2">
+      <span class="menu-link menu-center" title="Authentication Pages"
+            data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click"
+            data-bs-placement="right">
+        <span class="menu-icon me-0">
+          <!--begin::Svg Icon | path: icons/duotone/General/User.svg-->
+          <span class="svg-icon svg-icon-1">
+            {{ item.icon }}
+          </span>
+          <!--end::Svg Icon-->
+        </span>
+      </span>
+      <div class="menu-sub menu-sub-dropdown w-225px px-1 py-4">
+        <div class="menu-item">
+          <div class="menu-content">
+            <span class="menu-section fs-5 fw-bolder ps-1 py-1">Authentication</span>
+          </div>
+        </div>
+        <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+											<span class="menu-link">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+												<span class="menu-title">Base</span>
+												<span class="menu-arrow"></span>
+											</span>
+          <div class="menu-sub menu-sub-accordion">
+            <div class="menu-item">
+              <a class="menu-link" href="#" data-kt-page="pro">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+                <span class="menu-title">Sign-in
+														<span
+                              class="badge badge-pro badge-light-danger fw-bold fs-9 px-2 py-1 ms-1">Pro</span></span>
+              </a>
+            </div>
+            <div class="menu-item">
+              <a class="menu-link" href="#" data-kt-page="pro">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+                <span class="menu-title">Sign-up
+														<span
+                              class="badge badge-pro badge-light-danger fw-bold fs-9 px-2 py-1 ms-1">Pro</span></span>
+              </a>
+            </div>
+            <div class="menu-item">
+              <a class="menu-link" href="#" data-kt-page="pro">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+                <span class="menu-title">Two-steps Auth
+														<span
+                              class="badge badge-pro badge-light-danger fw-bold fs-9 px-2 py-1 ms-1">Pro</span></span>
+              </a>
+            </div>
+            <div class="menu-item">
+              <a class="menu-link" href="#" data-kt-page="pro">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+                <span class="menu-title">Password Reset
+														<span
+                              class="badge badge-pro badge-light-danger fw-bold fs-9 px-2 py-1 ms-1">Pro</span></span>
+              </a>
+            </div>
+            <div class="menu-item">
+              <a class="menu-link" href="#" data-kt-page="pro">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+                <span class="menu-title">New Password
+														<span
+                              class="badge badge-pro badge-light-danger fw-bold fs-9 px-2 py-1 ms-1">Pro</span></span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+											<span class="menu-link">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+												<span class="menu-title">Extended</span>
+												<span class="menu-arrow"></span>
+											</span>
+          <div class="menu-sub menu-sub-accordion">
+            <div class="menu-item">
+              <a class="menu-link" href="#" data-kt-page="pro">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+                <span class="menu-title">Multi-steps
+														<span
+                              class="badge badge-pro badge-light-danger fw-bold fs-9 px-2 py-1 ms-1">Pro</span></span>
+              </a>
+            </div>
+            <div class="menu-item">
+              <a class="menu-link" href="#" data-kt-page="pro">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+                <span class="menu-title">Free Trial
+														<span
+                              class="badge badge-pro badge-light-danger fw-bold fs-9 px-2 py-1 ms-1">Pro</span></span>
+              </a>
+            </div>
+            <div class="menu-item">
+              <a class="menu-link" href="#" data-kt-page="pro">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+                <span class="menu-title">Coming Soon
+														<span
+                              class="badge badge-pro badge-light-danger fw-bold fs-9 px-2 py-1 ms-1">Pro</span></span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
+             data-kt-menu-placement="right-start" data-kt-menu-flip="bottom"
+             class="menu-item menu-accordion">
+											<span class="menu-link">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+												<span class="menu-title">General</span>
+												<span class="menu-arrow"></span>
+											</span>
+          <div class="menu-sub menu-sub-accordion menu-sub-lg-dropdown w-lg-225px px-lg-1 py-lg-4">
+            <div class="menu-item">
+              <a class="menu-link" href="#" data-kt-page="pro">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+                <span class="menu-title">Welcome
+														<span
+                              class="badge badge-pro badge-light-danger fw-bold fs-9 px-2 py-1 ms-1">Pro</span></span>
+              </a>
+            </div>
+            <div class="menu-item">
+              <a class="menu-link" href="#" data-kt-page="pro">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+                <span class="menu-title">Verify Email
+														<span
+                              class="badge badge-pro badge-light-danger fw-bold fs-9 px-2 py-1 ms-1">Pro</span></span>
+              </a>
+            </div>
+            <div class="menu-item">
+              <a class="menu-link" href="#" data-kt-page="pro">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+                <span class="menu-title">Password Confirmation
+														<span
+                              class="badge badge-pro badge-light-danger fw-bold fs-9 px-2 py-1 ms-1">Pro</span></span>
+              </a>
+            </div>
+            <div class="menu-item">
+              <a class="menu-link" href="#" data-kt-page="pro">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+                <span class="menu-title">Close Account
+														<span
+                              class="badge badge-pro badge-light-danger fw-bold fs-9 px-2 py-1 ms-1">Pro</span></span>
+              </a>
+            </div>
+            <div class="menu-item">
+              <a class="menu-link" href="#" data-kt-page="pro">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+                <span class="menu-title">Error 404
+														<span
+                              class="badge badge-pro badge-light-danger fw-bold fs-9 px-2 py-1 ms-1">Pro</span></span>
+              </a>
+            </div>
+            <div class="menu-item">
+              <a class="menu-link" href="#" data-kt-page="pro">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+                <span class="menu-title">Error 500
+														<span
+                              class="badge badge-pro badge-light-danger fw-bold fs-9 px-2 py-1 ms-1">Pro</span></span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
+             data-kt-menu-placement="right-start" data-kt-menu-flip="bottom"
+             class="menu-item menu-accordion">
+											<span class="menu-link">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+												<span class="menu-title">Email</span>
+												<span class="menu-arrow"></span>
+											</span>
+          <div class="menu-sub menu-sub-accordion menu-sub-lg-dropdown w-lg-225px px-lg-1 py-lg-4">
+            <div class="menu-item">
+              <a class="menu-link" href="#" target="blank" data-kt-page="pro">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+                <span class="menu-title">Verify Email
+														<span
+                              class="badge badge-pro badge-light-danger fw-bold fs-9 px-2 py-1 ms-1">Pro</span></span>
+              </a>
+            </div>
+            <div class="menu-item">
+              <a class="menu-link" href="#" target="blank" data-kt-page="pro">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+                <span class="menu-title">Password Reset
+														<span
+                              class="badge badge-pro badge-light-danger fw-bold fs-9 px-2 py-1 ms-1">Pro</span></span>
+              </a>
+            </div>
+            <div class="menu-item">
+              <a class="menu-link" href="#" target="blank" data-kt-page="pro">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+                <span class="menu-title">Password Change
+														<span
+                              class="badge badge-pro badge-light-danger fw-bold fs-9 px-2 py-1 ms-1">Pro</span></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+{#    <div class="module" style="margin-bottom: 10px;">#}
+{#      <table>#}
+{#        <caption class="section"#}
+{#                 style="background: var(--secondary); text-align: center;">{{ item.title|capfirst }}</caption>#}
+{#        {% if item.is_short %}#}
+{#          {% for child_item in item.children %}#}
+{#            {% admin_tools_render_menu_item child_item %}#}
+{#          {% endfor %}#}
+{#        {% endif %}#}
+{#      </table>#}
+{#    </div>#}
+{#    {% if not item.is_short and item.children and item.enabled %}#}
+{#      {% for child_item in item.children %}#}
+{#        {% admin_tools_render_menu_item child_item item_template="libraries/menu/page.html" %}#}
+{#      {% endfor %}#}
+{#    {% endif %}#}
+  {% endif %}
+{% endspaceless %}

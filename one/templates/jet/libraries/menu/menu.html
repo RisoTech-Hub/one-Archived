@@ -1,0 +1,5 @@
+{% if menu.children %}
+  {% for item in menu.children %}
+    {% admin_tools_render_menu_item item item_template="libraries/menu/group.html" %}
+  {% endfor %}
+{% endif %}

@@ -1,0 +1,14 @@
+{% spaceless %}
+  {#  {% if selected %}{% endif %}#}
+  {#  {% if item.css_classes %} {{ item.css_classes|join:' ' }}{% endif %}#}
+  {#  {% if item.url and item.enabled %}{% endif %}#}
+  {#  {% if item.description %}title="{{ item.description }}"{% endif %}#}
+  {#  {% if item.accesskey %} accesskey="{{ item.accesskey }}"{% endif %}#}
+  {% if not item.is_empty %}
+    <tr {% if selected %}class="current-model"{% endif %}>
+      <th scope="row">
+        <a href="{{ item.url }}" {% if selected %}aria-current="page"{% endif %}>{{ item.title|capfirst }}</a>
+      </th>
+    </tr>
+  {% endif %}
+{% endspaceless %}
