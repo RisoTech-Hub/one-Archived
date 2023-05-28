@@ -1,8 +1,8 @@
 {#SECTION4: STATISTIC REPORT#}
 <div id="section3">
   <div class="container-fluid">
-    <div class="text-center mb-10" id="background_typed_js">
-      <span id="kt_typedjs_process" class="fs-1 fw-bolder"></span>
+    <div class="text-center mb-10 fs-1 fw-bolder" id="background_typed_js">
+      <span id="kt_typedjs_process" class=""></span>
     </div>
   </div>
 
@@ -211,7 +211,7 @@
   }
 
   #background_typed_js {
-    padding: 30px 0;
+    padding: 60px 0;
     background-image: url('{% static 'jet/media/misc/pattern-1.jpg' %}');
     background-size: cover;
     color: #fff;
@@ -223,7 +223,7 @@
 <script src="{% static 'jet/plugins/custom/typedjs/typedjs.bundle.js' %}"></script>
 <script>
   var typed = new Typed("#kt_typedjs_process", {
-    strings: ["First sentence.", "Second sentence.", "Third sentense", "And some longer sentence"],
+    strings: ["First sentence.", "Second sentence.", "Third sentence", "And some longer sentence", "First sentence.", "Second sentence.", "Third sentence", "And some longer sentence"],
     typeSpeed: 30
   });
 </script>
