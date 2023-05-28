@@ -1,0 +1,64 @@
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_language_info for LANGUAGE_CODE as lang %}
+{% get_language_info_list for LANGUAGES as languages %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'libraries/language/css/django-translation-flags.css' %}">
+
+
+<div class="menu-item px-5" data-kt-menu-trigger="hover" data-kt-menu-placement="left-start"
+     data-kt-menu-flip="bottom">
+  <a href="#" class="menu-link px-5">
+    <span class="menu-title position-relative">{% trans 'Language' %}
+      <span
+        class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0">{{ lang.name_local }}
+        <img alt="metronic" class="w-15px h-15px rounded-1 ms-2"
+          {% if lang.code == 'en' %}
+             src="{% static 'jet/media/flags/united-states.svg' %}"
+          {% elif lang.code == 'vi' %}
+             src="{% static 'jet/media/flags/vietnam.svg' %}"
+          {% endif %}>
+      </span>
+    </span>
+  </a>
+  <!--begin::Menu sub-->
+  <div class="menu-sub menu-sub-dropdown w-175px py-4" style="">
+    {% for language in languages %}
+      <!--begin::Menu item-->
+      <div class="menu-item px-3">
+        <a href="#" onclick="set_language('{{ language.code }}')"
+           class="menu-link d-flex px-5 {% if language.code == LANGUAGE_CODE %}active{% endif %}">
+        <span class="symbol symbol-20px me-4">
+          <img class="rounded-1" alt="{% trans 'Tiếng Anh' %}"
+            {% if language.code == 'en' %}
+               src="{% static 'jet/media/flags/united-states.svg' %}"
+            {% elif language.code == 'vi' %}
+               src="{% static 'jet/media/flags/vietnam.svg' %}"
+            {% endif %}>
+        </span>{{ language.name_local }}
+        </a>
+      </div>
+      <!--end::Menu item-->
+    {% endfor %}
+  </div>
+  <!--end::Menu sub-->
+</div>
+
+<form action="{% url 'set_language' %}" method="post" id="setlang">
+  {% csrf_token %}
+  <input name="next" type="hidden" value="{{ redirect_to }}">
+  <input type="hidden" name="language" id="language">
+</form>
+
+<script type="text/javascript">
+  if (window.location.hash) {
+    var hash = window.location.hash;
+    document.getElementById('language').value = hash.replace('#', '');
+    document.getElementById('setlang').submit()
+  }
+
+  function set_language(language) {
+    $('input[name="language"]').val(language);
+    $('form#setlang').submit();
+  }
+</script>

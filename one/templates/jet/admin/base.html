@@ -1248,6 +1248,9 @@
                         <div class="separator my-2"></div>
                         <!--end::Menu separator-->
                         <!--begin::Menu item-->
+                        {% switch_languages flag_type="rounded" %}
+                        <!--end::Menu item-->
+                        <!--begin::Menu item-->
                         {% if user.is_active and user.is_staff %}
                           {% url 'django-admindocs-docroot' as docsroot %}
                           {% if docsroot %}
