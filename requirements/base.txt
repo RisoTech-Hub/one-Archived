@@ -30,3 +30,4 @@ drf-spectacular==0.26.2  # https://github.com/tfranzel/drf-spectacular
 django-filebrowser-no-grappelli==4.0.1  # https://github.com/smacker/django-filebrowser-no-grappelli
 django-better-json-widget==0.4.0  # https://github.com/yakimka/django-better-json-widget
 django-attachments==1.11  # https://github.com/bartTC/django-attachments
+django-import-export==3.2.0  # https://github.com/django-import-export/django-import-export

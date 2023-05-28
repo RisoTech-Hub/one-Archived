@@ -87,6 +87,7 @@ THIRD_PARTY_APPS = [
     "constance",
     "better_json_widget",
     "attachments",
+    "import_export",
 ]
 
 LOCAL_APPS = [
@@ -120,6 +121,11 @@ LOCAL_APPS = [
     "one.finance.extrafee",
     "one.finance.quotation",
     "one.finance.invoice",
+    "one.finance.payment",
+    "one.workflow",
+    "one.workflow.workflowstep",
+    "one.workflow.workflowtransition",
+    "one.workflow.workflowinstance",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

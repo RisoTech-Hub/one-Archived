@@ -92,12 +92,21 @@ class DefaultMenu(Menu):
             items.ModelList(
                 _("Finance"),
                 models=("one.finance.*",),
-                exclude=("one.finance.quotation.models.SubQuotation",),
+                exclude=(
+                    "one.finance.quotation.models.SubQuotation",
+                    "one.finance.payment.models.PaymentLine",
+                ),
                 is_short=True,
             ),
             items.ModelList(_("Customers"), models=("one.customer.*",), is_short=True),
             items.ModelList(_("Suppliers"), models=("one.supplier.*",), is_short=True),
             items.ModelList(_("Master Data"), models=("one.masterdata.*",), is_short=True),
+            items.ModelList(
+                _("Workflow"),
+                models=("one.workflow.*",),
+                exclude=("one.workflow.workflowtransition.models.TransitionCondition",),
+                is_short=True,
+            ),
             items.ModelList(
                 _("Platform Master Data"),
                 models=(
@@ -108,14 +117,15 @@ class DefaultMenu(Menu):
                 exclude=("django.contrib.sites.*",),
                 is_short=True,
             ),
-            # items.AppList(
-            #     _("Administration"),
-            #     exclude=(
-            #         "django.contrib.*",
-            #         'one.masterdata.*',
-            #         "one.customer.*",
-            #         "one.supplier.*",
-            #         "one.users.*",
-            #     )
-            # ),
+            items.AppList(
+                _("Administration"),
+                models=("constance.*",)
+                # exclude=(
+                #     "django.contrib.*",
+                #     'one.masterdata.*',
+                #     "one.customer.*",
+                #     "one.supplier.*",
+                #     "one.users.*",
+                # )
+            ),
         ]

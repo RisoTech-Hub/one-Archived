@@ -7,7 +7,7 @@ from one.customer.models import Customer
 class CustomerProfile(Model):
     """Model definition for SupplierProfile."""
 
-    supplier = OneToOneField(Customer, verbose_name=_("Customer Profile"), on_delete=CASCADE)
+    customer = OneToOneField(Customer, verbose_name=_("Customer Profile"), on_delete=CASCADE)
 
     class Meta:
         verbose_name = _("Customer Profile")
