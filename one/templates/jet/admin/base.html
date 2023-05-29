@@ -210,7 +210,8 @@
     {% endif %}
 
     <!--begin::Wrapper-->
-    <div class="{% if not is_popup and is_nav_sidebar_enabled %}wrapper{% endif %} d-flex flex-column flex-row-fluid"
+    <div class="
+      {% block wrapperclass %}{% if not is_popup and is_nav_sidebar_enabled %}wrapper{% endif %}{% endblock wrapperclass %} d-flex flex-column flex-row-fluid"
          id="kt_wrapper">
       {% if not is_popup %}
         <!--begin::Header-->
@@ -233,18 +234,19 @@
                 <!--end::Heading-->
               {% endblock header %}
 
-              {% block breadcrumbs %}
-                <!--begin::Breadcrumb-->
-                <ul class="breadcrumb fw-bold fs-base my-1">
-                  <li class="breadcrumb-item text-muted">
-                    <a href="{% url 'admin:index' %}" class="text-muted">{% translate 'Home' %}</a>
-                  </li>
+              <!--begin::Breadcrumb-->
+              <ul class="breadcrumb fw-bold fs-base my-1">
+                <li class="breadcrumb-item text-muted">
+                  <a href="{% url 'admin:index' %}" class="text-muted">{% translate 'Home' %}</a>
+                </li>
+                {% block breadcrumbs %}
                   {% if title %}
                     <li class="breadcrumb-item text-dark">{{ title }}</li>
                   {% endif %}
-                </ul>
-                <!--end::Breadcrumb-->
-              {% endblock breadcrumbs %}
+                {% endblock breadcrumbs %}
+              </ul>
+              <!--end::Breadcrumb-->
+
             </div>
             <!--end::Page title=-->
 
@@ -1347,15 +1349,17 @@
 
           <!-- Content -->
           <div id="content" class="{% block coltype %}colM{% endblock %}">
-            {% block pretitle %}{% endblock %}
-            {% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}
-            {% block content_subtitle %}{% if subtitle %}<h2>{{ subtitle }}</h2>{% endif %}{% endblock %}
-            {% block content %}
-              {% block object-tools %}{% endblock %}
-              {{ content }}
-            {% endblock %}
-            {% block sidebar %}{% endblock %}
-            <br class="clear">
+            {% block wrapper %}
+              {% block pretitle %}{% endblock %}
+              {% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}
+              {% block content_subtitle %}{% if subtitle %}<h2>{{ subtitle }}</h2>{% endif %}{% endblock %}
+              {% block content %}
+                {% block object-tools %}{% endblock %}
+                {{ content }}
+              {% endblock %}
+              {% block sidebar %}{% endblock %}
+              <br class="clear">
+            {% endblock wrapper %}
           </div>
           <!-- END Content -->
 
