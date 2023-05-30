@@ -1,17 +1,36 @@
 from constance import config
 from django.template.loaders.filesystem import Loader as BaseLoader
 
+from one.libraries.eventtracking.middleware import is_admin_request
+
 
 class Loader(BaseLoader):
     def get_dirs(self):
         dirs = super().get_dirs()
+
         try:
-            return [
-                self.engine.dirs[0] + "/ui/" + config.UI_THEME_SELECT,
-                self.engine.dirs[0] + "/" + config.ADMIN_THEME_SELECT,
-            ] + dirs
+            _dirs = (
+                [
+                    self.engine.dirs[0] + "/" + config.ADMIN_THEME_SELECT,
+                    self.engine.dirs[0] + "/ui/" + config.UI_THEME_SELECT,
+                ]
+                if is_admin_request()
+                else [
+                    self.engine.dirs[0] + "/ui/" + config.UI_THEME_SELECT,
+                    self.engine.dirs[0] + "/" + config.ADMIN_THEME_SELECT,
+                ]
+            )
+            return _dirs + dirs
         except Exception:  # noqa
-            return [
-                self.engine.dirs[0] + "/ui/default",
-                self.engine.dirs[0] + "/admin",
-            ] + dirs
+            _dirs = (
+                [
+                    self.engine.dirs[0] + "/admin",
+                    self.engine.dirs[0] + "/ui/default",
+                ]
+                if is_admin_request()
+                else [
+                    self.engine.dirs[0] + "/ui/default",
+                    self.engine.dirs[0] + "/admin",
+                ]
+            )
+            return _dirs + dirs

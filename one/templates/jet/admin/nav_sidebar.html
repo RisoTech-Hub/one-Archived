@@ -1,0 +1,53 @@
+<script type="text/javascript" src="{% static "libraries/menu/js/utils.js" %}"></script>
+<script type="text/javascript" charset="utf-8">
+
+  // Load js files synchronously and conditionally
+  var js_files = [
+    //{
+    //  src: '{% static "libraries/js/jquery/jquery.min.js" %}',
+    //  test: function () {
+    //    return typeof (jQuery) == 'undefined';
+    //  }
+    //},
+    {
+      src: '{% static "libraries/js/json.min.js" %}',
+      test: function () {
+        return typeof (JSON.stringify) == 'undefined';
+      }
+    },
+    {
+      src: '{% static "libraries/menu/js/menu.js" %}',
+      test: function () {
+        return true;
+      }
+    }{% for js in menu.Media.js %},
+      {
+        src: '{% static js %}',
+        test: function () {
+          return true;
+        }
+      }{% endfor %}
+  ];
+
+  loadScripts(js_files, function () {
+  });
+
+</script>
+
+
+<div class="aside-nav d-flex flex-column flex-lg-center flex-column-fluid w-100 pt-5 pt-lg-0"
+     id="kt_aside_nav">
+
+  <!--begin::Primary menu-->
+  <div id="kt_aside_menu"
+       class="menu menu-column menu-title-gray-600 menu-icon-gray-400 menu-state-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-bold fs-5"
+       data-kt-menu="true">
+    <div id="nav-sidebar">
+{#      <input type="search" id="nav-filter"#}
+{#             placeholder="{% translate 'Start typing to filter…' %}"#}
+{#             aria-label="{% translate 'Filter navigation items' %}">#}
+      {% admin_tools_render_menu %}
+    </div>
+  </div>
+  <!--end::Primary menu-->
+</div>

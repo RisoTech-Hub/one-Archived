@@ -57,6 +57,7 @@ class ModelAdmin(BaseModelAdmin):
 
 
 class MasterModelAdmin(ModelAdmin):
+    date_hierarchy = "created"
     readonly_fields = ("created", "modified", "creator", "last_modified_by")
 
     def get_fieldsets(self, request, obj=None):

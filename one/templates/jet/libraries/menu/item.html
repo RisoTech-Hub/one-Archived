@@ -1,0 +1,17 @@
+{% spaceless %}
+  {#  {% if selected %}{% endif %}#}
+  {#  {% if item.css_classes %} {{ item.css_classes|join:' ' }}{% endif %}#}
+  {#  {% if item.url and item.enabled %}{% endif %}#}
+  {#  {% if item.description %}title="{{ item.description }}"{% endif %}#}
+  {#  {% if item.accesskey %} accesskey="{{ item.accesskey }}"{% endif %}#}
+  {% if not item.is_empty %}
+    <div class="menu-item">
+      <a class="menu-link {% if selected %}active{% endif %}" href="{{ item.url }}" data-kt-page="pro">
+        <span class="menu-bullet">
+          <span class="bullet bullet-dot"></span>
+        </span>
+        <span class="menu-title">{{ item.title|capfirst }}</span>
+      </a>
+    </div>
+  {% endif %}
+{% endspaceless %}

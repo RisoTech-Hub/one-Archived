@@ -1,0 +1,13 @@
+<!--begin::Input group-->
+<div class="mb-10" data-filter-title="{{ title }}">
+  <label class="form-label fs-6 fw-semibold">
+    {% blocktranslate with filter_title=title %} By {{ filter_title }} {% endblocktranslate %}:
+  </label>
+  <select class="form-select form-select-solid">
+    {% for choice in choices %}
+      <option value="{{ choice.query_string|iriencode }}"
+              {% if choice.selected %}selected{% endif %}>{{ choice.display }}</option>
+    {% endfor %}
+  </select>
+</div>
+<!--end::Input group-->

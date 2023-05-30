@@ -1,5 +1,6 @@
 import threading
 
+from django.conf import settings
 from django.contrib.auth.models import AnonymousUser
 
 _thread_local = threading.local()
@@ -13,6 +14,7 @@ class CurrentUserMiddleware:
         _thread_local.current_user = request.user
         _thread_local.request_method = request.method
         _thread_local.request_path = request.path
+        _thread_local.is_admin = getattr(settings, "ADMIN_URL", "admin/") in request.path
         _thread_local.request_ip = request.META.get("REMOTE_ADDR")
         response = self.get_response(request)
         return response
@@ -35,3 +37,7 @@ def get_request_path():
 
 def get_request_ip():
     return getattr(_thread_local, "request_ip", None)
+
+
+def is_admin_request():
+    return getattr(_thread_local, "is_admin", False)

@@ -87,8 +87,8 @@ class DefaultMenu(Menu):
 
     def init_with_context(self, context):
         self.children += [
-            items.ModelList(_("Orders"), models=("one.order.*",), is_short=True),
-            items.ModelList(_("Products"), models=("one.product.*",), is_short=True),
+            items.ModelList(_("Orders"), models=("one.order.*",), is_short=True, icon="bi-cart-check-fill"),
+            items.ModelList(_("Products"), models=("one.product.*",), is_short=True, icon="bi-file-post-fill"),
             items.ModelList(
                 _("Finance"),
                 models=("one.finance.*",),
@@ -97,15 +97,17 @@ class DefaultMenu(Menu):
                     "one.finance.payment.models.PaymentLine",
                 ),
                 is_short=True,
+                icon="bi-cash-stack",
             ),
-            items.ModelList(_("Customers"), models=("one.customer.*",), is_short=True),
-            items.ModelList(_("Suppliers"), models=("one.supplier.*",), is_short=True),
-            items.ModelList(_("Master Data"), models=("one.masterdata.*",), is_short=True),
+            items.ModelList(_("Customers"), models=("one.customer.*",), is_short=True, icon="bi-people-fill"),
+            items.ModelList(_("Suppliers"), models=("one.supplier.*",), is_short=True, icon="bi-award-fill"),
+            items.ModelList(_("Master Data"), models=("one.masterdata.*",), is_short=True, icon="bi-gear"),
             items.ModelList(
                 _("Workflow"),
                 models=("one.workflow.*",),
                 exclude=("one.workflow.workflowtransition.models.TransitionCondition",),
                 is_short=True,
+                icon="bi-diagram-3-fill",
             ),
             items.ModelList(
                 _("Platform Master Data"),
@@ -116,10 +118,12 @@ class DefaultMenu(Menu):
                 ),
                 exclude=("django.contrib.sites.*",),
                 is_short=True,
+                icon="bi-gear-fill",
             ),
             items.AppList(
                 _("Administration"),
-                models=("constance.*",)
+                models=("constance.*",),
+                icon="bi-command",
                 # exclude=(
                 #     "django.contrib.*",
                 #     'one.masterdata.*',
