@@ -95,7 +95,7 @@
                        class="btn btn-light btn-active-light-primary fw-semibold me-2 px-6">{% trans 'Reset' %}
                     </a>
                   {% endif %}
-                  <a href="?" class="btn btn-primary fw-semibold px-6">{% trans 'Apply' %}
+                  <a id="href_apply" href="?" class="btn btn-primary fw-semibold px-6">{% trans 'Apply' %}
                   </a>
                 </div>
                 <!--end::Actions-->
@@ -150,5 +150,14 @@
         </div>
       </div>
     </div>
+
+    <script>
+      $(function () {
+        $('[data-kt-user-table-filter="form"] :input').on('change', function (e) {
+          console.log('---------------')
+          $('#href_apply').attr('href', $(this).val())
+        })
+      })
+    </script>
   {% endblock %}
 {% endblock wrapper %}
