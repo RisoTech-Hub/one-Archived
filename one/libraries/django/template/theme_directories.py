@@ -12,12 +12,10 @@ class Loader(BaseLoader):
             _dirs = (
                 [
                     self.engine.dirs[0] + "/" + config.ADMIN_THEME_SELECT,
-                    self.engine.dirs[0] + "/ui/" + config.UI_THEME_SELECT,
                 ]
                 if is_admin_request()
                 else [
                     self.engine.dirs[0] + "/ui/" + config.UI_THEME_SELECT,
-                    self.engine.dirs[0] + "/" + config.ADMIN_THEME_SELECT,
                 ]
             )
             return _dirs + dirs
@@ -25,12 +23,10 @@ class Loader(BaseLoader):
             _dirs = (
                 [
                     self.engine.dirs[0] + "/admin",
-                    self.engine.dirs[0] + "/ui/default",
                 ]
                 if is_admin_request()
                 else [
                     self.engine.dirs[0] + "/ui/default",
-                    self.engine.dirs[0] + "/admin",
                 ]
             )
             return _dirs + dirs
