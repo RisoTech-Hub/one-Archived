@@ -28,11 +28,16 @@ DEBUG = env.bool("DJANGO_DEBUG", False)
 TIME_ZONE = "Asia/Ho_Chi_Minh"
 # https://docs.djangoproject.com/en/dev/ref/settings/#language-code
 LANGUAGE_CODE = "en-us"
+# https://docs.djangoproject.com/en/dev/ref/settings/#languages
+# from django.utils.translation import gettext_lazy as _
 LANGUAGE_VI = "vi"
 LANGUAGE_EN = "en"
+# LANGUAGE_PT = "pt-br"
+
 LANGUAGES = [
     (LANGUAGE_EN, _("English")),
     (LANGUAGE_VI, _("Vietnamese")),
+    # (LANGUAGE_PT, _('Português')),
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#site-id
 SITE_ID = 1
@@ -62,18 +67,16 @@ WSGI_APPLICATION = "config.wsgi.application"
 # ------------------------------------------------------------------------------
 DJANGO_APPS = [
     "django.contrib.auth",
-    # "django.contrib.admindocs",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.sites",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "django.contrib.humanize",  # Handy template tags
+    # "django.contrib.humanize", # Handy template tags
     "django.contrib.admin",
     "django.forms",
 ]
 THIRD_PARTY_APPS = [
-    "filebrowser",  # Filebrowser
     "crispy_forms",
     "crispy_bootstrap5",
     "allauth",
