@@ -6,7 +6,9 @@
   {#  {% if item.accesskey %} accesskey="{{ item.accesskey }}"{% endif %}#}
   {% if not item.is_empty %}
     <div class="menu-item">
-      <a class="menu-link {% if selected %}active{% endif %}" href="{{ item.url }}" data-kt-page="pro">
+      <a class="menu-link {% if selected %}active{% endif %}"
+         href="{{ item.url }}"
+         data-kt-page="pro">
         <span class="menu-bullet">
           <span class="bullet bullet-dot"></span>
         </span>

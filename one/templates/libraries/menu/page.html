@@ -8,15 +8,16 @@
     <div class="module{% if selected %} current-app{% endif %}">
       <table>
         <caption>
-          <a href="{{ item.url }}" class="section"
+          <a href="{{ item.url }}"
+             class="section"
              {% if selected %}aria-current="page"{% endif %}>{{ item.title|capfirst }}</a>
         </caption>
         <tbody>
-        {% if item.children and item.enabled %}
-          {% for child_item in item.children %}
-            {% admin_tools_render_menu_item child_item %}
-          {% endfor %}
-        {% endif %}
+          {% if item.children and item.enabled %}
+            {% for child_item in item.children %}
+              {% admin_tools_render_menu_item child_item %}
+            {% endfor %}
+          {% endif %}
         </tbody>
       </table>
     </div>

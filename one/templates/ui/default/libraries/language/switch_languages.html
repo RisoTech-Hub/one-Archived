@@ -2,15 +2,15 @@
 {% get_available_languages as LANGUAGES %}
 {% get_language_info for LANGUAGE_CODE as lang %}
 {% get_language_info_list for LANGUAGES as languages %}
-
-<link rel="stylesheet" type="text/css" href="{% static 'libraries/language/css/django-translation-flags.css' %}">
-
+<link rel="stylesheet"
+      type="text/css"
+      href="{% static 'libraries/language/css/django-translation-flags.css' %}" />
 {% if tag_type == 'li' %}
   {% for language in languages %}
-    <li {% if classes.li_class != '' %} class="{{ classes.li_class }}" {% endif %}>
+    <li {% if classes.li_class != '' %}class="{{ classes.li_class }}"{% endif %}>
       <a href="#{{ language.code }}"
          onclick="set_language('{{ language.code }}')"
-        {% if classes.a_class != '' %} class="{{ classes.a_class }}" {% endif %}
+         {% if classes.a_class != '' %}class="{{ classes.a_class }}"{% endif %}
          title="{{ language.name_local }}">
         <span class="flag-icon flag-icon-{{ language.code }} {{ icon_class }}"></span>
       </a>
@@ -19,9 +19,8 @@
 {% elif tag_type == 'select' %}
   <select name="language" id="language" onchange="set_language(this.value)">
     {% for language in languages %}
-      <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected {% endif %}>
-        {{ language.name_local }}
-      </option>
+      <option value="{{ language.code }}"
+              {% if language.code == LANGUAGE_CODE %}selected{% endif %}>{{ language.name_local }}</option>
     {% endfor %}
   </select>
 {% else %}
@@ -36,16 +35,11 @@
     {% endfor %}
   </p>
 {% endif %}
-
-
-
-
 <form action="{% url 'set_language' %}" method="post" id="setlang">
   {% csrf_token %}
-  <input name="next" type="hidden" value="{{ redirect_to }}">
-  <input type="hidden" name="language" id="language">
+  <input name="next" type="hidden" value="{{ redirect_to }}" />
+  <input type="hidden" name="language" id="language" />
 </form>
-
 <script type="text/javascript">
   if (window.location.hash) {
     var hash = window.location.hash;

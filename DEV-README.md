@@ -51,7 +51,6 @@ This app comes with Celery.
 To run a celery worker:
 
 ```bash
-cd one
 celery -A config.celery_app worker -l info
 ```
 

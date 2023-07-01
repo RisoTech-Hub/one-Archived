@@ -1,38 +1,34 @@
 {% extends "admin/base_site.html" %}
+
 {% load admin_urls admin_modify %}
 
 {% block extrahead %}
   {{ block.super }}
   <script src="{% url 'admin:jsi18n' %}"></script>
   {{ media }}
-{% endblock %}
-
+{% endblock extrahead %}
 {% block extrastyle %}
   {{ block.super }}
-{#  <link rel="stylesheet" href="{% static "admin/css/forms.css" %}">#}
-{% endblock %}
-
-{% block coltype %}colM{% endblock %}
-
-{% block bodyclass %}{{ block.super }} app-{{ opts.app_label }} model-{{ opts.model_name }} change-form{% endblock %}
-
+  {#  <link rel="stylesheet" href="{% static "admin/css/forms.css" %}">#}
+{% endblock extrastyle %}
+{% block coltype %}
+  colM
+{% endblock coltype %}
+{% block bodyclass %}
+  {{ block.super }} app-{{ opts.app_label }} model-{{ opts.model_name }} change-form
+{% endblock bodyclass %}
 {% if not is_popup %}
   {% block breadcrumbs %}
     <li class="breadcrumb-item text-muted">
-      <a href="{% url 'admin:app_list' app_label=opts.app_label %}" class="text-muted">
-        {{ opts.app_config.verbose_name }}
-      </a>
+      <a href="{% url 'admin:app_list' app_label=opts.app_label %}"
+         class="text-muted">{{ opts.app_config.verbose_name }}</a>
     </li>
     {% if has_view_permission %}
       <li class="breadcrumb-item text-muted">
-        <a href="{% url opts|admin_urlname:'changelist' %}" class="text-muted">
-          {{ opts.verbose_name_plural|capfirst }}
-        </a>
+        <a href="{% url opts|admin_urlname:'changelist' %}" class="text-muted">{{ opts.verbose_name_plural|capfirst }}</a>
       </li>
     {% else %}
-      <li class="breadcrumb-item text-dark">
-        {{ opts.verbose_name_plural|capfirst }}
-      </li>
+      <li class="breadcrumb-item text-dark">{{ opts.verbose_name_plural|capfirst }}</li>
     {% endif %}
     <li class="breadcrumb-item text-dark">
       {% if add %}
@@ -41,13 +37,15 @@
         {{ original|truncatewords:"18" }}
       {% endif %}
     </li>
-  {% endblock %}
+  {% endblock breadcrumbs %}
 {% endif %}
-
 {% block wrapper %}
-  <form
-    {% if has_file_field %}enctype="multipart/form-data" {% endif %}{% if form_url %}action="{{ form_url }}" {% endif %}
-    method="post" id="{{ opts.model_name }}_form" novalidate class="position-relative">
+  <form {% if has_file_field %}enctype="multipart/form-data"{% endif %}
+        {% if form_url %}action="{{ form_url }}"{% endif %}
+        method="post"
+        id="{{ opts.model_name }}_form"
+        novalidate
+        class="position-relative">
     {% csrf_token %}
     <div class="card mb-5 mb-xl-10" id="content-main">
       <!--begin::Card header-->
@@ -62,27 +60,34 @@
         <!--end::Action-->
       </div>
       <!--begin::Card header-->
-
       <!--begin::Card body-->
       <div class="card-body p-9" id="content_body_collapsible">
-        {% block form_top %}{% endblock %}
+        {% block form_top %}
+        {% endblock form_top %}
         <div>
-          {% if is_popup %}<input type="hidden" name="{{ is_popup_var }}" value="1">{% endif %}
-          {% if to_field %}<input type="hidden" name="{{ to_field_var }}" value="{{ to_field }}">{% endif %}
-          {% if save_on_top %}{% block submit_buttons_top %}{% submit_row %}{% endblock %}{% endif %}
+          {% if is_popup %}<input type="hidden" name="{{ is_popup_var }}" value="1" />{% endif %}
+          {% if to_field %}<input type="hidden" name="{{ to_field_var }}" value="{{ to_field }}" />{% endif %}
+          {% if save_on_top %}
+            {% block submit_buttons_top %}
+              {% submit_row %}
+            {% endblock submit_buttons_top %}
+          {% endif %}
           {% if errors %}
             <!--begin::Notice-->
             <div class="notice d-flex bg-light-danger rounded border-danger border border-dashed p-6">
               <!--begin::Icon-->
               <!--begin::Svg Icon | path: icons/duotone/Code/Warning-1-circle.svg-->
               <span class="svg-icon svg-icon-2tx svg-icon-danger me-4">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24"
-                   version="1.1">
-                <circle fill="#000000" opacity="0.3" cx="12" cy="12" r="10"></circle>
-                <rect fill="#000000" x="11" y="7" width="2" height="8" rx="1"></rect>
-                <rect fill="#000000" x="11" y="16" width="2" height="2" rx="1"></rect>
-              </svg>
-            </span>
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     width="24px"
+                     height="24px"
+                     viewBox="0 0 24 24"
+                     version="1.1">
+                  <circle fill="#000000" opacity="0.3" cx="12" cy="12" r="10"></circle>
+                  <rect fill="#000000" x="11" y="7" width="2" height="8" rx="1"></rect>
+                  <rect fill="#000000" x="11" y="16" width="2" height="2" rx="1"></rect>
+                </svg>
+              </span>
               <!--end::Svg Icon-->
               <!--end::Icon-->
               <!--begin::Wrapper-->
@@ -105,44 +110,36 @@
             </div>
             <!--end::Notice-->
           {% endif %}
-
           {% block field_sets %}
             {% for fieldset in adminform %}
               {% include "admin/includes/fieldset.html" %}
             {% endfor %}
-          {% endblock %}
-
-          {% block after_field_sets %}{% endblock %}
-
+          {% endblock field_sets %}
+          {% block after_field_sets %}
+          {% endblock after_field_sets %}
           {% block inline_field_sets %}
             {% for inline_admin_formset in inline_admin_formsets %}
               {% include inline_admin_formset.opts.template %}
             {% endfor %}
-          {% endblock %}
-
-          {% block after_related_objects %}{% endblock %}
-
+          {% endblock inline_field_sets %}
+          {% block after_related_objects %}
+          {% endblock after_related_objects %}
           {% block admin_change_form_document_ready %}
-            <script id="django-admin-form-add-constants"
-                    src="{% static 'admin/js/change_form.js' %}"
-              {% if adminform and add %}
-                    data-model-name="{{ opts.model_name }}"
-              {% endif %}
-                    async>
+            <script id="django-admin-form-add-constants" src="{% static 'admin/js/change_form.js' %}" {% if adminform and add %}data-model-name="{{ opts.model_name }}"{% endif %} async>
             </script>
-          {% endblock %}
-
+          {% endblock admin_change_form_document_ready %}
           {# JavaScript for prepopulated fields #}
           {% prepopulated_fields_js %}
         </div>
       </div>
       <!--end::Card body-->
     </div>
-
     <div class="fixed-bottom-page-wrapper">
       <div class="row">
         <div class="col-6 text-start">
-          {% block submit_buttons_bottom %}{% submit_row %}{% endblock %}
+          {% block submit_buttons_bottom %}
+            {% submit_row %}
+          {% endblock submit_buttons_bottom %}
         </div>
         <div class="col-6 text-end">
           {% block object-tools %}
@@ -150,10 +147,10 @@
               {% if not is_popup %}
                 {% block object-tools-items %}
                   {% change_form_object_tools %}
-                {% endblock %}
+                {% endblock object-tools-items %}
               {% endif %}
             {% endif %}
-          {% endblock %}
+          {% endblock object-tools %}
         </div>
       </div>
     </div>

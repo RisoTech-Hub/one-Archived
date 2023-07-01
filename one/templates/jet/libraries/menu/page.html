@@ -5,22 +5,21 @@
   {#  {% if item.description %}title="{{ item.description }}"{% endif %}#}
   {#  {% if item.accesskey %} accesskey="{{ item.accesskey }}"{% endif %}#}
   {% if not item.is_empty %}
-
     {#    <div class="menu-item">#}
     {#      <div class="menu-content">#}
     {#        <span class="menu-section fs-5 fw-bolder ps-1 py-1">{{ item.title|capfirst }}</span>#}
     {#      </div>#}
     {#    </div>#}
-
     {% if item.children and item.enabled %}
-      <div data-kt-menu-trigger="click" class="menu-item menu-accordion {% if selected %}here show{% endif %}">
-      <span class="menu-link">
-        <span class="menu-bullet">
-          <span class="bullet bullet-dot"></span>
+      <div data-kt-menu-trigger="click"
+           class="menu-item menu-accordion {% if selected %}here show{% endif %}">
+        <span class="menu-link">
+          <span class="menu-bullet">
+            <span class="bullet bullet-dot"></span>
+          </span>
+          <span class="menu-title">{{ item.title|capfirst }}</span>
+          <span class="menu-arrow"></span>
         </span>
-        <span class="menu-title">{{ item.title|capfirst }}</span>
-        <span class="menu-arrow"></span>
-      </span>
         <div class="menu-sub menu-sub-accordion">
           {% if item.children and item.enabled %}
             {% for child_item in item.children %}
@@ -31,14 +30,15 @@
       </div>
     {% else %}
       <div class="menu-item">
-        <a title="{{ item.title }}" class="menu-link {% if selected %}active{% endif %}" href="{{ item.url }}">
-        <span class="menu-bullet">
-          <span class="bullet bullet-dot"></span>
-        </span>
+        <a title="{{ item.title }}"
+           class="menu-link {% if selected %}active{% endif %}"
+           href="{{ item.url }}">
+          <span class="menu-bullet">
+            <span class="bullet bullet-dot"></span>
+          </span>
           <span class="menu-title">{{ item.title|capfirst }}</span>
         </a>
       </div>
     {% endif %}
-
   {% endif %}
 {% endspaceless %}

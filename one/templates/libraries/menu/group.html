@@ -8,7 +8,8 @@
     <div class="module" style="margin-bottom: 10px;">
       <table>
         <caption class="section"
-                 style="background: var(--secondary); text-align: center;">{{ item.title|capfirst }}</caption>
+                 style="background: var(--secondary);
+                        text-align: center">{{ item.title|capfirst }}</caption>
         {% if item.is_short %}
           {% for child_item in item.children %}
             {% admin_tools_render_menu_item child_item %}

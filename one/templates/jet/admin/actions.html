@@ -1,19 +1,26 @@
 <div class="actions">
   {% block actions %}
-
     {% block actions-form %}
-      {% for field in action_form %}{% if field.label %}<label>{{ field.label }} {% endif %}{{ field }}
-      {% if field.label %}</label>{% endif %}{% endfor %}
+      {% for field in action_form %}
+        {% if field.label %}
+          <label>
+            {{ field.label }}
+          {% endif %}
+          {{ field }}
+          {% if field.label %}</label>{% endif %}
+      {% endfor %}
     {% endblock actions-form %}
-
     {% block actions-submit %}
-      <button type="submit" class="button" title="{% translate "Run the selected action" %}" name="index"
+      <button type="submit"
+              class="button"
+              title="{% translate "Run the selected action" %}"
+              name="index"
               value="{{ action_index|default:0 }}">{% translate "Go" %}</button>
     {% endblock actions-submit %}
-
     {% block actions-counter %}
       {% if actions_selection_counter %}
-        <span class="action-counter" data-actions-icnt="{{ cl.result_list|length }}">{{ selection_note }}</span>
+        <span class="action-counter"
+              data-actions-icnt="{{ cl.result_list|length }}">{{ selection_note }}</span>
         {% if cl.result_count != cl.result_list|length %}
           <span class="all hidden">{{ selection_note_all }}</span>
           <span class="question hidden">

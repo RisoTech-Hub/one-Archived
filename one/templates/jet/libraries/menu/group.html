@@ -5,13 +5,18 @@
   {#  {% if item.description %}title="{{ item.description }}"{% endif %}#}
   {#  {% if item.accesskey %} accesskey="{{ item.accesskey }}"{% endif %}#}
   {% if not item.is_empty %}
-    <div data-kt-menu-trigger="click" data-kt-menu-placement="right-start"
-         data-kt-menu-flip="bottom" class="menu-item {% if selected %}here{% endif %} py-2">
-      <span class="menu-link menu-center" title="{{ item.title|capfirst }}"
-            data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click"
+    <div data-kt-menu-trigger="click"
+         data-kt-menu-placement="right-start"
+         data-kt-menu-flip="bottom"
+         class="menu-item {% if selected %}here{% endif %} py-2">
+      <span class="menu-link menu-center"
+            title="{{ item.title|capfirst }}"
+            data-bs-toggle="tooltip"
+            data-bs-trigger="hover"
+            data-bs-dismiss="click"
             data-bs-placement="right">
         <span class="menu-icon me-0">
-            <i class="bi {{ item.icon }} fs-2x"></i>
+          <i class="bi {{ item.icon }} fs-2x"></i>
         </span>
       </span>
       <div class="menu-sub menu-sub-dropdown w-225px px-1 py-4">

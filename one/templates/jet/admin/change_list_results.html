@@ -1,47 +1,60 @@
 {% if result_hidden_fields %}
-  <div class="hiddenfields">{# DIV for HTML validation #}
+  <div class="hiddenfields">
+    {# DIV for HTML validation #}
     {% for item in result_hidden_fields %}{{ item }}{% endfor %}
   </div>
 {% endif %}
 {% if results %}
   <div class="results">
     <!--begin::Table-->
-    <div id="kt_table_users_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+    <div id="kt_table_users_wrapper"
+         class="dataTables_wrapper dt-bootstrap4 no-footer">
       <div class="table-responsive">
-        <table id="result_list" class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer">
+        <table id="result_list"
+               class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer">
           <thead>
-          <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
-            {% for header in result_headers %}
-              <th scope="col"{{ header.class_attrib }}>
-                {% if header.sortable %}
-                  {% if header.sort_priority > 0 %}
-                    <div class="sortoptions">
-                      <a class="sortremove" href="{{ header.url_remove }}"
-                         title="{% translate "Remove from sorting" %}"></a>
-                      {% if num_sorted_fields > 1 %}<span class="sortpriority"
-                                                          title="{% blocktranslate with priority_number=header.sort_priority %}Sorting priority: {{ priority_number }}{% endblocktranslate %}">{{ header.sort_priority }}</span>{% endif %}
-                      <a href="{{ header.url_toggle }}"
-                         class="toggle {% if header.ascending %}ascending{% else %}descending{% endif %}"
-                         title="{% translate "Toggle sorting" %}"></a>
-                    </div>
+            <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
+              {% for header in result_headers %}
+                <th scope="col"{{ header.class_attrib }}>
+                  {% if header.sortable %}
+                    {% if header.sort_priority > 0 %}
+                      <div class="sortoptions">
+                        <a class="sortremove"
+                           href="{{ header.url_remove }}"
+                           title="{% translate "Remove from sorting" %}"></a>
+                        {% if num_sorted_fields > 1 %}
+                          <span class="sortpriority"
+                                title="{% blocktranslate with priority_number=header.sort_priority %}Sorting priority: {{ priority_number }}{% endblocktranslate %}">{{ header.sort_priority }}</span>
+                        {% endif %}
+                        <a href="{{ header.url_toggle }}"
+                           class="toggle {% if header.ascending %}ascending{% else %}descending{% endif %}"
+                           title="{% translate "Toggle sorting" %}"></a>
+                      </div>
+                    {% endif %}
                   {% endif %}
-                {% endif %}
-                <div class="text">{% if header.sortable %}
-                  <a href="{{ header.url_primary }}">{{ header.text|capfirst }}</a>{% else %}
-                  <span>{{ header.text|capfirst }}</span>{% endif %}</div>
-                <div class="clear"></div>
-              </th>{% endfor %}
-          </tr>
+                  <div class="text">
+                    {% if header.sortable %}
+                      <a href="{{ header.url_primary }}">{{ header.text|capfirst }}</a>
+                    {% else %}
+                      <span>{{ header.text|capfirst }}</span>
+                    {% endif %}
+                  </div>
+                  <div class="clear"></div>
+                </th>
+              {% endfor %}
+            </tr>
           </thead>
           <tbody class="text-gray-600 fw-semibold">
-          {% for result in results %}
-            {% if result.form and result.form.non_field_errors %}
+            {% for result in results %}
+              {% if result.form and result.form.non_field_errors %}
+                <tr>
+                  <td colspan="{{ result|length }}">{{ result.form.non_field_errors }}</td>
+                </tr>
+              {% endif %}
               <tr>
-                <td colspan="{{ result|length }}">{{ result.form.non_field_errors }}</td>
+                {% for item in result %}{{ item }}{% endfor %}
               </tr>
-            {% endif %}
-            <tr>{% for item in result %}{{ item }}{% endfor %}</tr>
-          {% endfor %}
+            {% endfor %}
           </tbody>
         </table>
       </div>
