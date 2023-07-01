@@ -25,13 +25,13 @@ repos:
         exclude: 'one/templates/'
 
   - repo: https://github.com/adamchainz/django-upgrade
-    rev: '1.13.0'
+    rev: '1.14.0'
     hooks:
       - id: django-upgrade
-        args: ['--target-version', '4.1']
+        args: ['--target-version', '4.2']
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.6.0
+    rev: v3.7.0
     hooks:
       - id: pyupgrade
         args: [--py311-plus]
@@ -52,6 +52,12 @@ repos:
       - id: flake8
         args: ['--config=setup.cfg', '--max-complexity=10']
         additional_dependencies: [flake8-isort]
+
+  - repo: https://github.com/Riverside-Healthcare/djLint
+    rev: v1.31.1
+    hooks:
+      - id: djlint-reformat-django
+      - id: djlint-django
 
 # sets up .pre-commit-ci.yaml to ensure pre-commit dependencies stay up to date
 ci:
