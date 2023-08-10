@@ -9,7 +9,7 @@ celery==5.3.1  # pyup: < 6.0  # https://github.com/celery/celery
 django-celery-beat==2.5.0  # https://github.com/celery/django-celery-beat
 flower==2.0.0  # https://github.com/mher/flower
 uvicorn[standard]==0.22.0  # https://github.com/encode/uvicorn
-diff-match-patch==20200713  # https://github.com/diff-match-patch-python/diff-match-patch
+diff-match-patch==20230430  # https://github.com/diff-match-patch-python/diff-match-patch
 humanfriendly==10.0  # https://humanfriendly.readthedocs.io/en/latest/
 
 # Django
